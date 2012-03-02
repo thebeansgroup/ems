@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EMS</title>
+  <meta name="description" content="EMS">
+  <meta name="author" content="Vincent Siebert">
+
+  <%= stylesheet_link_tag "ems/application", :media => "all" %>
+  <%= javascript_include_tag "ems/application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div id="header">
+  <div class="wrap clearfix">
+    <h1>studentbeans.com EMS</h1>
+    <ul class="sf-menu">
+      <li class="firstSub" data-foreach-nav="window.Ems.navLinks">
+        <a data-bind-href="nav.href" data-bind="nav.text"></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="main" class="container">
+  <p data-showif="Ems.flash.success.length" id="flashnotice" class="alert-message success">
+    <a class="close" href="#" onclick="$('#flashnotice').hide(); return false">×</a><span data-bind="Ems.flash.success"></span>
+  </p>
+
+  <p data-showif="Ems.flash.error.length" id="flashwarning" class="alert-message error">
+    <a class="close" href="#" onclick="$('#flashwarning').hide(); return false">×</a><span data-bind="Ems.flash.error"></span>
+  </p>
+
+  <div data-yield="main"></div>
+  <footer>
+    <p>&copy; The Beans Group <%= Time.now.year %></p>
+  </footer>
+</div>
+
+</body>
+</html>
