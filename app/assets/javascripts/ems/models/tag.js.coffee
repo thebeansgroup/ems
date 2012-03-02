@@ -1,5 +1,9 @@
 class Ems.Tag extends Batman.Model
-  @storageKey: 'tags'
   @persist Batman.RailsStorage
+  @url = "/ems/tags"
+  @storageKey: 'tags'
 
-  @encode 'id', 'name', 'slug', 'description'
+  @encode 'id', 'title', 'slug', 'description'
+
+#  @validate 'title', presence: yes
+#  @validate 'description', presence: yes
