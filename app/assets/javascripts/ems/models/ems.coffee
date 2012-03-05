@@ -1,0 +1,1 @@
+class Ems.Model extends Batman.Model
