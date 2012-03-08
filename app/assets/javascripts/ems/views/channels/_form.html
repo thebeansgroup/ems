@@ -1,0 +1,19 @@
+<div>
+    <div data-addclass-error="channel.errors['name'].length">
+        <label for="channel_title">Name:</label>
+
+        <div class="input">
+            <input data-bind="channel.name" name="channel[name]" id="channel_title"/>
+        </div>
+    </div>
+    <div>
+        <ul>
+            <li data-foreach-category="Category.all">
+                <label class="checkbox">
+                    <input type="checkbox" data-bind="channel | selected category" />
+                    <span data-bind="category.name"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

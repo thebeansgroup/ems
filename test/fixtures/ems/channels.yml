@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  slug: MyString
+  name: MyString
+  timestamps: MyString
+
+two:
+  slug: MyString
+  name: MyString
+  timestamps: MyString
