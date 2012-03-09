@@ -1,5 +1,3 @@
-#= require_self
-
 # Create our application and namespace.
 class Ems extends Batman.App
   @global yes
@@ -31,14 +29,19 @@ class Ems extends Batman.App
   # main app routing
   @root 'ems#index'
   @route '404', 'ems#fourohfour'
+
   # categories routing
   @route '/categories/:slug', 'categories#index', resource: 'categories', action: 'index'
+
   # article routes
   @route '/articles/:category/new', 'articles#new', resource: 'articles', action: 'new'
+
   # series routes
   @route '/series/:category/new', 'articles#new', resource: 'articles', action: 'new'
+
   # tags routes
   @resources 'tags'
+
   # channel routes
   @resources 'channels'
 

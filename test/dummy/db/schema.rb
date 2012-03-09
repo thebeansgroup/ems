@@ -11,7 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302144235) do
+ActiveRecord::Schema.define(:version => 20120308163733) do
+
+  create_table "categories_channels", :id => false, :force => true do |t|
+    t.integer "category_id", :null => false
+    t.integer "channel_id",  :null => false
+  end
+
+  add_index "categories_channels", ["category_id", "channel_id"], :name => "index_ems_categories_channels_on_category_id_and_channel_id", :unique => true
+
+  create_table "ems_articles", :force => true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "standfirst"
+    t.text     "content"
+    t.boolean  "hot"
+    t.boolean  "featured"
+    t.boolean  "toc"
+    t.boolean  "comment"
+    t.string   "meta_title"
+    t.text     "meta_description"
+    t.datetime "publish_from"
+    t.string   "status"
+    t.string   "content_disposition"
+    t.integer  "category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "ems_categories", :force => true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.text     "strapline"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ems_channels", :force => true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "ems_tags", :force => true do |t|
     t.string   "title"

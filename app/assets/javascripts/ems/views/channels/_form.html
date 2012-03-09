@@ -6,11 +6,11 @@
             <input data-bind="channel.name" name="channel[name]" id="channel_title"/>
         </div>
     </div>
-    <div>
+    <div data-context="channel">
         <ul>
             <li data-foreach-category="Category.all">
                 <label class="checkbox">
-                    <input type="checkbox" data-bind="channel | selected category" />
+                    <input type="checkbox" data-bind-checked="channel | selected category" data-bind-value="category.id" data-event-change="channel.save"/>
                     <span data-bind="category.name"></span>
                 </label>
             </li>

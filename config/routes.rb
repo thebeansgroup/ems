@@ -1,7 +1,9 @@
 Ems::Engine.routes.draw do
-  resources :tags
+  resources :articles
 
-  resources :posts
+  resources :tags
+  resources :channels
+  resources :categories
 
   get "ems/index"
 

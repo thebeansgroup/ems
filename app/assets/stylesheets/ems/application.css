@@ -52,7 +52,6 @@ h3.big {
 
 h2.clickable {
     cursor: pointer;
-    background: url(/images/backend/sb_backend_sprite.png) no-repeat 100% -760px;
 }
 
 h2.clickable.visible {
@@ -120,7 +119,6 @@ h3.faded {
 
 #contents {
     border-top: 1px solid rgba(255,255,255,1);
-    background-image: url(/images/backend/content_top_bg.png);
     background-position: top left;
     background-repeat: repeat-x;
     padding-top: 40px;
@@ -299,7 +297,6 @@ h3.faded {
     height:			10px;
     text-indent: 	-999em;
     overflow:		hidden;
-    background:		url('/images/backend/arrows-ffffff.png') no-repeat -10px -100px; 
   }
   a > .sf-sub-indicator {  /* give all except IE6 the correct values */
                            top:			.8em;
@@ -613,7 +610,6 @@ tr.sf_admin_row td:last-child {
 }
 
 #sf_admin_container ul li.sf_admin_action_list a {
-    background:url(/images/backend/list.png) no-repeat scroll 0 0 transparent;
 }
 
 .wrap .columnOne {
@@ -649,7 +645,6 @@ tr.sf_admin_row td {
     padding-left: 25px;
     list-style: none;
     color: #fff;
-    background: url(/images/backend/error.png) no-repeat 4px 4px;
 }
 
 .sf_admin_pagination
@@ -709,7 +704,6 @@ tr.sf_admin_row .field select {
     display: inline-block;
     height: 20px;
     padding-left: 20px;
-    background-image: url(/images/backend/sb_backend_sprite.png);
 }
 
 .sf_admin_container ul li.sf_admin_action_new a,
@@ -765,7 +759,6 @@ tr.sf_admin_row .field select {
 {
     margin: 4px 0;
     padding: 4px 4px 4px 30px;
-    background: url(/images/backend/tick.png) no-repeat 10px 4px;
     border: 1px solid #ddd;
     background-color: #ffc;
     text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
@@ -775,7 +768,6 @@ tr.sf_admin_row .field select {
 {
     margin: 4px 0;
     padding: 4px 4px 4px 30px;
-    background: url(/images/backend/error.png) no-repeat 10px 4px;
     border-top: 1px solid #ddd;
     background-color: #f33;
     color: #fff;

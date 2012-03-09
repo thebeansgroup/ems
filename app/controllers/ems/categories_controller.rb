@@ -5,14 +5,13 @@ module Ems
     def index
       if params[:channel_id]
         @categories = Category.includes(:channels).where('categories_channels.channel_id' => params[:channel_id])
-        @categories = @categories.as_json
       else
         @categories = Category.all
       end
 
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @categories }
+        format.json { render json: @categories.as_json(:include => :channels) }
       end
     end
   
