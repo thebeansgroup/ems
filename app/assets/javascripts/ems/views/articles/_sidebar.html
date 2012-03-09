@@ -1,0 +1,100 @@
+    <div id="publish" class="first">
+        <div class="details">
+            <button id="save"><b class="emsIcon save"></b> save</button>
+            <button id="preview"><b class="emsIcon preview"></b> preview</button>
+            <button id="publish" class="right orange"><b class="emsIcon publish"></b> publish</button>
+        </div>
+        <div class="details"><h2 class="label">Status</h2>   <select name="status" id="status">
+            <option value="draft">draft</option>
+            <option value="pending_review">pending review</option>
+            <option value="live" selected="selected">live</option>
+        </select></div>
+        <div class="details"><h2 class="label" id="setPublishFrom">Publish from</h2>             <input
+                type="text" name="publishFrom" id="publishFrom" value="29/02/2012 10:16"
+                placeholder="Format: dd/mm/yyyy hh:mm"></div>
+    </div>
+    <div id="channel">
+        <div class="details"><h2 class="label">Channels</h2>   <select name="channelList" multiple="multiple"
+                                                                       id="sbEmsArticleChannelList">
+            <option class="channel" id="10" value="10"> fails</option>
+            <option class="channel" id="20" value="20"> shame</option>
+            <option class="channel" id="27" value="27"> nutters</option>
+            <option class="channel" id="28" value="28"> odd facts</option>
+            <option class="channel" id="33" value="33"> Wins</option>
+            <option class="channel" id="65" value="65"> weird</option>
+        </select></div>
+    </div>
+    <div id="meta">
+        <div class="details"><h2 class="label">Meta stuff</h2>    <label for="metaTitle"
+                                                                         class="label subLabel">Title</label>
+            <input style="display:none" type="text" id="metaTitle" class="meta input"
+                   value="Dead gran climbs out of coffin after six days">
+
+            <div id="metaTitleEditable" class="editable metaTitle metaText metaFamily">Dead gran climbs out of
+                coffin after six days
+            </div>
+            <label for="slug" class="label subLabel">URL</label> <input style="display:none" type="text"
+                                                                        id="slug" class="meta input"
+                                                                        value="dead-gran-climbs-out-of-coffin-after-six-days2376">
+
+            <div id="slugEditable" class="editable metaText metaFamily">
+                dead-gran-climbs-out-of-coffin-after-six-days2376
+            </div>
+            <label for="metaDescription" class="label subLabel">Description</label> <textarea
+                    style="display:none" rows="4" cols="30" id="metaDescription" class="meta input">The zombies
+                are here - and they want something to eat! A Chinese woman has climbed out of her coffin after
+                being ‘dead’ for six days.</textarea>
+
+            <div id="metaDescriptionEditable" class="editable metaDescription metaText metaFamily">The zombies
+                are here - and they want something to eat! A Chinese woman has climbed out of her coffin after
+                being ‘dead’ for six days.
+            </div>
+        </div>
+    </div>
+    <div id="switches">
+        <div class="details">
+            <div id="comment" class="drag-range on"><span class="label">Comments</span>
+
+                <div class="handle" style="left: 220px; "><b class="grip"><b></b></b></div>
+            </div>
+            <div id="hot" class="drag-range"><span class="label">Hot article</span>
+
+                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
+            </div>
+            <div id="featured" class="drag-range"><span class="label">Featured article</span>
+
+                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
+            </div>
+            <div id="toc" class="drag-range"><span class="label">Table of contents</span>
+
+                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
+            </div>
+        </div>
+    </div>
+    <div id="tag">
+        <div class="details"><h2 class="label">tags</h2>   <input type="text" name="name" id="tags"
+                                                                  autocomplete="off">
+
+            <div id="tagSuggest" class="suggestions">
+                <ul id="tagSuggestList" class="suggestionsList"></ul>
+            </div>
+            <ul id="tagsList" class="selectedItems">
+                <li id="57" class="tag">Weird stories <b class="emsIcon close remove"></b></li>
+            </ul>
+        </div>
+    </div>
+    <div id="related">
+        <div class="details"><h2 class="label">related</h2>   <input type="text" id="relatedItem">
+
+            <div id="relatedSuggest" class="suggestions">
+                <ul id="relatedSuggestList" class="suggestionsList"></ul>
+            </div>
+            <ul id="relatedList" class="selectedItems">
+                <li id="571" class="SbEmsArticle"><span
+                        class="constrain">Serbian boy wakes up speaking English</span> <b
+                        class="emsIcon close remove"></b></li>
+                <li id="2319" class="SbEmsArticle"><span class="constrain">Flu turns woman French</span> <b
+                        class="emsIcon close remove"></b></li>
+            </ul>
+        </div>
+    </div>
