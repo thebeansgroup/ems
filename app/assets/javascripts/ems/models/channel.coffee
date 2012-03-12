@@ -2,20 +2,19 @@ class Ems.Channel extends Batman.Model
   @storageKey: 'channels'
   @persist Batman.RailsStorage
   @url = "/ems/channels"
-  @hasMany 'categories'
+
+  @hasMany 'categories', { autoLoad: true }
 
   @encode 'id', 'slug', 'name', "created_at", "updated_at"
   @encode "created_at", "updated_at", Batman.Encoders.railsDate
 
   @validate 'name', presence: yes
 
-  @accessor 'category',
-    get: (id) ->
-      console?.log "getting categories"
-#      categories = @get 'categories'
-#      categories?.indexedByUnique('id').get(channel.get('id'))
-    set: (category) ->
-      console?.log "setting category"
-    toggle: (category) ->
-      console?.log "toggle category"
+  hasCategory: (category) ->
+    console?.log controllers
 
+#    categories?.indexedByUnique('id').get(channel.get('id'))
+#    console?.log categories
+
+
+#      @get('categories').add(category)

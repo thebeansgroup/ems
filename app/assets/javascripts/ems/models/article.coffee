@@ -3,7 +3,7 @@ class Ems.Article extends Batman.Model
   @persist Batman.RailsStorage
 
   @url = "/ems/articles"
-  @belongsTo 'category'
+  @belongsTo 'category', saveInline: true, autoload: true
 
   @encode 'id', 'slug', 'title', 'standfirst', 'content', 'hot', "featured", "toc", "comment", "meta_title",
     "meta_description", "publish_from", "status", "content_disposition", "created_at", "updated_at"

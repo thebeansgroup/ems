@@ -1,5 +1,6 @@
 class Ems.ChannelsController extends Batman.Controller
   channels: null
+  categories: null
 
   index: (params) ->
 
@@ -7,6 +8,9 @@ class Ems.ChannelsController extends Batman.Controller
 
   new: (params) ->
     @set 'channel', new Ems.Channel
+#    Ems.Category.load (err, categories) =>
+#      throw err if err
+#      @set 'categories', categories
 
   create: (params) ->
     @get('channel').save (err) =>
@@ -17,12 +21,12 @@ class Ems.ChannelsController extends Batman.Controller
         @redirect '/tags'
 
   edit: (params) ->
-    channel = @set 'channel', Ems.Channel.find parseInt(params.id), (err) ->
+    @set 'channel', Ems.Channel.find parseInt(params.id), (err) ->
       throw err if err
+#    Ems.Category.load (err, categories) =>
+#      throw err if err
+#      @set 'categories', categories
 
-      if !channel.get("categories.loaded")
-        channel.get('categories').load (err, products) ->
-          throw err if err
   update: ->
     @get('channel').save (err) =>
       if err

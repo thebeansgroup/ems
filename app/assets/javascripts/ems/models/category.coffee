@@ -9,6 +9,4 @@ class Ems.Category extends Batman.Model
 
   @validate 'name', 'strapline', presence: yes
 
-  addTo: (param) ->
-    console?.log param
 

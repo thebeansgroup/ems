@@ -45,6 +45,9 @@ class Ems extends Batman.App
   # channel routes
   @resources 'channels'
 
+  # category routes
+  @resources 'categories'
+
   # accessible via
 
   @on 'run', ->
