@@ -3,8 +3,13 @@ module Ems
     # GET /channels
     # GET /channels.json
     def index
-      @channels = Channel.all
-  
+      if params[:category_id]
+        @channels = Channel.includes(:categories).where('categories_channels.category_id' => params[:category_id])
+
+      else
+        @channels = Channel.all
+      end
+      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @channels }

@@ -9,7 +9,8 @@
 
 Batman.mixin Batman.Filters,
   selected: (channel, category) ->
-    channel.get('categories')
+    channel.hasCategory category
+    # channel.get('categories')
     false
 
   toggleCategory: (channel, test, test2) ->

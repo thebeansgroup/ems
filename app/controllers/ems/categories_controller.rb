@@ -8,7 +8,7 @@ module Ems
       else
         @categories = Category.all
       end
-
+      # @categories  = '[{"channel_id":1,"created_at":null,"id":1,"name":"test","slug":"test","strapline":"test","updated_at":null,"channels":[{"created_at":null,"id":1,"name":"chan","slug":"chan","updated_at":null}]},{"channel_id":1,"created_at":null,"id":3,"name":"test3","slug":"test3","strapline":"test3","updated_at":null,"channels":[{"created_at":null,"id":1,"name":"chan","slug":"chan","updated_at":null}]}]'
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @categories.as_json(:include => :channels) }

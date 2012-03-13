@@ -11,7 +11,7 @@
             <li data-foreach-category="Category.all">
                 <label class="checkbox">
                     <input type="checkbox" data-bind-value="category.id"
-                           data-bind-selected="channel | selected category"/>
+                           data-bind="category.isShowing"/>
                     <span data-bind="category.name"></span>
                 </label>
             </li>
