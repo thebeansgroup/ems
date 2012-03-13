@@ -8,10 +8,9 @@
     </div>
     <div>
         <ul>
-            <li data-foreach-category="Category.all">
+            <li data-foreach-category="categories">
                 <label class="checkbox">
-                    <input type="checkbox" data-bind-value="category.id"
-                           data-bind="category.isShowing"/>
+                    <input type="checkbox" data-bind="channel | hasCategory category "/>
                     <span data-bind="category.name"></span>
                 </label>
             </li>

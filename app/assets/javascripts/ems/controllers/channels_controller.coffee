@@ -8,9 +8,9 @@ class Ems.ChannelsController extends Batman.Controller
 
   new: (params) ->
     @set 'channel', new Ems.Channel
-    # Ems.Category.load (err, categories) =>
-    #   throw err if err
-    #   @set 'categories', categories
+    Ems.Category.load (err, categories) =>
+      throw err if err
+      @set 'categories', categories
 
   create: (params) ->
     @get('channel').save (err) =>

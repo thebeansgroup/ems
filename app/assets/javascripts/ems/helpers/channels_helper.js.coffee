@@ -1,17 +1,10 @@
 # Channels helper file
 
 
-#    category.get('channels')
-#    .indexedByUnique('id')
-#    .get(channel.get('id'))
-#    categories = Category.all
-#    console?.log categories
 
 Batman.mixin Batman.Filters,
-  selected: (channel, category) ->
-    channel.hasCategory category
-    # channel.get('categories')
-    false
+  hasCategory: (channel, category) ->
+    category.get('channels').indexedByUnique('id').get(channel.get('id'))
 
   toggleCategory: (channel, test, test2) ->
 #    channel.get('categories')
