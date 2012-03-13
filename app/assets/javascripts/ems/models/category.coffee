@@ -5,14 +5,14 @@ class Ems.Category extends Batman.Model
   @hasMany 'channels'
 
   @encode 'id', 'slug', 'name', 'strapline', "created_at", "updated_at"
-  # @encode "created_at", "updated_at", Batman.Encoders.railsDate
+  @encode "created_at", "updated_at", Batman.Encoders.railsDate
 
   @validate 'name', 'strapline', presence: yes
-  # @global yes
 
+  @toggleSelected: (node, event) ->
+    channel = Ems.controllers.get('channels').channel
+    categories = Ems.controllers.get('channels').categories
+#    console.log categories.get('channels')
+#    channel.get('categories').add(category)
   @on "channels.loaded", ->
-    throw Error 'ARRRRRHHHHH'
-    console.log 'loaded: ',arguments
-
-  isShowing: yes
-    # if @get("channels").isEmpty then false else true
+    console.log "channels.loaded"
