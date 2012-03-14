@@ -35,14 +35,10 @@ class Ems.ChannelsController extends Batman.Controller
       # This console log should print out a set containing 1 category object. However it unfortunately returns an empty
       # AssociationSet. When looking at the XHR return from the server I can clearly see the JSON object being returned
       # It just doesn't seem to be added the the channels association set of categories.
-      console?.log @get('channel.categories')
-
-      setTimeout(=>
-        console?.log @get('channel.categories')
-      , 1000)
-
+      console?.log @get('channel').get('categories')
       # This console log prints out a Batman.Set containing all the channels associated to this category. All seems to
       # be working here.
+      console?.log category.get('channels')
 
   update: ->
     @get('channel').save (err) =>
