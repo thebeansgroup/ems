@@ -8,8 +8,11 @@ class Ems.ChannelsController extends Batman.Controller
 
   new: (params) ->
     @set 'channel', new Ems.Channel
-    Ems.Category.load (err, categories) =>
+    Ems.Category.load (err, cats) =>
       throw err if err
+      categories = new Batman.Set
+      for i, category of cats
+        categories.add category
       @set 'categories', categories
 
   create: (params) ->
@@ -23,9 +26,23 @@ class Ems.ChannelsController extends Batman.Controller
   edit: (params) ->
     @set 'channel', Ems.Channel.find parseInt(params.id), (err) ->
       throw err if err
-    Ems.Category.load (err, categories) =>
+    Ems.Category.load (err, cats) =>
       throw err if err
+      categories = new Batman.Set
+      for i, category of cats
+        categories.add category
       @set 'categories', categories
+      # This console log should print out a set containing 1 category object. However it unfortunately returns an empty
+      # AssociationSet. When looking at the XHR return from the server I can clearly see the JSON object being returned
+      # It just doesn't seem to be added the the channels association set of categories.
+      console?.log @get('channel.categories')
+
+      setTimeout(=>
+        console?.log @get('channel.categories')
+      , 1000)
+
+      # This console log prints out a Batman.Set containing all the channels associated to this category. All seems to
+      # be working here.
 
   update: ->
     @get('channel').save (err) =>

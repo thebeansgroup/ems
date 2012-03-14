@@ -8,11 +8,3 @@ class Ems.Category extends Batman.Model
   @encode "created_at", "updated_at", Batman.Encoders.railsDate
 
   @validate 'name', 'strapline', presence: yes
-
-  @toggleSelected: (node, event) ->
-    channel = Ems.controllers.get('channels').channel
-    categories = Ems.controllers.get('channels').categories
-#    console.log categories.get('channels')
-#    channel.get('categories').add(category)
-  @on "channels.loaded", ->
-    console.log "channels.loaded"
