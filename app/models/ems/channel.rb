@@ -7,6 +7,13 @@ module Ems
     validates :slug, :presence => true
     validates :name, :presence => true
 
-    has_and_belongs_to_many :categories, :foreign_key => 'channel_id'
+    has_and_belongs_to_many :categories
+
+    #
+    # @param options
+    def as_json(options={})
+      super( options.merge( :include => [ :categories ] ) )
+    end
+
   end
 end

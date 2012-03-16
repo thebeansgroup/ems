@@ -11,8 +11,14 @@ module Ems
     validates :strapline, :presence => true
 
     # relations
-    has_and_belongs_to_many :channels, :foreign_key => 'category_id'
+    has_and_belongs_to_many :channels
     has_many :articles
+
+    #
+    # @param options
+    def as_json(options={})
+      super( options.merge( :include => [ :channels ] ) )
+    end
 
   end
 end

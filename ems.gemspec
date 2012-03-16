@@ -7,9 +7,9 @@ require "ems/version"
 Gem::Specification.new do |s|
   s.name        = "ems"
   s.version     = Ems::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
+  s.authors     = ["Vincent Siebert"]
+  s.email       = ["vincent@thebeansgroup.com"]
+  s.homepage    = "http://www.thebeansgroup.com"
   s.summary     = "TODO: Summary of Ems."
   s.description = "TODO: Description of Ems."
 

@@ -32,13 +32,6 @@ class Ems.ChannelsController extends Batman.Controller
       for i, category of cats
         categories.add category
       @set 'categories', categories
-      # This console log should print out a set containing 1 category object. However it unfortunately returns an empty
-      # AssociationSet. When looking at the XHR return from the server I can clearly see the JSON object being returned
-      # It just doesn't seem to be added the the channels association set of categories.
-      console?.log @get('channel').get('categories')
-      # This console log prints out a Batman.Set containing all the channels associated to this category. All seems to
-      # be working here.
-      console?.log category.get('channels')
 
   update: ->
     @get('channel').save (err) =>
@@ -47,3 +40,19 @@ class Ems.ChannelsController extends Batman.Controller
       else
         Ems.flashSuccess "Channel #{@get('channel.title')} updated successfully!"
         @redirect '/channels'
+
+  # function to handle the selecting and deselecting of categories
+  toggleCategory: (node, event) ->
+    category_id = node.getAttribute('id')
+    channel = @get('channel')
+    # retrive the category that was selected/deselected
+    category = @get('categories').indexedByUnique('id').get(parseInt(category_id))
+    # first we need to check if we actually have the category with the given ID. If we do, let go ahead and add it, or
+    # remove it from the channel categories association set.
+    if category
+      if node.checked
+        channel.get("categories").add category
+      else
+        channel.get("categories").remove category
+    else
+      throw "No category found with ID: " + category_id

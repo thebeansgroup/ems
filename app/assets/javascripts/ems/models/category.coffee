@@ -1,6 +1,6 @@
 class Ems.Category extends Batman.Model
   @storageKey: 'categories'
-  @persist Batman.RestStorage
+  @persist Batman.RailsStorage
   @url = "/ems/categories"
   @hasMany 'channels'
 
