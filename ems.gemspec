@@ -17,9 +17,12 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "ems"
 
+  s.add_dependency 'batman-rails'
+
   s.add_development_dependency "rspec"
   s.add_development_dependency "cucumber"
 
-  s.files        = Dir.glob("{bin,lib}/**/*") + %w(MIT-LICENSE README.md CHANGELOG.md)
+  #s.files        = Dir.glob("{bin,lib}/**/*") + %w(MIT-LICENSE README.md CHANGELOG.md)
+  s.files = Dir["README.md", "MIT-LICENSE", "lib/**/*.rb"]
   s.require_path = 'lib'
 end
