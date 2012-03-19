@@ -4,7 +4,8 @@ The EMS is a management system that can be used as an engine for any blog or web
 
 ## Architecture
 
-As mentioned before, the EMS is contained within a mountable engine.
+As mentioned before, the EMS is contained within a mountable engine. For more information on mountable engines please
+visit http://guides.rubyonrails.org/engines.html
 
 ### Installation:
 
