@@ -14,13 +14,22 @@ Gem::Specification.new do |s|
   s.summary     = "Editorial Management System"
   s.description = "The EMS"
 
-  s.required_rubygems_version = ">= 1.3.6"
+  s.required_rubygems_version = ">= 1.9.6"
   s.rubyforge_project         = "ems"
 
   s.add_dependency 'batman-rails'
+  s.add_dependency "jquery-rails"
+  s.add_dependency "friendly_id"
+  s.add_dependency 'mysql2'
+  s.add_dependency 'devise'
+  s.add_dependency 'haml'
+  s.add_dependency 'json'
 
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "cucumber"
+  s.add_development_dependency  'spork'
+  s.add_development_dependency  'rspec-rails'
+  s.add_development_dependency  'cucumber-rails'
+  s.add_development_dependency  'database_cleaner'
+
 
   #s.files        = Dir.glob("{bin,lib}/**/*") + %w(MIT-LICENSE README.md CHANGELOG.md)
   s.files = Dir["README.md", "MIT-LICENSE", "lib/**/*.rb"]
