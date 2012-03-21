@@ -44,7 +44,7 @@ class Ems.ChannelsController extends Batman.Controller
   # function to handle the selecting and deselecting of categories
   toggleCategory: (node, event) ->
     category_id = node.getAttribute('id')
-    channel = @get('channel')
+    channel = @get 'channel'
     # retrive the category that was selected/deselected
     category = @get('categories').indexedByUnique('id').get(parseInt(category_id))
     # first we need to check if we actually have the category with the given ID. If we do, let go ahead and add it, or

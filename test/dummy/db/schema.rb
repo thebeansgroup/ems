@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308163733) do
+ActiveRecord::Schema.define(:version => 20120320143820) do
+
+  create_table "categories_channels", :id => false, :force => true do |t|
+    t.integer "category_id", :null => false
+    t.integer "channel_id",  :null => false
+  end
+
+  add_index "categories_channels", ["category_id", "channel_id"], :name => "index_ems_categories_channels_on_category_id_and_channel_id", :unique => true
 
   create_table "ems_articles", :force => true do |t|
     t.string   "slug"
@@ -40,18 +47,22 @@ ActiveRecord::Schema.define(:version => 20120308163733) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "ems_categories_channels", :id => false, :force => true do |t|
-    t.integer "category_id", :null => false
-    t.integer "channel_id",  :null => false
-  end
-
-  add_index "ems_categories_channels", ["category_id", "channel_id"], :name => "index_ems_categories_channels_on_category_id_and_channel_id", :unique => true
-
   create_table "ems_channels", :force => true do |t|
     t.string   "slug"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "ems_roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ems_roles_users", :id => false, :force => true do |t|
+    t.integer "ems_role_id"
+    t.integer "user_id"
   end
 
   create_table "ems_tags", :force => true do |t|

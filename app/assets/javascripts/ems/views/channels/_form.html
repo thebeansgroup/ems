@@ -10,7 +10,7 @@
         <ul>
             <li data-foreach-category="categories">
                 <label class="checkbox">
-                    <input type="checkbox" data-bind-id="category.id" data-bind="channel | hasCategory category" data-event-change="toggleCategory"/>
+                    <input type="checkbox" data-bind-id="category.id" data-bind="channel.hasCategory | checkCategory category" data-event-change="toggleCategory"/>
                     <span data-bind="category.name"></span>
                 </label>
             </li>

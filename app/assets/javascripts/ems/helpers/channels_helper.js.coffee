@@ -8,8 +8,7 @@ Batman.mixin Batman.Filters,
 
   # Method for identifying which category has an association with which channel
   # This is used in the channel/_form.html as a way to check/uncheck the checkboxes.
-  hasCategory: (channel, category) ->
-    category.get('channels').indexedByUnique('id').get(channel.get('id'))
-
-  toggleCategory: (node, event) ->
-    console?.log arguments
+  checkCategory: (state, category) ->
+    controller = Ems.controllers.get 'channels'
+    channel = controller.get "channel"
+    channel.get('categories').indexedByUnique('id').get(category.get('id'))
