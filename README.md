@@ -8,9 +8,7 @@ As mentioned before, the EMS is contained within a mountable engine. For more in
 visit http://guides.rubyonrails.org/engines.html
 
 ### Authentication and Ability management
-Authentication within the EMS is handled by Devise. Devise is a dependency for the EMS however the engine iself has no
-working knowlege of how the authentication works, this is completely up to the parent app.
-Abilities within the EMS are currently defined as:
+Authentication
 
 * Editor
 * Author
@@ -19,15 +17,19 @@ The editor is the only ability with which you can post publications. The author 
 publications. The actual task of setting these live is left to the Editor. This enables the editor to review any content
 about to go live.
 
+To enable the CanCan ability management add the following to your authentications user model:
+
+`has_and_belongs_to_many :ems_roles`
+
 ### Installation:
 
 To install the EMS simply follow these steps:
 
-1.  include the EMS as a dependency in your Gemfile:
+1.  include the EMS as a dependency in your Gemfile:  
 `gem 'ems', :git => 'git://github.com/thebeansgroup/ems.git'`
 
-2.  mount the engine in your applications `config/routes.rb`
+2.  mount the engine in your applications `config/routes.rb`  
 `mount Ems::Engine => "/ems"`
 
-3.  install the engines migrations:
+3.  install the engines migrations:  
 `rake ems:install:migrations`

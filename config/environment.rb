@@ -4,4 +4,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   # "series".pluralize    #=> "series"
   # "series".singularize  #=> "series"
   inflect.uncountable 'series'
+
 end

@@ -18,16 +18,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.1"
-  s.add_dependency 'batman-rails'
-  s.add_dependency "jquery-rails"
-  s.add_dependency "friendly_id"
-  s.add_dependency 'mysql2'
-  s.add_dependency 'devise'
-  s.add_dependency 'haml'
-  s.add_dependency 'json'
-
-  s.add_development_dependency  'spork'
-  s.add_development_dependency  'rspec-rails'
-  s.add_development_dependency  'cucumber-rails'
-  s.add_development_dependency  'database_cleaner'
+  s.add_dependency "cancan"
 end

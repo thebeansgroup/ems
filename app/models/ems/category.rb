@@ -12,6 +12,7 @@ module Ems
 
     # relations
     has_and_belongs_to_many :channels
+    accepts_nested_attributes_for :channels
     has_many :articles
 
     #
