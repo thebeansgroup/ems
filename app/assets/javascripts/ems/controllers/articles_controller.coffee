@@ -7,6 +7,12 @@ class Ems.ArticlesController extends Batman.Controller
 
   new: (params) ->
     @set 'article', new Ems.Article
+    # give the article the correct category
+    Ems.Category.load (err, cats) =>
+      throw err if err
+      for cat in cats
+        if(cat.get('slug') == params.category)
+          @get('article').set('category', cat)
 
   create: (params) ->
     @get('article').save (err) =>
@@ -14,7 +20,6 @@ class Ems.ArticlesController extends Batman.Controller
         throw err unless err instanceof Batman.ErrorsSet
       else
         Ems.flashSuccess "Article #{@get('article.name')} created successfully!"
-        @redirect '/articles'
 
   edit: (params) ->
     article = @set 'article', Ems.Article.find parseInt(params.id), (err) ->

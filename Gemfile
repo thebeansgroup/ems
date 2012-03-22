@@ -14,6 +14,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'json'
 gem 'cancan'
+gem 'kramdown'
 
 # Declare any dependencies that are still in development here instead of in
 # your .gemspec. These might include edge Rails or gems from your path or

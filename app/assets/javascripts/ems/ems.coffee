@@ -2,6 +2,8 @@
 class Ems extends Batman.App
   @global yes
 
+  @title = "studentbeans.com EMS"
+
   Batman.View::prefix = 'assets/ems/views/'
 
   @navLinks =
@@ -30,14 +32,18 @@ class Ems extends Batman.App
   @root 'ems#index'
   @route '404', 'ems#fourohfour'
 
-  # categories routing
-  @route '/categories/:slug', 'categories#index', resource: 'categories', action: 'index'
-
   # article routes
   @route '/articles/:category/new', 'articles#new', resource: 'articles', action: 'new'
+  @route '/articles/:category/:id/edit', 'articles#edit', resource: 'articles', action: 'edit'
+
+  # news routes
+  @route '/news/:category/new', 'news#new', resource: 'news', action: 'new'
+
+  # report routes
+  @route '/reports/:category/new', 'reports#new', resource: 'reports', action: 'new'
 
   # series routes
-  @route '/series/:category/new', 'articles#new', resource: 'articles', action: 'new'
+  @route '/series/:category/new', 'series#new', resource: 'series', action: 'new'
 
   # tags routes
   @resources 'tags'

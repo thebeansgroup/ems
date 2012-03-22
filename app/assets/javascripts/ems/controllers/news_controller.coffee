@@ -1,0 +1,1 @@
+class Ems.NewsController extends Batman.Controller
