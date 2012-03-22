@@ -61,18 +61,18 @@ module Ems
     # PUT /channels/1
     # PUT /channels/1.json
     def update
+      # make sure that we always have a categories array (empty means delete all)
+      params[:channel][:category_ids] ||= []
       @channel = Channel.find(params[:id])
-      puts YAML::dump @channel.categories.second
-      abort("Message goes here")
-      #respond_to do |format|
-      #  if @channel.update_attributes(params[:channel])
-      #    format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
-      #    format.json { head :no_content }
-      #  else
-      #    format.html { render action: "edit" }
-      #    format.json { render json: @channel.errors, status: :unprocessable_entity }
-      #  end
-      #end
+      respond_to do |format|
+        if @channel.update_attributes(params[:channel])
+          format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @channel.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     # DELETE /channels/1
