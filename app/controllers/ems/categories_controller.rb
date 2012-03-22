@@ -61,7 +61,7 @@ module Ems
     # PUT /categories/1.json
     def update
       @category = Category.find(params[:id])
-  
+
       respond_to do |format|
         if @category.update_attributes(params[:category])
           format.html { redirect_to @category, notice: 'Category was successfully updated.' }

@@ -52,6 +52,10 @@ class Ems.ChannelsController extends Batman.Controller
     if category
       if node.checked
         channel.get("categories").add category
+#        categoryIds =  channel.get('category_ids')
+#        categoryIds ||= []
+#        categoryIds.push(category.get('id'))
+#        channel.set('category_ids', categoryIds)
       else
         channel.get("categories").remove category
     else
