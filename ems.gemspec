@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = ["vincent@thebeansgroup.com"]
   s.homepage    = "http://github.com/thebeansgroup/ems"
   s.summary     = "Editorial Management System"
-  s.description = "TODO: Description of Ems."
+  s.description = "Editorial Management system used within group projects"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
