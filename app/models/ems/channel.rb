@@ -7,7 +7,7 @@ module Ems
     validates :slug, :presence => true
     validates :name, :presence => true
 
-    has_and_belongs_to_many :categories
+    has_and_belongs_to_many :categories, :join_table => 'ems_categories_channels'
     accepts_nested_attributes_for :categories
 
     #

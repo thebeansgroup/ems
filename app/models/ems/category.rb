@@ -11,7 +11,7 @@ module Ems
     validates :strapline, :presence => true
 
     # relations
-    has_and_belongs_to_many :channels
+    has_and_belongs_to_many :channels, :join_table => 'ems_categories_channels'
     accepts_nested_attributes_for :channels
     has_many :articles
 

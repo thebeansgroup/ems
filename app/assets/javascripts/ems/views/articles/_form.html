@@ -1,21 +1,26 @@
-<div id="mainContent">
-    <div class="contentBox" id="article">
+            <div class="columnOne">
+				<div id="mainContent">
+				    <div class="contentBox" id="article">
 
-        <div class="inputBlock">
-            <label for="article_title">Article Title</label>
-            <input type="text" name="article[title]" id="article_title" data-bind="article.title">
+				        <div class="inputBlock">
+				            <label for="article_title">Article Title</label>
+				            <input type="text" name="article[title]" id="article_title" data-bind="article.title">
 
-            <div class="inputBlock">
-                <label for="article_standfirst">Standfirst</label>
-                <textarea rows="4" cols="30" name="artile[standfirst]" id="article_standfirst"
-                          data-bind="article.standfirst"></textarea>
+				            <div class="inputBlock">
+				                <label for="article_standfirst">Standfirst</label>
+				                <textarea rows="4" cols="30" name="artile[standfirst]" id="article_standfirst"
+				                          data-bind="article.standfirst"></textarea>
+				            </div>
+				            <div class="inputBlock">
+				                <label for="article_content">Content</label>
+				                <textarea id="article_content" name="article[content]"
+				                          data-bind="article.content"></textarea>
+				            </div>
+				        </div>
+				    </div>
+
+				</div>
             </div>
-            <div class="inputBlock">
-                <label for="article_content">Content</label>
-                <textarea id="article_content" name="article[content]"
-                          data-bind="article.content"></textarea>
+            <div class="columnTwo sidebar">
+                <div data-partial="articles/_sidebar"></div>
             </div>
-        </div>
-    </div>
-
-</div>

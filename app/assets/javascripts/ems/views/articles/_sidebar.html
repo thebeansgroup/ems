@@ -1,9 +1,4 @@
     <div id="publish" class="first">
-        <div class="details">
-            <button id="save"><b class="emsIcon save"></b> save</button>
-            <button id="preview"><b class="emsIcon preview"></b> preview</button>
-            <button id="publish" class="right orange"><b class="emsIcon publish"></b> publish</button>
-        </div>
         <div class="details"><h2 class="label">Status</h2>   <select name="status" id="status">
             <option value="draft">draft</option>
             <option value="pending_review">pending review</option>
@@ -24,51 +19,40 @@
             <option class="channel" id="65" value="65"> weird</option>
         </select></div>
     </div>
-    <div id="meta">
-        <div class="details"><h2 class="label">Meta stuff</h2>    <label for="metaTitle"
-                                                                         class="label subLabel">Title</label>
-            <input style="display:none" type="text" id="metaTitle" class="meta input"
-                   value="Dead gran climbs out of coffin after six days">
 
-            <div id="metaTitleEditable" class="editable metaTitle metaText metaFamily">Dead gran climbs out of
-                coffin after six days
-            </div>
-            <label for="slug" class="label subLabel">URL</label> <input style="display:none" type="text"
-                                                                        id="slug" class="meta input"
-                                                                        value="dead-gran-climbs-out-of-coffin-after-six-days2376">
 
-            <div id="slugEditable" class="editable metaText metaFamily">
-                dead-gran-climbs-out-of-coffin-after-six-days2376
-            </div>
-            <label for="metaDescription" class="label subLabel">Description</label> <textarea
-                    style="display:none" rows="4" cols="30" id="metaDescription" class="meta input">The zombies
-                are here - and they want something to eat! A Chinese woman has climbed out of her coffin after
-                being ‘dead’ for six days.</textarea>
+    <div>
+        <div>
+            <h2>Meta stuff</h2>
 
-            <div id="metaDescriptionEditable" class="editable metaDescription metaText metaFamily">The zombies
-                are here - and they want something to eat! A Chinese woman has climbed out of her coffin after
-                being ‘dead’ for six days.
-            </div>
+            <label for="metaTitle">Title</label>
+            <input style="display:none" type="text" id="metaTitle" data-bind="article.meta_title" >
+            <div id="metaTitleEditable" data-bind="article.meta_title"></div>
+
+            <label for="slug" >URL</label>
+            <input style="display:none" type="text" id="slug" data-bind="article.slug">
+            <div id="slugEditable" data-bind="article.slug"></div>
+
+            <label for="metaDescription">Description</label>
+            <textarea style="display:none" rows="4" cols="30" id="metaDescription" data-bind="article.meta_description"></textarea>
+            <div id="metaDescriptionEditable" data-bind="article.meta_description"></div>
         </div>
     </div>
+
+
     <div id="switches">
         <div class="details">
-            <div id="comment" class="drag-range on"><span class="label">Comments</span>
-
-                <div class="handle" style="left: 220px; "><b class="grip"><b></b></b></div>
-            </div>
-            <div id="hot" class="drag-range"><span class="label">Hot article</span>
-
-                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
-            </div>
-            <div id="featured" class="drag-range"><span class="label">Featured article</span>
-
-                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
-            </div>
-            <div id="toc" class="drag-range"><span class="label">Table of contents</span>
-
-                <div class="handle" style="left: 0px; "><b class="grip"><b></b></b></div>
-            </div>
+            <label for="comment">Comments</label>
+            <input type="checkbox" id="comment" name="comment" data-bind="article.comment" />
+            <br />
+            <label for="hot">Hot Article</label>
+            <input type="checkbox" id="hot" name="hot" data-bind="article.hot" />
+            <br />
+            <label for="featured">Featured Article</label>
+            <input type="checkbox" id="featured" name="featured" data-bind="article.featured" />
+            <br />
+            <label for="toc">Table of contents</label>
+            <input type="checkbox" id="toc" name="toc" data-bind="article.toc" />
         </div>
     </div>
     <div id="tag">
