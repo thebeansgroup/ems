@@ -1,84 +1,82 @@
-    <div id="publish" class="first">
-        <div class="details"><h2 class="label">Status</h2>   <select name="status" id="status">
-            <option value="draft">draft</option>
-            <option value="pending_review">pending review</option>
-            <option value="live" selected="selected">live</option>
-        </select></div>
-        <div class="details"><h2 class="label" id="setPublishFrom">Publish from</h2>             <input
-                type="text" name="publishFrom" id="publishFrom" value="29/02/2012 10:16"
-                placeholder="Format: dd/mm/yyyy hh:mm"></div>
-    </div>
-    <div id="channel">
-        <div class="details"><h2 class="label">Channels</h2>   <select name="channelList" multiple="multiple"
-                                                                       id="sbEmsArticleChannelList">
-            <option class="channel" id="10" value="10"> fails</option>
-            <option class="channel" id="20" value="20"> shame</option>
-            <option class="channel" id="27" value="27"> nutters</option>
-            <option class="channel" id="28" value="28"> odd facts</option>
-            <option class="channel" id="33" value="33"> Wins</option>
-            <option class="channel" id="65" value="65"> weird</option>
-        </select></div>
-    </div>
+<div id="publish" class="first">
+    <div class="details"><h2 class="label">Status</h2>   <select name="status" id="status">
+        <option value="draft">draft</option>
+        <option value="pending_review">pending review</option>
+        <option value="live" selected="selected">live</option>
+    </select></div>
+    <div class="details">
+        <h2 class="label" id="setPublishFrom">Publish from</h2>
+        <input
+            type="text" name="publishFrom" id="publishFrom" value="29/02/2012 10:16"
+            placeholder="Format: dd/mm/yyyy hh:mm"></div>
+</div>
+<div id="channel">
+    <div data-partial="channels/_selector"></div>
+</div>
 
 
+<div>
     <div>
-        <div>
-            <h2>Meta stuff</h2>
+        <h2>Meta stuff</h2>
 
-            <label for="metaTitle">Title</label>
-            <input style="display:none" type="text" id="metaTitle" data-bind="article.meta_title" >
-            <div id="metaTitleEditable" data-bind="article.meta_title"></div>
+        <label for="metaTitle">Title</label>
+        <input style="display:none" type="text" id="metaTitle" data-bind="article.meta_title">
 
-            <label for="slug" >URL</label>
-            <input style="display:none" type="text" id="slug" data-bind="article.slug">
-            <div id="slugEditable" data-bind="article.slug"></div>
+        <div id="metaTitleEditable" data-bind="article.meta_title"></div>
 
-            <label for="metaDescription">Description</label>
-            <textarea style="display:none" rows="4" cols="30" id="metaDescription" data-bind="article.meta_description"></textarea>
-            <div id="metaDescriptionEditable" data-bind="article.meta_description"></div>
-        </div>
+        <label for="slug">URL</label>
+        <input style="display:none" type="text" id="slug" data-bind="article.slug">
+
+        <div id="slugEditable" data-bind="article.slug"></div>
+
+        <label for="metaDescription">Description</label>
+        <textarea style="display:none" rows="4" cols="30" id="metaDescription"
+                  data-bind="article.meta_description"></textarea>
+
+        <div id="metaDescriptionEditable" data-bind="article.meta_description"></div>
     </div>
+</div>
 
 
-    <div id="switches">
-        <div class="details">
-            <label for="comment">Comments</label>
-            <input type="checkbox" id="comment" name="comment" data-bind="article.comment" />
-            <br />
-            <label for="hot">Hot Article</label>
-            <input type="checkbox" id="hot" name="hot" data-bind="article.hot" />
-            <br />
-            <label for="featured">Featured Article</label>
-            <input type="checkbox" id="featured" name="featured" data-bind="article.featured" />
-            <br />
-            <label for="toc">Table of contents</label>
-            <input type="checkbox" id="toc" name="toc" data-bind="article.toc" />
-        </div>
+<div id="switches">
+    <div class="details">
+        <label for="comment">Comments</label>
+        <input type="checkbox" id="comment" name="comment" data-bind="article.comment"/>
+        <br/>
+        <label for="hot">Hot Article</label>
+        <input type="checkbox" id="hot" name="hot" data-bind="article.hot"/>
+        <br/>
+        <label for="featured">Featured Article</label>
+        <input type="checkbox" id="featured" name="featured" data-bind="article.featured"/>
+        <br/>
+        <label for="toc">Table of contents</label>
+        <input type="checkbox" id="toc" name="toc" data-bind="article.toc"/>
     </div>
-    <div id="tag">
-        <div class="details"><h2 class="label">tags</h2>   <input type="text" name="name" id="tags"
-                                                                  autocomplete="off">
+</div>
+<div id="tag">
+    <div class="details"><h2 class="label">tags</h2>   <input type="text" name="name" id="tags"
+                                                              autocomplete="off">
 
-            <div id="tagSuggest" class="suggestions">
-                <ul id="tagSuggestList" class="suggestionsList"></ul>
-            </div>
-            <ul id="tagsList" class="selectedItems">
-                <li id="57" class="tag">Weird stories <b class="emsIcon close remove"></b></li>
-            </ul>
+        <div id="tagSuggest" class="suggestions">
+            <ul id="tagSuggestList" class="suggestionsList"></ul>
         </div>
+        <ul id="tagsList" class="selectedItems">
+            <li id="57" class="tag">Weird stories <b class="emsIcon close remove"></b></li>
+        </ul>
     </div>
-    <div id="related">
-        <div class="details"><h2 class="label">related</h2>   <input type="text" id="relatedItem">
+</div>
+<div id="related">
+    <div class="details"><h2 class="label">related</h2>   <input type="text" id="relatedItem">
 
-            <div id="relatedSuggest" class="suggestions">
-                <ul id="relatedSuggestList" class="suggestionsList"></ul>
-            </div>
-            <ul id="relatedList" class="selectedItems">
-                <li id="571" class="SbEmsArticle"><span
-                        class="constrain">Serbian boy wakes up speaking English</span> <b
-                        class="emsIcon close remove"></b></li>
-                <li id="2319" class="SbEmsArticle"><span class="constrain">Flu turns woman French</span> <b
-                        class="emsIcon close remove"></b></li>
-            </ul>
+        <div id="relatedSuggest" class="suggestions">
+            <ul id="relatedSuggestList" class="suggestionsList"></ul>
         </div>
+        <ul id="relatedList" class="selectedItems">
+            <li id="571" class="SbEmsArticle"><span
+                    class="constrain">Serbian boy wakes up speaking English</span> <b
+                    class="emsIcon close remove"></b></li>
+            <li id="2319" class="SbEmsArticle"><span class="constrain">Flu turns woman French</span> <b
+                    class="emsIcon close remove"></b></li>
+        </ul>
     </div>
+</div>

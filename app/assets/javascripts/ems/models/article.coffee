@@ -3,11 +3,23 @@ class Ems.Article extends Batman.Model
   @persist Batman.RailsStorage
 
   @url = "/ems/articles"
-  @belongsTo 'category', saveInline: false, autoload: true
+  @hasOne 'category', { saveInline: false, autoload: false }
+  @hasMany 'channels', { saveInline: false, autoload: false }
+
+  channel_ids: null
+  selectedChannels: new Batman.Object(id: [8])
 
   @encode 'id', 'slug', 'title', 'standfirst', 'content', 'hot', "featured", "toc", "comment", "meta_title",
     "meta_description", "publish_from", "status", "content_disposition", "created_at", "updated_at"
   @encode "publish_from", "created_at", "updated_at", Batman.Encoders.railsDate
+
+  @encode 'channel_ids',
+    encode: (channelIds, name, object, article) ->
+      channels =  article.get('channels').toArray()
+      channelIds ||= []
+      channelIds.push channel.id for channel in channels
+
+      return channelIds
 
   # Accessors
   # we need to override these accessors because we want to change the meta info at the same time.
@@ -30,6 +42,7 @@ class Ems.Article extends Batman.Model
       @slug = @sluggify(v);
       @standfirst
 
+  # Sluggify method to convert a normal string to be sluggable
   sluggify: (text) ->
     text = text.replace /[^\-a-zA-Z0-9\s]/g, ""
     text = text.toLowerCase()

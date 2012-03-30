@@ -11,4 +11,5 @@ Batman.mixin Batman.Filters,
   checkCategory: (state, category) ->
     controller = Ems.controllers.get 'channels'
     channel = controller.get "channel"
+    return false unless channel.get 'categories'
     channel.get('categories').indexedByUnique('id').get(category.get('id'))

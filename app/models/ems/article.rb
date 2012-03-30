@@ -17,6 +17,8 @@ module Ems
     # relations
     has_one :category
     accepts_nested_attributes_for :category
+    has_and_belongs_to_many :channels, :join_table => 'ems_articles_channels'
+    accepts_nested_attributes_for :channels
 
     # Method to make sure we have all our default values set on the object
     def init
@@ -48,6 +50,12 @@ module Ems
     #def content_disposition= (value)
     #  write_attribute(:content_disposition, value.to_s)
     #end
+
+    #
+    # @param options
+    def as_json(options={})
+      super( options.merge( :include => [ :channels ] ) )
+    end
 
   end
 end

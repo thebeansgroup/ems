@@ -5,7 +5,9 @@ module Ems
     # GET /channels.json
     def index
       if params[:category_id]
-        @channels = Channel.joins(:categories).where('categories_channels.category_id' => params[:category_id])
+        @channels = Channel.joins(:categories).where('ems_categories_channels.category_id' => params[:category_id])
+      elsif params[:article_id]
+          @channels = Channel.joins(:articles).where('ems_articles_channels.article_id' => params[:article_id])
       else
         @channels = Channel.all
       end

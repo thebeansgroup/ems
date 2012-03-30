@@ -26,7 +26,7 @@ class Ems.ChannelsController extends Batman.Controller
   edit: (params) ->
     @set 'channel', Ems.Channel.find parseInt(params.id), (err) ->
       throw err if err
-    Ems.Category.load (err, cats) ->
+    Ems.Category.load (err, cats) =>
       throw err if err
       @set 'categories', Ems.Category.get('loaded')
 

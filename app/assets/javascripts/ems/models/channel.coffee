@@ -5,7 +5,9 @@ class Ems.Channel extends Batman.Model
   @url = "/ems/channels"
   category_ids: null
 
-  @hasMany 'categories', saveInline: false
+  @isSelected: true
+
+  @hasMany 'categories', { saveInline: false, autoload: false }
 
   @encode 'id', 'slug', 'name', "created_at", "updated_at"
   @encode "created_at", "updated_at", Batman.Encoders.railsDate

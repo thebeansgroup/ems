@@ -3,7 +3,8 @@ class Ems.Category extends Batman.Model
   @storageKey: 'categories'
   @persist Batman.RailsStorage
   @url = "/ems/categories"
-  @hasMany 'channels', autoload: false
+  @hasMany 'channels', { saveInline: false, autoload: false }
+  @hasMany 'articles', { saveInline: false, autoload: false }
 
   @encode 'id', 'slug', 'name', 'strapline', "created_at", "updated_at"
   @encode "created_at", "updated_at", Batman.Encoders.railsDate
