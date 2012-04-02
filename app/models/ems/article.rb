@@ -19,6 +19,9 @@ module Ems
     accepts_nested_attributes_for :category
     has_and_belongs_to_many :channels, :join_table => 'ems_articles_channels'
     accepts_nested_attributes_for :channels
+    has_and_belongs_to_many :tags, :join_table => 'ems_articles_tags'
+    accepts_nested_attributes_for :tags
+    
 
     # Method to make sure we have all our default values set on the object
     def init

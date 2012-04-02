@@ -1,14 +1,16 @@
 <div id="publish" class="first">
-    <div class="details"><h2 class="label">Status</h2>   <select name="status" id="status">
-        <option value="draft">draft</option>
-        <option value="pending_review">pending review</option>
-        <option value="live" selected="selected">live</option>
-    </select></div>
+
     <div class="details">
-        <h2 class="label" id="setPublishFrom">Publish from</h2>
-        <input
-            type="text" name="publishFrom" id="publishFrom" value="29/02/2012 10:16"
-            placeholder="Format: dd/mm/yyyy hh:mm"></div>
+      <h2 class="label">Status</h2>   
+      <select name="status" data-bind="article.status">
+          <option data-foreach-status="article.status | getAvailableStatus" data-bind="status" data-bind-value="status"></option>
+      </select>
+    </div>
+    
+    <div class="details">
+        <h2 class="label">Publish from</h2>
+        <input data-bind="article.publish_from" placeholder="Format: dd/mm/yyyy hh:mm">
+    </div>
 </div>
 <div id="channel">
     <div data-partial="channels/_selector"></div>
@@ -54,17 +56,9 @@
     </div>
 </div>
 <div id="tag">
-    <div class="details"><h2 class="label">tags</h2>   <input type="text" name="name" id="tags"
-                                                              autocomplete="off">
-
-        <div id="tagSuggest" class="suggestions">
-            <ul id="tagSuggestList" class="suggestionsList"></ul>
-        </div>
-        <ul id="tagsList" class="selectedItems">
-            <li id="57" class="tag">Weird stories <b class="emsIcon close remove"></b></li>
-        </ul>
-    </div>
+    <div data-partial="tags/_selector"></div>
 </div>
+
 <div id="related">
     <div class="details"><h2 class="label">related</h2>   <input type="text" id="relatedItem">
 

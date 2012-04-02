@@ -8,6 +8,7 @@ class Ems.Channel extends Batman.Model
   @isSelected: true
 
   @hasMany 'categories', { saveInline: false, autoload: false }
+  @hasMany 'articles', { saveInline: false, autoload: false }
 
   @encode 'id', 'slug', 'name', "created_at", "updated_at"
   @encode "created_at", "updated_at", Batman.Encoders.railsDate

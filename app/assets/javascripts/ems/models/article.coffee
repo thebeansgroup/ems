@@ -5,9 +5,11 @@ class Ems.Article extends Batman.Model
   @url = "/ems/articles"
   @hasOne 'category', { saveInline: false, autoload: false }
   @hasMany 'channels', { saveInline: false, autoload: false }
+  @hasMany 'tags', { saveInline: false, autoload: false }
 
   channel_ids: null
-  selectedChannels: new Batman.Object(id: [8])
+  selectedChannels: null
+  availableStatus: null
 
   @encode 'id', 'slug', 'title', 'standfirst', 'content', 'hot', "featured", "toc", "comment", "meta_title",
     "meta_description", "publish_from", "status", "content_disposition", "created_at", "updated_at"
@@ -41,6 +43,7 @@ class Ems.Article extends Batman.Model
     set: (k, v) ->
       @slug = @sluggify(v);
       @standfirst
+      
 
   # Sluggify method to convert a normal string to be sluggable
   sluggify: (text) ->

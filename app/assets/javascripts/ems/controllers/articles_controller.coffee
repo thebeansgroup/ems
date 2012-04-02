@@ -1,6 +1,9 @@
 class Ems.ArticlesController extends Batman.Controller
+
   article: null
   channels: null
+  suggestTags: new Batman.Set
+  allTags: null
 
   index: (params) ->
 
@@ -42,6 +45,10 @@ class Ems.ArticlesController extends Batman.Controller
     @get('article.category').fetch (err, category) =>
       throw err if err
       @set 'channels', category.get 'channels'
+    @get('article.tags').load (err, tags) =>
+      throw err if err
+      @set 'tags', tags
+
   update: ->
     @get('article').save (err) =>
       if err
@@ -61,4 +68,28 @@ class Ems.ArticlesController extends Batman.Controller
       if channel
         newChannels.add channel
     # replace old channels with new channels
-    @set('article.channels', newChannels)
+    @set 'article.channels', newChannels
+
+  # Search tags function. This function loads all tags into a collection and uses it to search through the collection to
+  # find tags that are simillar to the letters typed
+  suggestTags: (node, event) ->
+    if node.value.length > 0
+      if not @get 'allTags'
+        Ems.Tag.load (err, tags) =>
+          throw err if err
+          @set 'allTags', Ems.Tag.get 'loaded'
+      setTimeout(=>
+        suggestTags = new Batman.Set
+        tags = @get('allTags')
+        for tag in tags.toArray() when tag.get('title').indexOf(node.value) >= 0
+          suggestTags.add tag
+        @set 'suggestTags', suggestTags
+      ,100)
+
+  addTag: (node, value) ->
+    tag = @get('allTags').indexedByUnique('id').get(parseInt(node.id))
+    @get('article.tags').add(tag)
+
+  removeTag: (node, value) ->
+    tag = @get('article.tags').indexedByUnique('id').get(parseInt(node.id))
+    @get('article.tags').remove(tag)

@@ -16,3 +16,11 @@ Batman.mixin Batman.Filters,
       selected.push channel.id for channel in channels
 
     return selected
+	
+  getAvailableStatus: ->
+    ['draft', 'pending', 'live']
+    
+  # Helper to return date object in the format of dd/mm/yyyy hh:mm
+  # dateTime: (date) ->
+    # console?.log date.strftime("%d/%m/%Y %H:%M")
+  
