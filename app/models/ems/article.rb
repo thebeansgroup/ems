@@ -57,7 +57,7 @@ module Ems
     #
     # @param options
     def as_json(options={})
-      super( options.merge( :include => [ :channels ] ) )
+      super( options.merge( :include => [ :channels, :tags ] ) )
     end
 
   end
