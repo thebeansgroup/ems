@@ -21,8 +21,8 @@ module Ems
     accepts_nested_attributes_for :channels
     has_and_belongs_to_many :tags, :join_table => 'ems_articles_tags'
     accepts_nested_attributes_for :tags
-    has_and_belongs_to_many :articles, :join_table => 'ems_articles_articles'
-    accepts_nested_attributes_for :articles
+    has_and_belongs_to_many :articles, :join_table => 'ems_articles_articles', :association_foreign_key => "related_id"
+    # accepts_nested_attributes_for :articles
     has_and_belongs_to_many :news, :join_table => 'ems_articles_news'
     accepts_nested_attributes_for :news
     has_and_belongs_to_many :reports, :join_table => 'ems_articles_reports'
