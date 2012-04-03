@@ -1,4 +1,8 @@
 Ems::Engine.routes.draw do
+  resources :reports
+
+  resources :news
+
   resources :articles
 
   resources :tags

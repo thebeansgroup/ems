@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402104345) do
+ActiveRecord::Schema.define(:version => 20120403133528) do
 
   create_table "ems_articles", :force => true do |t|
     t.string   "slug"
@@ -32,12 +32,33 @@ ActiveRecord::Schema.define(:version => 20120402104345) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "ems_articles_articles", :id => false, :force => true do |t|
+    t.integer "article_id", :null => false
+    t.integer "related_id", :null => false
+  end
+
+  add_index "ems_articles_articles", ["article_id", "related_id"], :name => "index_ems_articles_articles_on_article_id_and_related_id", :unique => true
+
   create_table "ems_articles_channels", :id => false, :force => true do |t|
     t.integer "article_id", :null => false
     t.integer "channel_id", :null => false
   end
 
   add_index "ems_articles_channels", ["article_id", "channel_id"], :name => "index_ems_articles_channels_on_article_id_and_channel_id", :unique => true
+
+  create_table "ems_articles_news", :id => false, :force => true do |t|
+    t.integer "article_id", :null => false
+    t.integer "news_id",    :null => false
+  end
+
+  add_index "ems_articles_news", ["article_id", "news_id"], :name => "index_ems_articles_news_on_article_id_and_news_id", :unique => true
+
+  create_table "ems_articles_reports", :id => false, :force => true do |t|
+    t.integer "article_id", :null => false
+    t.integer "report_id",  :null => false
+  end
+
+  add_index "ems_articles_reports", ["article_id", "report_id"], :name => "index_ems_articles_reports_on_article_id_and_report_id", :unique => true
 
   create_table "ems_articles_tags", :id => false, :force => true do |t|
     t.integer "article_id", :null => false
@@ -67,6 +88,64 @@ ActiveRecord::Schema.define(:version => 20120402104345) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "ems_news", :force => true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "standfirst"
+    t.text     "content"
+    t.boolean  "hot"
+    t.boolean  "featured"
+    t.boolean  "comment"
+    t.string   "meta_title"
+    t.text     "meta_description"
+    t.datetime "publish_from"
+    t.string   "status"
+    t.string   "content_disposition"
+    t.integer  "category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "ems_news_news", :id => false, :force => true do |t|
+    t.integer "news_id",    :null => false
+    t.integer "related_id", :null => false
+  end
+
+  add_index "ems_news_news", ["news_id", "related_id"], :name => "index_ems_news_news_on_news_id_and_related_id", :unique => true
+
+  create_table "ems_news_reports", :id => false, :force => true do |t|
+    t.integer "news_id",   :null => false
+    t.integer "report_id", :null => false
+  end
+
+  add_index "ems_news_reports", ["news_id", "report_id"], :name => "index_ems_news_reports_on_news_id_and_report_id", :unique => true
+
+  create_table "ems_reports", :force => true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "standfirst"
+    t.text     "content"
+    t.boolean  "hot"
+    t.boolean  "featured"
+    t.boolean  "toc"
+    t.boolean  "comment"
+    t.string   "meta_title"
+    t.text     "meta_description"
+    t.datetime "publish_from"
+    t.string   "status"
+    t.string   "content_disposition"
+    t.integer  "category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "ems_reports_reports", :id => false, :force => true do |t|
+    t.integer "report_id",  :null => false
+    t.integer "related_id", :null => false
+  end
+
+  add_index "ems_reports_reports", ["report_id", "related_id"], :name => "index_ems_reports_reports_on_report_id_and_related_id", :unique => true
 
   create_table "ems_roles", :force => true do |t|
     t.string   "name"
