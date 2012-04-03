@@ -5,6 +5,6 @@ notification :growl
 #  watch(%r{^(config|lib)/.*})
 #end
 
-guard :haml, :output => 'app/assets/javascripts/views/.src', :input => 'app/assets/javascripts/views/' do
-  watch %r{^app/assets/javascripts/views/.+(\.html\.haml)}
+guard :haml, :output => 'app/assets/javascripts/ems/views/.src', :input => 'app/assets/javascripts/ems/views/' do
+  watch %r{^app/assets/javascripts/ems/views/.+(\.html\.haml)}
 end
