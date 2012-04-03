@@ -36,15 +36,4 @@
 #tag
   %div{:data => {"partial" => "tags/_selector"}}
 #related
-  .details
-    %h2.label related
-    %input#relatedItem{:type => "text"}
-      #relatedSuggest.suggestions
-        %ul#relatedSuggestList.suggestionsList
-      %ul#relatedList.selectedItems
-        %li#571.SbEmsArticle
-          %span.constrain Serbian boy wakes up speaking English
-          %b.emsIcon.close.remove
-        %li#2319.SbEmsArticle
-          %span.constrain Flu turns woman French
-          %b.emsIcon.close.remove
+  %div{:data => {"partial" => "articles/_related"}}

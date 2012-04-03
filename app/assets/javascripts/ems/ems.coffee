@@ -4,7 +4,7 @@ class Ems extends Batman.App
 
   @title = "studentbeans.com EMS"
 
-  Batman.View::prefix = 'assets/ems/views/.src'
+  Batman.View::prefix = 'assets/ems/views/'
 
   @navLinks =
   [

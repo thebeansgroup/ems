@@ -45,9 +45,14 @@ class Ems.ArticlesController extends Batman.Controller
     @get('article.category').fetch (err, category) =>
       throw err if err
       @set 'channels', category.get 'channels'
-    @get('article.tags').load (err, tags) =>
-      throw err if err
-      @set 'tags', tags
+    # We need to wait a while for the tags to be loaded
+    setTimeout(=>
+      @set 'tags', @get('article.tags')
+    , 1000)
+    # We need to wait a while for the tags to be loaded
+    setTimeout(=>
+      @set 'related', @get('article.related')
+    , 1000)
 
   update: ->
     @get('article').save (err) =>

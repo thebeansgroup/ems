@@ -6,8 +6,13 @@ class Ems.Article extends Batman.Model
   @hasOne 'category', { saveInline: false, autoload: false }
   @hasMany 'channels', { saveInline: false, autoload: false }
   @hasMany 'tags', { saveInline: false, autoload: false }
+  @hasMany 'articles', { saveInline: false, autoload: false }
+  @hasMany 'reports', { saveInline: false, autoload: false }
+  @hasMany 'news', { saveInline: false, autoload: false }
+
 
   channel_ids: null
+  tag_ids: null
   selectedChannels: null
   availableStatus: null
 
@@ -22,6 +27,14 @@ class Ems.Article extends Batman.Model
       channelIds.push channel.id for channel in channels
 
       return channelIds
+      
+  @encode 'tag_ids',
+    encode: (tagIds, name, object, article) ->
+      tags =  article.get('tags').toArray()
+      tagIds ||= []
+      tagIds.push tag.id for tag in tags
+
+      return tagIds
 
   # Accessors
   # we need to override these accessors because we want to change the meta info at the same time.
