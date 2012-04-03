@@ -23,6 +23,7 @@ gem 'kramdown'
 
 group :development, :test do
   gem 'spork'
+  gem 'jasmine'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'
