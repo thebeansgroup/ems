@@ -22,17 +22,19 @@ class Ems.Article extends Batman.Model
 
   @encode 'channel_ids',
     encode: (channelIds, name, object, article) ->
-      channels =  article.get('channels').toArray()
       channelIds ||= []
-      channelIds.push channel.id for channel in channels
+      channels =  article.get('channels')
+      if channels
+        channelIds.push channel.id for channel in channels.toArray()
 
       return channelIds
       
   @encode 'tag_ids',
     encode: (tagIds, name, object, article) ->
-      tags =  article.get('tags').toArray()
       tagIds ||= []
-      tagIds.push tag.id for tag in tags
+      tags =  article.get('tags')
+      if tags
+        tagIds.push tag.id for tag in tags.toArray()
 
       return tagIds
 
