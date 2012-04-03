@@ -3,7 +3,11 @@ module Ems
     # GET /tags
     # GET /tags.json
     def index
-      @tags = Tag.all
+      if params[:article_id]
+        @tags = Tag.joins(:articles).where('ems_articles_tags.article_id' => params[:article_id])
+      else
+        @tags = Tag.all
+      end
 
       respond_to do |format|
         format.html # index.html.erb
