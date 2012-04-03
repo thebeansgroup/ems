@@ -7,8 +7,6 @@ gemspec
 
 gem "jquery-rails"
 gem 'batman-rails'
-gem  'batman-rails'
-gem "jquery-rails"
 gem "friendly_id"
 gem 'mysql2'
 gem 'haml'
@@ -22,11 +20,20 @@ gem 'kramdown'
 # your gem to rubygems.org.
 
 group :development, :test do
+  gem  'growl'
   gem 'spork'
   gem 'jasmine'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+end
+
+group :development do
+  gem 'kss-rails'
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'guard-haml'
+  gem 'foreman'
 end
 
 group :assets do
