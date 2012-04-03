@@ -32,7 +32,6 @@ group :development do
   gem 'kss-rails'
   gem 'guard'
   gem 'guard-rails'
-  gem 'guard-haml'
   gem 'foreman'
 end
 

@@ -4,7 +4,3 @@ notification :growl
 #  watch('Gemfile.lock')
 #  watch(%r{^(config|lib)/.*})
 #end
-
-guard :haml, :output => 'app/assets/javascripts/ems/views/.src', :input => 'app/assets/javascripts/ems/views/' do
-  watch %r{^app/assets/javascripts/ems/views/.+(\.html\.haml)}
-end
