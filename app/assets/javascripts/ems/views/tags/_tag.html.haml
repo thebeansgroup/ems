@@ -1,0 +1,9 @@
+.span8
+  %p.date{:data => {"bind" => "tag.created_at | prettyDate"}}
+  %h2
+    %a{:data => {"bind" => "tag.title", "route" => "tag"}}
+  %p.description{:data => {"bind" => "tag.description"}}
+  %p.details-link
+    %a.btn{:data => {"route" => "tag/edit"}} Edit
+  %p.details-link
+    %a{:data => {"event-click" => "tag.destroy"}} Delete

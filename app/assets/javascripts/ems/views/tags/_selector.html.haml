@@ -1,0 +1,8 @@
+.details
+  %h2.label tags
+  %input{:autocomplete => "off", :type => "text", :data => {"event-change" => "suggestTags"}}
+    %div
+      %ul
+        %li{:data => {"bind" => "tag.title", "bind-id" => "tag.id", "event-click" => "addTag", "foreach-tag" => "suggestTags"}}
+    %ul
+      %li{:data => {"bind" => "tag.title", "bind-id" => "tag.id", "event-click" => "removeTag", "foreach-tag" => "tags"}

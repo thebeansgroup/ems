@@ -1,0 +1,5 @@
+.row
+  #content.span10
+    %ul#listings
+      %li{:data => {"foreach-tag" => "Tag.all"}}
+        .tag.row{:data => {"partial" => "tags/_tag"}}

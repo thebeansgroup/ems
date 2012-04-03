@@ -1,0 +1,5 @@
+#edit-channel.row
+  #content.span16
+    %form#edit_channel.edit_channel{"accept-charset" => "UTF-8", :data => {"event-submit" => "update", "formfor-channel" => "channel"}}
+      %div{:data => {"partial" => "channels/_form"}}
+      %input{:type => "submit"}/

@@ -1,0 +1,14 @@
+.columnOne
+  #mainContent
+    #article.contentBox
+      .inputBlock
+        %label{:for => "article_title"} Article Title
+        %input#article_title{ :name => "article[title]", :type => "text", :data => {"bind" => "article.title"}}
+          .inputBlock
+            %label{:for => "article_standfirst"} Standfirst
+            %textarea#article_standfirst{:name => "artile[standfirst]", :rows => "4", :cols => "30", :data => {"bind" => "article.standfirst"}}
+          .inputBlock
+            %label{:for => "article_content"} Content
+            %textarea#article_content{:name => "article[content]", :data => {"bind" => "article.content"}}
+.columnTwo.sidebar
+  %div{:data => {"partial" => "articles/_sidebar"}}

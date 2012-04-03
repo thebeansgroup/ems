@@ -9,3 +9,5 @@ test/dummy/.sass-cache
 ems*.gem
 .DS_Store
 Gemfile.lock
+
+app/assets/javascripts/ems/views/.src

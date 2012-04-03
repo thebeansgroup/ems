@@ -1,16 +1,9 @@
-<div>
-    <div data-addclass-error="tag.errors['title'].length">
-        <label for="tag_title">Title:</label>
-
-        <div class="input">
-            <input data-bind="tag.title" name="tag[title]" id="tag_title" />
-        </div>
-    </div>
-    <div data-addclass-error="tag.errors['description'].length">
-        <label for="tag_description">Description:</label>
-
-        <div class="input">
-            <textarea data-bind="tag.description" id="tag_description" name="tag[description]"></textarea>
-        </div>
-    </div>
-</div>
+%div
+  %div{:data => {"addclass-error" => "tag.errors['title'].length"}}
+    %label{:for => "tag_title"} Title:
+    .input
+      %input#tag_title{:name => "tag[title]", :data => {"bind" => "tag.title"}}/
+  %div{:data => {"addclass-error" => "tag.errors['description'].length"}}
+    %label{:for => "tag_description"} Description:
+    .input
+      %textarea#tag_description{:name => "tag[description]", :data => {"bind" => "tag.description"}}
