@@ -4,6 +4,8 @@ class Ems.ArticlesController extends Batman.Controller
   channels: null
   suggestTags: new Batman.Set
   allTags: null
+  tags: new Batman.Set
+  
 
   index: (params) ->
 
@@ -48,10 +50,6 @@ class Ems.ArticlesController extends Batman.Controller
     # We need to wait a while for the tags to be loaded
     setTimeout(=>
       @set 'tags', @get('article.tags')
-    , 1000)
-    # We need to wait a while for the tags to be loaded
-    setTimeout(=>
-      @set 'related', @get('article.related')
     , 1000)
 
   update: ->
