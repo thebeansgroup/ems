@@ -34,5 +34,12 @@ module Ems
       self.content_disposition ||= :markdown
     end
     
+    #
+    # @param options
+    def as_json(options={})
+      super( options.merge( :include => [ :channels, :tags ] ) )
+    end
+    
+    
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403133528) do
+ActiveRecord::Schema.define(:version => 20120403151755) do
 
   create_table "ems_articles", :force => true do |t|
     t.string   "slug"
@@ -89,6 +89,13 @@ ActiveRecord::Schema.define(:version => 20120403133528) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "ems_channels_news", :id => false, :force => true do |t|
+    t.integer "channel_id", :null => false
+    t.integer "news_id",    :null => false
+  end
+
+  add_index "ems_channels_news", ["channel_id", "news_id"], :name => "index_ems_channels_news_on_channel_id_and_news_id", :unique => true
+
   create_table "ems_news", :force => true do |t|
     t.string   "slug"
     t.string   "title"
@@ -120,6 +127,13 @@ ActiveRecord::Schema.define(:version => 20120403133528) do
   end
 
   add_index "ems_news_reports", ["news_id", "report_id"], :name => "index_ems_news_reports_on_news_id_and_report_id", :unique => true
+
+  create_table "ems_news_tags", :id => false, :force => true do |t|
+    t.integer "news_id", :null => false
+    t.integer "tag_id",  :null => false
+  end
+
+  add_index "ems_news_tags", ["news_id", "tag_id"], :name => "index_ems_news_tags_on_news_id_and_tag_id", :unique => true
 
   create_table "ems_reports", :force => true do |t|
     t.string   "slug"

@@ -1,0 +1,34 @@
+#publish.first
+  .details
+    %h2.label Status
+    %select{:name => "status", :data => {"bind" => "news.status"}}
+      %option{:data => {"bind" => "status", "bind-value" => "status", "foreach-status" => "news.status | getAvailableStatus"}}
+  .details
+    %h2.label Publish from
+    %input{:placeholder => "Format: dd/mm/yyyy hh:mm", :data => {"bind" => "news.publish_from"}}
+#channel
+  %div{:data => {"partial" => "news/_channels"}}
+%div
+  %div
+    %h2 Meta stuff
+    %label{:for => "metaTitle"} Title
+    %input#metaTitle{:style => "display:none", :type => "text", :data => {"bind" => "news.meta_title"}}
+      #metaTitleEditable{:data => {"bind" => "news.meta_title"}}
+      %label{:for => "slug"} URL
+      %input#slug{:style => "display:none", :type => "text", :data =>{"bind" => "news.slug"}}
+        #slugEditable{:data => {"bind" => "news.slug"}}
+        %label{:for => "metaDescription"} Description
+        %textarea#metaDescription{:cols => "30", :rows => "4", :style => "display:none", :data => {"bind" => "news.meta_description"}}
+        #metaDescriptionEditable{:data => {"bind" => "news.meta_description"}}
+#switches
+  .details
+    %label{:for => "comment"} Comments
+    %input#comment{:name => "comment", :type => "checkbox", :data => {"bind" => "news.comment"}}
+    %br
+    %label{:for => "hot"} Hot News
+    %input#hot{:name => "hot", :type => "checkbox", :data => {"bind" => "news.hot"}}
+    %br
+    %label{:for => "featured"} Featured News
+    %input#featured{:name => "featured", :type => "checkbox", :data => {"bind" => "news.featured"}}
+#tag
+  %div{:data => {"partial" => "tags/_selector"}}

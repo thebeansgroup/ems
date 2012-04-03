@@ -35,15 +35,17 @@ class Ems extends Batman.App
   # article routes
   @route '/articles/:category/new', 'articles#new', resource: 'articles', action: 'new'
   @route '/articles/:category/:id/edit', 'articles#edit', resource: 'articles', action: 'edit'
-
+  @route '/articles/:category', 'articles#list', resource: 'articles', action: 'edit'
+  
   # news routes
   @route '/news/:category/new', 'news#new', resource: 'news', action: 'new'
+  @route '/news/:category/:id/edit', 'news#edit', resource: 'news', action: 'edit'
+  @route '/news/:category', 'news#index', resource: 'news', action: 'index'
 
   # report routes
   @route '/reports/:category/new', 'reports#new', resource: 'reports', action: 'new'
-
-  # series routes
-  @route '/series/:category/new', 'series#new', resource: 'series', action: 'new'
+  @route '/reports/:category/:id/edit', 'reports#edit', resource: 'reports', action: 'edit'
+  @route '/reports/:category', 'reports#index', resource: 'reports', action: 'index'
 
   # tags routes
   @resources 'tags'
