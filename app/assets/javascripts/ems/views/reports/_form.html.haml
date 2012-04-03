@@ -1,0 +1,14 @@
+.columnOne
+  #mainContent
+    #report.contentBox
+      .inputBlock
+        %label{:for => "report_title"} Report Title
+        %input#report_title{ :name => "report[title]", :type => "text", :data => {"bind" => "report.title"}}
+          .inputBlock
+            %label{:for => "report_standfirst"} Standfirst
+            %textarea#report_standfirst{:name => "report[standfirst]", :rows => "4", :cols => "30", :data => {"bind" => "report.standfirst"}}
+          .inputBlock
+            %label{:for => "report_content"} Content
+            %textarea#report_content{:name => "report[content]", :data => {"bind" => "report.content"}}
+.columnTwo.sidebar
+  %div{:data => {"partial" => "reports/_sidebar"}}

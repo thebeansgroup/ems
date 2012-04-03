@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403151755) do
+ActiveRecord::Schema.define(:version => 20120403161933) do
 
   create_table "ems_articles", :force => true do |t|
     t.string   "slug"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(:version => 20120403151755) do
 
   add_index "ems_channels_news", ["channel_id", "news_id"], :name => "index_ems_channels_news_on_channel_id_and_news_id", :unique => true
 
+  create_table "ems_channels_reports", :id => false, :force => true do |t|
+    t.integer "channel_id", :null => false
+    t.integer "report_id",  :null => false
+  end
+
+  add_index "ems_channels_reports", ["channel_id", "report_id"], :name => "index_ems_channels_reports_on_channel_id_and_report_id", :unique => true
+
   create_table "ems_news", :force => true do |t|
     t.string   "slug"
     t.string   "title"
@@ -160,6 +167,13 @@ ActiveRecord::Schema.define(:version => 20120403151755) do
   end
 
   add_index "ems_reports_reports", ["report_id", "related_id"], :name => "index_ems_reports_reports_on_report_id_and_related_id", :unique => true
+
+  create_table "ems_reports_tags", :id => false, :force => true do |t|
+    t.integer "reports_id", :null => false
+    t.integer "tag_id",     :null => false
+  end
+
+  add_index "ems_reports_tags", ["reports_id", "tag_id"], :name => "index_ems_reports_tags_on_reports_id_and_tag_id", :unique => true
 
   create_table "ems_roles", :force => true do |t|
     t.string   "name"

@@ -10,7 +10,6 @@ class Ems.Article extends Batman.Model
   @hasMany 'reports', { saveInline: false, autoload: false }
   @hasMany 'news', { saveInline: false, autoload: false }
 
-
   channel_ids: null
   tag_ids: null
   selectedChannels: null

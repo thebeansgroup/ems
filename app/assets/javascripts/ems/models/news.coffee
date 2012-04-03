@@ -20,18 +20,18 @@ class Ems.News extends Batman.Model
   @encode "publish_from", "created_at", "updated_at", Batman.Encoders.railsDate
 
   @encode 'channel_ids',
-    encode: (channelIds, name, object, article) ->
+    encode: (channelIds, name, object, news) ->
       channelIds ||= []
-      channels =  article.get('channels')
+      channels =  news.get('channels')
       if channels
         channelIds.push channel.id for channel in channels.toArray()
 
       return channelIds
       
   @encode 'tag_ids',
-    encode: (tagIds, name, object, article) ->
+    encode: (tagIds, name, object, news) ->
       tagIds ||= []
-      tags =  article.get('tags')
+      tags =  news.get('tags')
       if tags
         tagIds.push tag.id for tag in tags.toArray()
 

@@ -4,6 +4,7 @@ class Ems.NewsController extends Batman.Controller
     channels: null
     suggestTags: new Batman.Set
     allTags: null
+    selectedChannels: []
     tags: new Batman.Set
   
 
@@ -50,7 +51,13 @@ class Ems.NewsController extends Batman.Controller
       # We need to wait a while for the tags to be loaded
       setTimeout(=>
         @set 'tags', @get('news.tags')
-      , 1000)
+      , 100)
+      
+      setTimeout(=>
+        channels = @get 'news.channels'
+        if channels
+          @get('selectedChannels').push channel.id for channel in channels.toArray()
+      , 100)
 
     update: ->
       @get('news').save (err) =>
