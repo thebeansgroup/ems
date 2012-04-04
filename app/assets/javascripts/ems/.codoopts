@@ -1,0 +1,8 @@
+--readme    README.md
+--private
+--quiet
+--output-dir  ../../../../doc/coffeescript/ems
+./
+-
+../../../../MIT-LICENSE
+CHANGELOG.md
