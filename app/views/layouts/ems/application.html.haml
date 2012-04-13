@@ -14,7 +14,7 @@
         %h1{:data => {"bind" => "window.Ems.title"}}
         %ul.sf-menu
           %li.firstSub{:data => {"foreach-nav" => "window.Ems.navLinks"}}
-            %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href"}}
+            %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href", "addclass-selected" => "nav.selected"}}
     #main.container
       %p#flashnotice.alert-message.success{:data => {"showif" => "Ems.flash.success.length"}}
         %a.close{:href => "#", :onclick => "$('#flashnotice').hide(); return false"} ×
