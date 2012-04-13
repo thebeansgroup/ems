@@ -11,7 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/prototype.js
+  - public/javascripts/jquery.js
   - public/javascripts/effects.js
   - public/javascripts/controls.js
   - public/javascripts/dragdrop.js
@@ -56,7 +56,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
-  - '**/*[sS]pec.js'
+  - '**/*_spec.js'
 
 # src_dir
 #
