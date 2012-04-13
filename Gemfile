@@ -13,6 +13,7 @@ gem 'haml'
 gem 'json'
 gem 'cancan'
 gem 'kramdown'
+gem 'arthur'
 
 # Declare any dependencies that are still in development here instead of in
 # your .gemspec. These might include edge Rails or gems from your path or
@@ -20,19 +21,20 @@ gem 'kramdown'
 # your gem to rubygems.org.
 
 group :development, :test do
-  gem  'growl'
+  gem 'growl'
+  gem 'foreman'
+  gem 'guard'
+  gem 'guard-rails', :git => 'git://github.com/thebeansgroup/guard-rails.git', :branch => 'engine-support'
+  # gem 'guard-jasmine'
+  gem 'guard-coffeescript'
+  gem 'guard-livereload'
   gem 'spork'
   gem 'jasmine'
+  # gem 'jasminerice'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-end
-
-group :development do
   gem 'kss-rails'
-  gem 'guard'
-  gem 'guard-rails'
-  gem 'foreman'
 end
 
 group :assets do
