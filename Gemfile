@@ -12,7 +12,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'json'
 gem 'cancan'
-gem 'kramdown'
+gem 'kramdown', :git => 'git://github.com/thebeansgroup/kramdown.git', :branch => 'bean-kramdown'
 gem 'arthur'
 
 # Declare any dependencies that are still in development here instead of in
