@@ -3,6 +3,6 @@
   %h2
     %a{:data => {"bind" => "channel.name", "route" => "channel"}}
   %p.details-link
-    %a.btn{:data => {"route" => "channel/edit"}} Edit
+    %a.btn{:data => {"route" => "channel | routeToAction 'edit'"}} Edit
   %p.details-link
     %a{:data => {"event-click" => "channel.destroy"}} Delete

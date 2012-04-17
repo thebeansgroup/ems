@@ -4,21 +4,20 @@ class Ems extends Batman.App
 
   @title = "studentbeans.com EMS"
 
-  Batman.View::prefix = 'assets/ems/views/'
+  Batman.ViewStore.prefix = 'assets/ems/views/'
 
   @navLinks =
   [
-    href: "/ems/#!/category/fun-stuff"
+    href: "/ems/#!/categories/fun-stuff"
     text: "Fun stuff"
-    selected : true
   ,
-    href: "/ems/#!/category/student-money"
+    href: "/ems/#!/categories/student-money"
     text: "Student money"
   ,
-    href: "/ems/#!/category/student-finance"
+    href: "/ems/#!/categories/student-finance"
     text: "Student finance"
   ,
-    href: "/ems/#!/category/extra"
+    href: "/ems/#!/categories/extra"
     text: "Extra"
   ,
     href: "/ems/#!/more"

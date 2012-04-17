@@ -6,7 +6,7 @@ source "http://rubygems.org"
 gemspec
 
 gem "jquery-rails"
-gem 'batman-rails'
+gem 'batman-rails', :git => 'git://github.com/thebeansgroup/batman-rails.git', :branch => 'batman-0.9.0'
 gem "friendly_id"
 gem 'mysql2'
 gem 'haml'
