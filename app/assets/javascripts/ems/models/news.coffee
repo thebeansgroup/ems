@@ -1,4 +1,4 @@
-class Ems.News extends Batman.Model
+class Ems.News extends Ems.Base
   @storageKey: 'news'
   @persist Batman.RailsStorage
 

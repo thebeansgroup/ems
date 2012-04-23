@@ -1,4 +1,4 @@
-class Ems.Channel extends Batman.Model
+class Ems.Channel extends Ems.Base
   @global yes
   @storageKey: 'channels'
   @persist Batman.RailsStorage

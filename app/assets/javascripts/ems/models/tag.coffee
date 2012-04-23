@@ -1,4 +1,4 @@
-class Ems.Tag extends Ems.Model
+class Ems.Tag extends Ems.Base
   @global yes
   @persist Batman.RailsStorage
   @url = "/ems/tags"

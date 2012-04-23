@@ -1,4 +1,4 @@
-class Ems.Category extends Batman.Model
+class Ems.Category extends Ems.Base
   @global yes
   @storageKey: 'categories'
   @persist Batman.RailsStorage
