@@ -35,7 +35,7 @@ class Ems extends Batman.App
   # article routes
   @route '/articles/:category/new', 'articles#new', resource: 'articles', action: 'new'
   @route '/articles/:category/:id/edit', 'articles#edit', resource: 'articles', action: 'edit'
-  @route '/articles/:category', 'articles#list', resource: 'articles', action: 'edit'
+  @route '/articles/:category', 'articles#index', resource: 'articles', action: 'edit'
   
   # news routes
   @route '/news/:category/new', 'news#new', resource: 'news', action: 'new'
