@@ -9,7 +9,12 @@ class Ems.ArticlesController extends Batman.Controller
   
 
   index: (params) ->
-
+    @set 'categorySlug', params.category
+    filters = {'category_slug':params.category}
+    Ems.Article.load {'filters':filters}, (err, articles) =>
+      throw err if err
+      @set 'articles', Ems.Article.get('loaded') 
+      
   show: (params) ->
 
   # New action, setup all objects needed by the template.

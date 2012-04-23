@@ -1,2 +1,5 @@
-%h1 Articles#index
-%p Find me in app/assets/javascript/ems/views/articles/index.html
+.row
+  #content.span10
+    %ul#listings
+      %li{:data => {"foreach-article" => "articles"}}
+        .channel.row{:data => {"partial" => "articles/_article"}}

@@ -1,0 +1,8 @@
+.span8
+  %p.date{:data => {"bind" => "article.created_at | prettyDate"}}
+  %h2
+    %a{:data => {"bind" => "article.title", "route" => "article"}}
+  %p.details-link
+    %a.btn{:data => {"route" => "article | routeTo {'name':'articlesEdit','args':{'category':'=article.category.slug'}}"}} Edit
+  %p.details-link
+    %a{:data => {"event-click" => "article.destroy"}} Delete
