@@ -15,7 +15,7 @@ module Ems
     #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
 
     # relations
-    has_one :category
+    belongs_to :category
     accepts_nested_attributes_for :category
     has_and_belongs_to_many :channels, :join_table => 'ems_articles_channels'
     accepts_nested_attributes_for :channels
