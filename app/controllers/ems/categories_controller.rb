@@ -22,11 +22,7 @@ module Ems
     def show
       # Because we can get categories either by ID or by their slug we try to first get the category by casting the
       # param[:id] to an Integer, when that fails we try to retrieve it by slug
-     begin
-        @category = Category.find(Integer(params[:id]))
-      rescue
-        @category = Category.where('slug' => params[:id])
-      end
+      @category = Category.find(Integer(params[:id]))
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @category }
