@@ -8,11 +8,15 @@ module Ems
     # after methods
     after_initialize :init
 
-    # Validators
-    validates_uniqueness_of :slug
-    validates :slug, :presence => true
-    #validates_inclusion_of :status, :in => [ :draft, :pending, :live ]
-    #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
+    # # Validators
+    # if get 'status' === :live
+    #   validates_uniqueness_of :slug
+    #   validates :slug, :presence => true
+    # else
+    #   validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "%s is not a valid content disposition"
+    #   validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "%s is not a valid status"
+    # end
+    
 
     # relations
     belongs_to :category
