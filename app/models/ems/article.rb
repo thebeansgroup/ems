@@ -39,28 +39,28 @@ module Ems
 
     # Custom getter for status attribute to emulate ENUMs
     # @return [Symbol] status currently assigned to the attribute
-    #def status
-    #  read_attribute(:status).to_sym
-    #end
+    def status
+        read_attribute(:status).to_sym if read_attribute :status
+    end
 
     # Custom setter for status attribute to emulate ENUMs
     # @param [Symbol] value to give the status attribute
-    #def status= (value)
-    #  write_attribute(:status, value.to_s)
-    #end
+    def status= (value)
+        write_attribute(:status, value.to_s)
+    end
 
     # Custom getter for content_disposition attribute to emulate ENUMs
     # @return [Symbol] content_disposition currently assigned to the attribute
-    #def content_disposition
-    #  read_attribute(:content_disposition)
     #  read_attribute(:content_disposition).to_sym
-    #end
+    def content_disposition
+         read_attribute(:content_disposition).to_sym if read_attribute :content_disposition
+    end
 
     # Custom setter for content_disposition attribute to emulate ENUMs
     # @param [Symbol] value to give the content_disposition attribute
-    #def content_disposition= (value)
-    #  write_attribute(:content_disposition, value.to_s)
-    #end
+    def content_disposition= (value)
+     write_attribute(:content_disposition, value.to_s)
+    end
 
     #
     # @param options
