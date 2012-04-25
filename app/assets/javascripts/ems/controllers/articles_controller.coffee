@@ -23,18 +23,26 @@ class Ems.ArticlesController extends Batman.Controller
     # give the article the correct category
     # @todo we need to be able to retrieve the category by its slug from the server rather than going round the houses
     # like its currently done
-    Ems.Category.load (err, cats) =>
+    @set 'category', Ems.Category.find parseInt(params.categoryId), (err) =>
+      @redirect '/404' if err?.status is 404
       throw err if err
-      # indicator to let us know if we got a valid category slug
-      found = false
-      # iterate through returned category and check if the result returned includes one with our slug
-      for cat in cats
-        if(cat.get('slug') == params.category)
-          found = true
-          @get('article').set('category', cat)
-          @set 'channels', @get 'article.category.channels'
-      # WHOOPS, we dont seems to have a valid slug or atleast there is no category on the server with this slug
-      @redirect '/404' unless found
+      
+      @set 'channels', new Batman.Set
+      @observe 'category', (category, oldCategory)=>
+        @set 'article.category', newVal 
+        @set 'channels', @get 'category.channels'
+      
+      
+      # # indicator to let us know if we got a valid category slug
+      # found = false
+      # # iterate through returned category and check if the result returned includes one with our slug
+      # for cat in cats
+      #   if(cat.get('slug') == params.category)
+      #     found = true
+      #     @get('article').set('category', cat)
+      #     @set 'channels', @get 'article.category.channels'
+      # # WHOOPS, we dont seems to have a valid slug or atleast there is no category on the server with this slug
+      # @redirect '/404' unless found
 
   # Lets go and persist the new article on the server
   create: (params) ->
