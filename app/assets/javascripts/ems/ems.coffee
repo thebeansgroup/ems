@@ -32,29 +32,23 @@ class Ems extends Batman.App
   @root 'ems#index'
   @route '404', 'ems#fourohfour'
 
-  # article routes
-  @route '/articles/:category/new', 'articles#new', resource: 'articles', action: 'new'
-  @route '/articles/:category/:id/edit', 'articles#edit', resource: 'articles', action: 'edit'
-  @route '/articles/:category', 'articles#index', resource: 'articles', action: 'edit'
-  
-  # news routes
-  @route '/news/:category/new', 'news#new', resource: 'news', action: 'new'
-  @route '/news/:category/:id/edit', 'news#edit', resource: 'news', action: 'edit'
-  @route '/news/:category', 'news#index', resource: 'news', action: 'index'
-
-  # report routes
-  @route '/reports/:category/new', 'reports#new', resource: 'reports', action: 'new'
-  @route '/reports/:category/:id/edit', 'reports#edit', resource: 'reports', action: 'edit'
-  @route '/reports/:category', 'reports#index', resource: 'reports', action: 'index'
+  # category routes
+  @resources 'categories', ->
+    # Article routes
+    @resources 'articles', ->
+      @member 'article', 'preview', {action: 'preview'}
+    # News routes
+    @resources 'news', ->
+      @member 'news', 'preview', {action: 'preview'}
+    # Report routes
+    @resources 'reports', ->
+      @member 'report', 'preview', {action: 'preview'}    
 
   # tags routes
   @resources 'tags'
 
   # channel routes
   @resources 'channels'
-
-  # category routes
-  @resources 'categories'
 
   # accessible via
 
