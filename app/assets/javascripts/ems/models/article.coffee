@@ -16,7 +16,7 @@ class Ems.Article extends Ems.Base
   availableStatus: null
 
   @encode 'id', 'slug', 'title', 'standfirst', 'content', 'hot', "featured", "toc", "comment", "meta_title",
-    "meta_description", "publish_from", "status", "content_disposition", "created_at", "updated_at"
+    "meta_description", "publish_from", "status", "content_disposition", "created_at", "updated_at", "image564x252_file_name"
   @encode "publish_from", "created_at", "updated_at", Batman.Encoders.railsDate
 
   @encode 'channel_ids',

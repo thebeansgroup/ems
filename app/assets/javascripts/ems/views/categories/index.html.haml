@@ -1,2 +1,5 @@
-%h1 Category#index
-%p Find me in app/assets/javascript/ems/views/categories/index.html
+.row
+  #content.span10
+    %ul#listings
+      %li{:data => {"foreach-category" => "Category.all"}}
+        .channel.row{:data => {"partial" => "categories/_category"}}

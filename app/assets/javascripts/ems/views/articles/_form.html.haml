@@ -10,5 +10,8 @@
           .inputBlock
             %label{:for => "article_content"} Content
             %textarea#article_content{:name => "article[content]", :data => {"bind" => "article.content"}}
+          .inputBlock
+            %p{:data=>{"bind"=>"article.image564x252_file_name"}}
+            %input{:type => "file",:data=>{"bind"=>"article.:image564x252"}}
 .columnTwo.sidebar
   %div{:data => {"partial" => "articles/_sidebar"}}

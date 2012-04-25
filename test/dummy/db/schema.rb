@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
     t.string   "status"
     t.string   "content_disposition"
     t.integer  "category_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "image564x252_file_name"
+    t.string   "image564x252_content_type"
+    t.integer  "image564x252_file_size"
+    t.datetime "image564x252_updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "ems_articles_articles", :id => false, :force => true do |t|
@@ -169,11 +173,11 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
   add_index "ems_reports_reports", ["report_id", "related_id"], :name => "index_ems_reports_reports_on_report_id_and_related_id", :unique => true
 
   create_table "ems_reports_tags", :id => false, :force => true do |t|
-    t.integer "reports_id", :null => false
-    t.integer "tag_id",     :null => false
+    t.integer "report_id", :null => false
+    t.integer "tag_id",    :null => false
   end
 
-  add_index "ems_reports_tags", ["reports_id", "tag_id"], :name => "index_ems_reports_tags_on_reports_id_and_tag_id", :unique => true
+  add_index "ems_reports_tags", ["report_id", "tag_id"], :name => "index_ems_reports_tags_on_report_id_and_tag_id", :unique => true
 
   create_table "ems_roles", :force => true do |t|
     t.string   "name"
