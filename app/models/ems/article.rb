@@ -51,7 +51,6 @@ module Ems
 
     # Custom getter for content_disposition attribute to emulate ENUMs
     # @return [Symbol] content_disposition currently assigned to the attribute
-    #  read_attribute(:content_disposition).to_sym
     def content_disposition
          read_attribute(:content_disposition).to_sym if read_attribute :content_disposition
     end
