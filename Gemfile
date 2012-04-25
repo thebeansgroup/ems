@@ -14,6 +14,7 @@ gem 'json'
 gem 'cancan'
 gem 'kramdown', :git => 'git://github.com/thebeansgroup/kramdown.git', :branch => 'bean-kramdown'
 gem 'paperclip'
+gem 'aws-sdk'
 
 # Declare any dependencies that are still in development here instead of in
 # your .gemspec. These might include edge Rails or gems from your path or
