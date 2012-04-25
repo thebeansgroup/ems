@@ -2,4 +2,6 @@
   #content.span10
     %ul#listings
       %li{:data => {"foreach-category" => "Category.all"}}
-        .channel.row{:data => {"partial" => "categories/_category"}}
+        .category.row{:data => {"partial" => "categories/_category"}}
+  
+    / %p{:data => {"foreach-category" => "Category.all", "bind" => "category.name"}}
