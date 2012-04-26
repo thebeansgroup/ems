@@ -1,11 +1,36 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  slug: MyString
-  name: MyString
-  timestamps: MyString
-
-two:
-  slug: MyString
-  name: MyString
-  timestamps: MyString
+stats_and_data:
+  slug: stats-and-data
+  name: Stats & data
+  categories: insights
+  
+best_practise:
+  slug: best-practise
+  name: Best Practise
+  categories: insights
+  
+trends_and_culture:
+  slug: trends-and-culture
+  name: Trends & Culture
+  categories: insights
+    
+resources:
+  slug: resources
+  name: Resources
+  categories: insights
+    
+opinion_and_interviews:
+  slug: opinion-and-interviews
+  name: Opinion & Interviews
+  categories: insights
+    
+events:
+  slug: events
+  name: Events
+  categories: insights
+    
+free-reports:
+  slug: free-reports
+  name: Free Reports
+  categories: insights

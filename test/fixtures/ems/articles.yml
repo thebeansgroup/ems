@@ -1,33 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  slug: MyString
-  title: MyString
-  standfirst: MyText
-  content: MyString
-  hot: false
+article_1:
+  slug: article-1
+  title: Article 1
+  standfirst: Article 1 - standfirst
+  content: Article 1 - content
+  hot: true
   featured: false
   toc: false
   comment: false
-  meta_title: MyString
-  meta_description: MyText
+  meta_title: Article 1
+  meta_description: Article 1 - standfirst
   publish_from: 2012-03-08 16:37:36
-  status: MyString
-  content_disposition: MyString
-  category_id: 1
-
-two:
-  slug: MyString
-  title: MyString
-  standfirst: MyText
-  content: MyString
-  hot: false
-  featured: false
-  toc: false
-  comment: false
-  meta_title: MyString
-  meta_description: MyText
-  publish_from: 2012-03-08 16:37:36
-  status: MyString
-  content_disposition: MyString
-  category_id: 1
+  status: live
+  content_disposition: markdown
+  category_id: <%= Fixtures.identify(:insights) %> 
+  # channels: stats_and_data, best_practise

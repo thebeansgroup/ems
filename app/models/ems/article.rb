@@ -30,10 +30,7 @@ module Ems
     has_and_belongs_to_many :news, :join_table => 'ems_articles_news'
     accepts_nested_attributes_for :news
     has_and_belongs_to_many :reports, :join_table => 'ems_articles_reports'
-    accepts_nested_attributes_for :reports
-    
-    has_attached_file :image564x252, :styles => { :image312x189 => "312x129", :image312x126 => "312x126", :image228x126 => "228x126" }
-    
+    accepts_nested_attributes_for :reports    
 
     # Method to make sure we have all our default values set on the object
     def init
