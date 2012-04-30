@@ -1,5 +1,5 @@
 .span8
-  %p.date{:data => {"bind" => "article.created_at | prettyDate"}}
+  %p.date{:data => {"bind" => "article.created_at"}}
   %h2
     %a{:data => {"bind" => "article.title", "route" => "article"}}
   %p.details-link
