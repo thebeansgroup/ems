@@ -1,7 +1,3 @@
-=begin
-
-=end
-
 module Ems
   class Tag < ActiveRecord::Base
     extend FriendlyId
