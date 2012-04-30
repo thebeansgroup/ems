@@ -32,8 +32,8 @@ module Ems
     has_and_belongs_to_many :reports, :join_table => 'ems_articles_reports'
     accepts_nested_attributes_for :reports
     # paperclip files
-    has_attached_file :image, :styles => { :image564x252 => "564x252", :image312x189 => "312x129", :image312x126 => "312x126", :image228x126 => "228x126" }
-    
+    has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126" }
+
 
     # Method to make sure we have all our default values set on the object
     def init
