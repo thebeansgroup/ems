@@ -70,6 +70,17 @@ module Ems
     def as_json(options={})
       super( options.merge( :include => [ :category, :channels, :tags ] ) )
     end
-
+    
+    # base queries
+    class << self
+      
+      def find_by_slug(slug)
+        Article.find :slug => slug
+      end
+      
+      def get_base_query(slug)
+        Article.joins(:category).where('ems_categories.slug' => slug)      
+      end
+    end
   end
 end
