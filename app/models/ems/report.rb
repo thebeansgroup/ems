@@ -14,7 +14,7 @@ module Ems
     #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
 
     # relations
-    has_one :category
+    belongs_to :category
     accepts_nested_attributes_for :category
     has_and_belongs_to_many :channels, :join_table => 'ems_channels_reports'
     accepts_nested_attributes_for :channels
@@ -40,6 +40,15 @@ module Ems
       super( options.merge( :include => [ :channels, :tags ] ) )
     end
     
-    
+    # base queries
+    class << self
+      
+      def get_base_query(slug)
+        self.joins(:category)
+        .where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")})
+        .where(:status => 'live')
+        .where('ems_categories.slug' => slug)
+      end
+    end    
   end
 end
