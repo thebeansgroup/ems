@@ -1,8 +1,8 @@
 .span8
   %p.date{:data => {"bind" => "article.created_at"}}
   %h2
-    %a{:data => {"bind" => "article.title", "route" => "article"}}
+    %a{:data => {"bind" => "article.title", "route" => "article | routeToAction 'edit'"}}
   %p.details-link
-    %a.btn{:data => {"route" => "article | routeTo {'name':'articlesEdit','args':{'category':'=article.category.slug'}}"}} Edit
+    %a.btn{:data => {"route" => "article | routeToAction 'edit'"}} Edit
   %p.details-link
     %a{:data => {"event-click" => "article.destroy"}} Delete
