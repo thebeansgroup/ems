@@ -74,12 +74,11 @@ module Ems
     # base queries
     class << self
       
-      def find_by_slug(slug)
-        Article.find :slug => slug
-      end
-      
       def get_base_query(slug)
-        Article.joins(:category).where('ems_categories.slug' => slug)      
+        self.joins(:category)
+        .where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")})
+        .where(:status => 'live')
+        .where('ems_categories.slug' => slug)
       end
     end
   end
