@@ -10,5 +10,11 @@
           .inputBlock
             %label{:for => "report_content"} Content
             %textarea#report_content{:name => "report[content]", :data => {"bind" => "report.content"}}
+          .inputBlock
+            %p image:
+            %input{:type => "file",:data=>{"bind"=>"report.image"}}
+          .inputBlock
+            %p report:
+            %input{:type => "file",:data=>{"bind"=>"report.report"}}
 .columnTwo.sidebar
   %div{:data => {"partial" => "reports/_sidebar"}}

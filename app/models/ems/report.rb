@@ -27,11 +27,42 @@ module Ems
     has_and_belongs_to_many :reports, :join_table => 'ems_reports_reports', :association_foreign_key => "related_id"
     accepts_nested_attributes_for :reports
     
-
+    # paperclip files
+    has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126" }
+    has_attached_file :report, :styles => { :report564x252 => "564x252#", :report312x189 => "312x189#", :report312x126 => "312x126", :report228x126 => "228x126" }
+    
     # Method to make sure we have all our default values set on the object
     def init
       self.status ||= :draft
       self.content_disposition ||= :markdown
+    end
+
+    # Custom getter for status attribute to emulate ENUMs
+    # @return [Symbol] status currently assigned to the attribute
+    def status
+        read_attribute(:status).to_sym if read_attribute :status
+    end
+
+    # Custom setter for status attribute to emulate ENUMs
+    # @param [Symbol] value to give the status attribute
+    def status= (value)
+        write_attribute(:status, value.to_s)
+    end
+
+    # Custom getter for content_disposition attribute to emulate ENUMs
+    # @return [Symbol] content_disposition currently assigned to the attribute
+    def content_disposition
+         read_attribute(:content_disposition).to_sym if read_attribute :content_disposition
+    end
+
+    # Custom setter for content_disposition attribute to emulate ENUMs
+    # @param [Symbol] value to give the content_disposition attribute
+    def content_disposition= (value)
+     write_attribute(:content_disposition, value.to_s)
+    end
+    
+    def content_as_html
+      Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
     
     #
