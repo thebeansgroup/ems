@@ -43,7 +43,7 @@ module Ems
     # base queries
     class << self
       
-      def get_base_query(slug)
+      def base_query(slug)
         self.joins(:category)
         .where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")})
         .where(:status => 'live')
