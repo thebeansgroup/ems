@@ -64,6 +64,10 @@ module Ems
     def content_disposition= (value)
      write_attribute(:content_disposition, value.to_s)
     end
+    
+    def content_as_html
+      Kramdown::Document.new(content, :input => "BeanKramdown").to_html
+    end
 
     #
     # @param options
