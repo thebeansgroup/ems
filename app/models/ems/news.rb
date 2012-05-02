@@ -27,11 +27,17 @@ module Ems
     has_and_belongs_to_many :reports, :join_table => 'ems_news_reports'
     accepts_nested_attributes_for :reports
     
+    has_attached_file :image, :styles => { :image228x126 => "228x126" }
+    
 
     # Method to make sure we have all our default values set on the object
     def init
       self.status ||= :draft
       self.content_disposition ||= :markdown
+    end
+    
+    def content_as_html
+      Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
     
     #
@@ -40,6 +46,14 @@ module Ems
       super( options.merge( :include => [ :channels, :tags ] ) )
     end
     
-    
+    # base queries
+    class << self
+      
+      def base_query(category)
+        self.where(:category_id => category.id)
+        .where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")})
+        .where(:status => 'live')
+      end
+    end    
   end
 end
