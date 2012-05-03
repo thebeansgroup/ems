@@ -20,11 +20,10 @@
 #= require batman/batman.rails
 
 #= require ems/ems
-
+#= require_tree ./helpers
 #= require ./models/base
 #= require_tree ./models
 #= require_tree ./controllers
-#= require_tree ./helpers
 #= require_tree ./views
 
 #= require_tree .
