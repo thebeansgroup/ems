@@ -5,7 +5,9 @@ module Ems
     def index
       if params[:channel_id]
         @categories = Category.joins(:channels).where('ems_categories_channels.channel_id' => params[:channel_id])
-      else
+      elsif params[:filters]
+        @categories = Ems::Category.where(params[:filters])
+      else        
         @categories = Category.all
       end
       respond_to do |format|
