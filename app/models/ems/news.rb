@@ -14,7 +14,7 @@ module Ems
     #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
 
     # relations
-    has_one :category
+    belongs_to :category
     accepts_nested_attributes_for :category
     has_and_belongs_to_many :channels, :join_table => 'ems_channels_news'
     accepts_nested_attributes_for :channels
@@ -48,11 +48,10 @@ module Ems
     
     # base queries
     class << self
-      
-      def base_query(category)
-        self.where(:category_id => category.id)
-        .where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")})
-        .where(:status => 'live')
+      def base_query(category=nil)
+        q = self.joins(:category).where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")}).where(:status => 'live')
+        q = q.where('ems_categories.id' => category.id) if category
+        return q
       end
     end    
   end
