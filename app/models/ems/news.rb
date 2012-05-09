@@ -5,9 +5,11 @@ module Ems
     friendly_id :title, use: :slugged
     
     searchable do
-      text :title
+      text :title, :stored => true
       text :standfirst, :stored => true
-      text :content, :stored => true, :more_like_this => true
+      text :content, :stored => true, :more_like_this => true do 
+        sanitize self.content_as_html.gsub(/(\n|\r)/, "")
+      end
       integer :category_id, :references => Category
     end
 
