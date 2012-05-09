@@ -9,7 +9,7 @@
             %textarea#article_standfirst{:name => "artile[standfirst]", :rows => "4", :cols => "30", :data => {"bind" => "article.standfirst"}}
           .inputBlock
             %label{:for => "article_content"} Content
-            %textarea#article_content{:name => "article[content]", :data => {"bind" => "article.content"}}
+            %textarea.wmd-input#wmd-input{:name => "article[content]", :data => {"bind" => "article.content"}}
           .inputBlock
             %input{:type => "file",:data=>{"bind"=>"article.image"}}
 .columnTwo.sidebar
