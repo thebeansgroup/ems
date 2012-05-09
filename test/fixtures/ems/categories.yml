@@ -1,6 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 insights:
-  slug: insights
+  id: 1
+  slug: youth-marketing-insights
   name: Insights
-  strapline: The thing that gives you insight
+  strapline: Insights
+news:
+  id: 2
+  slug: company-news
+  name: News
+  strapline: News

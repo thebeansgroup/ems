@@ -1,18 +1,224 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 article_1:
+  id: 1
   slug: article-1
   title: Article 1
   standfirst: Article 1 - standfirst
   content: Article 1 - content
   hot: true
-  featured: false
+  featured: true
   toc: false
   comment: false
   meta_title: Article 1
   meta_description: Article 1 - standfirst
-  publish_from: 2012-03-08 16:37:36
+  publish_from: <%= 5.day.ago.to_s(:db) %>
   status: live
   content_disposition: markdown
-  category_id: <%= Fixtures.identify(:insights) %> 
-  # channels: stats_and_data, best_practise
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+article_2:
+  id: 2
+  slug: article-2
+  title: Article 2
+  standfirst: Article 2 - standfirst
+  content: Article 2- content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Article 2
+  meta_description: Article 2- standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+article_3:
+  id: 3
+  slug: article-3
+  title: Article 3
+  standfirst: Article 3 - standfirst
+  content: |
+    Article 3 - content
+    
+    ?[twitter test](https://twitter.com/timbray/statuses/197705819876368384)
+    
+    Completing a student credit card application seems like a scary step, doesn’t it? But as long as you’re careful, know exactly how much you’ve spent and always pay back on time, there’s nothing to worry about. Student credit cards tend to have lower borrowing limits than normal credit cards so there is less risk of you losing control of your finances.
+    
+    **A student credit card can be good for your credit rating -** Having a student credit card is also a good way of boosting your credit rating - a file that contains a history of all your financial borrowing, including loans, credit cards and store cards. If you pay back everything on time and don’t go over your credit card limit, then there will be no black marks against your name and it will be easier to borrow money in the future. You know, for grown-up things like mortgages.
+    
+    ## Applying for a student credit card
+    
+    To be eligible for a student credit card you must:
+      
+    * Be eighteen years old. 
+    * Have a current account with the bank you’d like to get a credit card with.
+    
+    It is worth noting that not all high street banks offer student credit cards (find out which banks do, below), so you might need to open a new current account in case. 
+    
+    > You can find out more and apply for a student credit card online or, if you’d like to make sense of it all a bit more by speaking to a human, walk into your nearest branch and apply that way.
+    
+    ## Using student credit cards
+    
+    **Pay for items using chip and pin -** a credit card can be used in exactly the same way as a debit card, in that you can easily pay by chip and PIN, over the counter. You can also view your statement online and pay it off at any point at the click of a button.
+    
+    **Each month you’ll get a statement -** You’ll receive this in the post but providing you have internet banking, you’ll also be able to view an up-to-date copy online. Your statement will list all the things that you’ve paid for, using your student credit card.
+    
+    **Pay the minimum amount or more -** Each month, there will be a minimum amount that you have to pay, otherwise you will incur charges. You can pay the minimum monthly amount as and when you please, providing this is before the payment deadline. You will then incur interest on your remaining balance, at a rate set by the bank. This is known as APR.
+    
+    **Pay off the whole balance -** If you pay off your entire student credit card balance each month, before the assigned deadline, you’ve effectively borrowed that money for free.
+    
+    **Withdrawing cash costs! -** You can use your credit card to withdraw money from cash points but it is important that you try not to use this function. Not only are you taking out money that you don’t have but you will also be charged for each time you use your credit card at a hole-in-the-wall.
+    
+    ## Credit card Jargon
+    
+    Credit card lingo can be confusing but don’t let it get in the way of you finding the best deal. Here’s a quick reference list to use when you’re searching for the student credit card for you:
+    
+      ?[youtube test](http://www.youtube.com/watch?v=V4GgVleF2KQ)
+    
+      ?[flickr test](http://www.flickr.com/photos/batiks/6470586439)
+    
+      ?[slideshare test](http://www.slideshare.net/haraldf/business-quotes-for-2011)
+      
+    * **Annual fees:** This one is pretty self-explanatory. Most credit cards don’t have an annual fee anymore (except some top-end ones)  - there would have to be some seriously good benefits if you were going to get a student credit card with any fees.
+    
+    * **APR:**  APR stands for Annual Percentage Rate and it's used to describe the true cost of money borrowed via mortgages, loans or credit cards etc. These rates are listed by banks as TYPICAL and the actual borrowing rate can change depending on your own personal circumstances. In other words, it is totally up to the bank on what APR rate is agreed when you apply for your credit card.   _EXAMPLE: If you borrow £100 at an APR of 9%, you will pay £9 in interest and charges over the first year._
+    
+    * **Cash advances:** This is when you use your credit card to withdraw cash from your credit card account. As mentioned before, you will be charged for using you credit card in this way. Each card varies however the charge is normally around the £2.50 mark.
+    
+    * **Handling fee:** This is a charge that card companies add to your balance when you carry out certain transactions with your credit card, like when you use your card abroad.
+    
+    ## Student credit cards compared
+    
+    Choosing the right student credit card can be a bit of minefield so we’ve broken down some of the key aspects attributed to each of the high street student credit cards in the aim to make starting your uni life that little bit easier:
+      
+    | Bank | APR | Credit limit | Includes |
+    | :-----: | :-----: | :-----: | :----- |
+    | **[Halifax][1]** | 17.9% | £500 | Weekly text updates / Cover against fraud for online purchases / No interest charged if balance is paid in full by payment date |
+    | **[HSBC][2]** | 18.9% | £500 | Cover against fraud for online purchases / No interest charged on purchases for up to 56 days if statement balance is paid in full by payment date |
+    | **[Lloyds][3]** | 19.9% | £500 | Cover against fraud for online purchases / No interest charged on purchases for up to 56 days if statement balance is paid in full by payment date |
+    | **[Natwest][4]** | 18.9% | £500 | Discounts on Lonely planet, HP and more / Free DVD rentals / Access to Natwest Travel Service / Discounts on brands like Lonely planet, HP and Firebox.com / Cover against fraud with online purchases / No interest charged on purchases for up to 56 days if statement balance is paid in full by payment date |
+    | **[RBS][5]** | 18.9% | £500 | Discounts on Lonely planet, HP and more / Free DVD rentals / Access to Travel Service / Cover against fraud with online purchases / No interest charged on purchases for up to 56 days if statement balance is paid in full by payment date |
+    
+    [1]: http://www.halifax.co.uk/creditcards/other-cards/student-card/
+    [2]: http://www.hsbc.co.uk/1/2/interest-rates/credit-cards/student-credit-cards
+    [3]: http://www.lloydstsb.com/media/lloydstsb2004/pdfs/stuonlsimbox_0211.pdf
+    [4]: http://www.natwest.com/personal/students/g4/other-student-products/student-credit-card.ashx#tabs=section1
+    [5]: http://www.rbs.co.uk/personal/credit-cards/g1/student.ashx#tabs=section2
+    
+  hot: true
+  featured: true
+  toc: false
+  comment: false
+  meta_title: Article 3
+  meta_description: Article 3 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+article_4:
+  id: 4
+  slug: article-4
+  title: Article 4
+  standfirst: Article 4 - standfirst
+  content: Article 4 - content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Article 4
+  meta_description: Article 4 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+
+article_5:
+  id: 5
+  slug: article-5
+  title: Article 5
+  standfirst: Article 5 - standfirst
+  content: Article 5 - content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Article 5
+  meta_description: Article 5 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+
+article_6:
+  id: 6
+  slug: article-6
+  title: Article 6
+  standfirst: Article 6 - standfirst
+  content: Article 6 - content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Article 6
+  meta_description: Article 6 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+
+article_7:
+  id: 7
+  slug: article-7
+  title: Article 7
+  standfirst: Article 7 - standfirst
+  content: Article 7 - content
+  hot: true
+  featured: true
+  toc: false
+  comment: false
+  meta_title: Article 7
+  meta_description: Article 7 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+
+article_8:
+  id: 8
+  slug: article-8
+  title: Article 8
+  standfirst: Article 8 - standfirst
+  content: Article 8 - content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Article 8
+  meta_description: Article 8 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
