@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
     t.string   "status"
     t.string   "content_disposition"
     t.integer  "category_id"
-    t.string   "image564x252_file_name"
-    t.string   "image564x252_content_type"
-    t.integer  "image564x252_file_size"
-    t.datetime "image564x252_updated_at"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "ems_articles_articles", :id => false, :force => true do |t|
@@ -121,6 +121,10 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
     t.string   "status"
     t.string   "content_disposition"
     t.integer  "category_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
@@ -161,6 +165,14 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
     t.string   "status"
     t.string   "content_disposition"
     t.integer  "category_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "report_file_name"
+    t.string   "report_content_type"
+    t.integer  "report_file_size"
+    t.datetime "report_updated_at"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
