@@ -15,6 +15,7 @@ gem 'cancan'
 gem 'kramdown', :git => 'git://github.com/thebeansgroup/kramdown.git', :branch => 'bean-kramdown'
 gem "paperclip"
 gem "aws-sdk"
+gem 'sunspot_rails'
 
 # Declare any dependencies that are still in development here instead of in
 # your .gemspec. These might include edge Rails or gems from your path or
@@ -36,6 +37,8 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'kss-rails'
+  gem 'sunspot_solr'
+  gem 'progress_bar'
 end
 
 group :assets do

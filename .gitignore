@@ -10,4 +10,4 @@ ems*.gem
 .DS_Store
 Gemfile.lock
 public/javascripts
-test/dummy/public/system/ems/articles/images*
+test/dummy/public/system/ems/articles/images*test/dummy/solr/*

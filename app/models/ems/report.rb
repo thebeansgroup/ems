@@ -3,6 +3,13 @@ module Ems
     # use friendly_id to handle our slugs
     extend FriendlyId
     friendly_id :title, use: :slugged
+    
+    searchable do
+      text :title
+      text :standfirst, :stored => true
+      text :content, :stored => true, :more_like_this => true
+      integer :category_id, :references => Category
+    end
 
     # after methods
     after_initialize :init
