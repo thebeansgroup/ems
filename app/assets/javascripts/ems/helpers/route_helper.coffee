@@ -41,12 +41,18 @@ Batman.mixin Batman.Filters,
       args = opts.args
     # now lets try and get the route
     if routeName
-      route = Batman.currentApp.get('routes').routeMap.childrenByName[routeName]
+      route = Batman.currentApp.get("routes.#{routeName}")
     else
       Batman.developer.error("Could not gather routeName from opts '#{opts}'")
     # if we have the route lets continue
     if route
-      namedArgs = route.collectionRoute.namedArguments
+      
+      if route.collectionRoute
+        finalRoute = route.collectionRoute
+        namedArgs = finalRoute.namedArguments
+      else
+        finalRoute = route.get('routeMap.memberRoute')
+        namedArgs = finalRoute.namedArguments
       if namedArgs
         specialArgs = {}
         specialArgs[obj] = prop.replace('=', '') for obj, prop of args when typeof(prop) is 'string' and prop.indexOf('=') is 0
@@ -60,4 +66,4 @@ Batman.mixin Batman.Filters,
     else
       Batman.developer.error("Could not find route '#{routeName}'")
     # all done, lets get the route's URI
-    route.collectionRoute.pathFromParams(args)
+    finalRoute.pathFromParams(args)

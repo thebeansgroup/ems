@@ -10,6 +10,11 @@ class Ems extends Batman.App
   [
     href: "/ems/#!/categories/fun-stuff"
     text: "Fun stuff"
+    secondary:
+      [
+        href: ""
+        text: ""
+      ]
   ,
     href: "/ems/#!/categories/student-money"
     text: "Student money"

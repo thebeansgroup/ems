@@ -60,7 +60,6 @@ class Ems.NewsController extends Batman.Controller
       throw err if err
     @get('news.category').fetch (err, category) =>
       throw err if err
-      console?.log category
       @set 'channels', category.get 'channels'
     # We need to wait a while for the tags to be loaded    
     setTimeout(=>

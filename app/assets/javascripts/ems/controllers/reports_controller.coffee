@@ -9,6 +9,11 @@ class Ems.ReportsController extends Batman.Controller
   
 
     index: (params) ->
+      @set 'categorySlug', params.category
+      filters = {'category_slug':params.category}
+      Ems.Report.load {'filters':filters}, (err, reports) =>
+        throw err if err
+        @set 'reports', Ems.Report.get('loaded') 
 
     show: (params) ->
 
