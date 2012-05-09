@@ -1,0 +1,78 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+report_1:
+  id: 1
+  slug: report-1
+  title: Report 1
+  standfirst: Report 1 - standfirst
+  content: Report 1 - content
+  hot: true
+  featured: true
+  toc: false
+  comment: false
+  meta_title: Report 1
+  meta_description: Report 1 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+report_2:
+  id: 2
+  slug: report-2
+  title: Report 2
+  standfirst: Report 2 - standfirst
+  content: Report 2- content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Report 2
+  meta_description: Report 2- standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+
+report_3:
+  id: 3
+  slug: report-3
+  title: Report 3
+  standfirst: Report 3 - standfirst
+  content: Report 3 - content
+  hot: true
+  featured: true
+  toc: false
+  comment: false
+  meta_title: Report 3
+  meta_description: Report 3 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+    
+report_4:
+  id: 4
+  slug: report-4
+  title: Report 4
+  standfirst: Report 4 - standfirst
+  content: Report 4 - content
+  hot: true
+  featured: false
+  toc: false
+  comment: false
+  meta_title: Report 4
+  meta_description: Report 4 - standfirst
+  publish_from: <%= 5.day.ago.to_s(:db) %>
+  status: live
+  content_disposition: markdown
+  category_id: 1
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 5.day.ago.to_s(:db) %>
+  

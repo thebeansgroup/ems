@@ -1,0 +1,12 @@
+one:
+  report_id: 1
+  channel_id: 7
+two:
+  report_id: 2
+  channel_id: 7
+three:
+  report_id: 3
+  channel_id: 7
+four:
+  report_id: 4
+  channel_id: 7

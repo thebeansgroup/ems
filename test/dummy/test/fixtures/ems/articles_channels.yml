@@ -1,0 +1,30 @@
+one:
+  article_id: 1
+  channel_id: 1
+two:
+  article_id: 1
+  channel_id: 2
+three:
+  article_id: 2
+  channel_id: 2
+four:
+  article_id: 3
+  channel_id: 1
+five:
+  article_id: 4
+  channel_id: 1
+six:
+  article_id: 5
+  channel_id: 1
+seven:
+  article_id: 6
+  channel_id: 1
+eight:
+  article_id: 7
+  channel_id: 1
+nine:
+  article_id: 8
+  channel_id: 1
+ten:
+  article_id: 8
+  channel_id: 2

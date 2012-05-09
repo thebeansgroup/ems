@@ -1,0 +1,30 @@
+one:
+  news_id: 1
+  channel_id: 8
+two:
+  news_id: 1
+  channel_id: 9
+three:
+  news_id: 2
+  channel_id: 10
+four:
+  news_id: 3
+  channel_id: 8
+five:
+  news_id: 4
+  channel_id: 9
+six:
+  news_id: 5
+  channel_id: 10
+seven:
+  news_id: 6
+  channel_id: 8
+eight:
+  news_id: 7
+  channel_id: 9
+nine:
+  news_id: 8
+  channel_id: 10
+ten:
+  news_id: 8
+  channel_id: 8

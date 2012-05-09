@@ -1,0 +1,42 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+stats_and_data:
+  id: 1
+  slug: stats-and-data
+  name: Stats & data  
+best_practise:
+  id: 2
+  slug: best-practise
+  name: Best Practise  
+trends_and_culture:
+  id: 3
+  slug: trends-and-culture
+  name: Trends & Culture    
+resources:
+  id: 4
+  slug: resources
+  name: Resources    
+opinion_and_interviews:
+  id: 5
+  slug: opinion-and-interviews
+  name: Opinion & Interviews    
+events:
+  id: 6
+  slug: events
+  name: Events    
+free-reports:
+  id: 7
+  slug: free-reports
+  name: Free Reports
+campaigns:
+  id: 8
+  slug: campaigns
+  name: Campaigns
+announcements:
+  id: 9
+  slug: announcements
+  name: Announcements
+team_news:
+  id: 10
+  slug: team-news
+  name: Team News

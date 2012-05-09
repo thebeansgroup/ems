@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  title: Tag 1
+  slug: tag-1
+  description: Tag 1 description
+
+two:
+  id: 2
+  title: Tag 2
+  slug: tag-2
+  description: Tag 2 description
+
+three:
+  id: 3
+  title: Tag 3
+  slug: tag-3
+  description: Tag 3 description
+
+four:
+  id: 4
+  title: Tag 4
+  slug: tag-4
+  description: Tag 4 description
+
+five:
+  id: 5
+  title: Tag 5
+  slug: tag-5
+  description: Tag 5 description
+
+six:
+  id: 6
+  title: Tag 6
+  slug: tag-6
+  description: Tag 6 description
+  
+seven:
+  id: 7
+  title: Tag 7
+  slug: tag-7
+  description: Tag 7 description

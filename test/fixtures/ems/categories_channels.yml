@@ -1,0 +1,30 @@
+one:
+  category_id: 1
+  channel_id: 1
+two:
+  category_id: 1
+  channel_id: 2
+three:
+  category_id: 1
+  channel_id: 3
+four:
+  category_id: 1
+  channel_id: 4
+five:
+  category_id: 1
+  channel_id: 5
+six:
+  category_id: 1
+  channel_id: 6
+seven:
+  category_id: 1
+  channel_id: 7
+eight:
+  category_id: 2
+  channel_id: 8
+nine:
+  category_id: 2
+  channel_id: 9
+ten:
+  category_id: 2
+  channel_id: 10
