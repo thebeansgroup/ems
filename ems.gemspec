@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency "paperclip"
   s.add_dependency "aws-sdk"
   s.add_dependency "squeel"
+  s.add_dependency "sanitize"
 end

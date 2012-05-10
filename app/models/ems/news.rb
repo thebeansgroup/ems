@@ -8,7 +8,7 @@ module Ems
       text :title, :stored => true
       text :standfirst, :stored => true
       text :content, :stored => true, :more_like_this => true do 
-        sanitize self.content_as_html.gsub(/(\n|\r)/, "")
+        Sanitize.clean self.content_as_html
       end
       integer :category_id, :references => Category
     end
