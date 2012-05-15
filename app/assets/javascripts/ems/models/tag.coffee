@@ -3,6 +3,7 @@ class Ems.Tag extends Ems.Base
   @persist Batman.RailsStorage
   @url = "/ems/tags"
   @storageKey: 'tags'
+  @resourceName: 'tag'
 
   @hasMany 'articles', { saveInline: false, autoload: false }
 

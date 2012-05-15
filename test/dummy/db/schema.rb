@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403161933) do
+ActiveRecord::Schema.define(:version => 20120514103226) do
 
   create_table "ems_articles", :force => true do |t|
     t.string   "slug"
@@ -106,6 +106,19 @@ ActiveRecord::Schema.define(:version => 20120403161933) do
   end
 
   add_index "ems_channels_reports", ["channel_id", "report_id"], :name => "index_ems_channels_reports_on_channel_id_and_report_id", :unique => true
+
+  create_table "ems_images", :force => true do |t|
+    t.string   "title"
+    t.string   "alt"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "ems_news", :force => true do |t|
     t.string   "slug"

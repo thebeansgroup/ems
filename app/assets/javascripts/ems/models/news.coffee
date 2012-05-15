@@ -1,6 +1,7 @@
 class Ems.News extends Ems.Base
   @storageKey: 'news'
   @persist Batman.RailsStorage
+  @resourceName: 'news'
 
   @url = "/ems/news"
   @hasOne 'category', { saveInline: false, autoload: false }
@@ -9,6 +10,7 @@ class Ems.News extends Ems.Base
   @hasMany 'articles', { saveInline: false, autoload: false }
   @hasMany 'reports', { saveInline: false, autoload: false }
   @hasMany 'news', { saveInline: false, autoload: false }
+  @hasMany 'images', { saveInline: false, autoload: true }
 
   channel_ids: null
   tag_ids: null

@@ -18,9 +18,18 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.1"
+  s.add_dependency "jquery-rails"
+  s.add_dependency "batman-rails"
+  s.add_dependency "friendly_id"
+  s.add_dependency "mysql2"
+  s.add_dependency "json"
+  s.add_dependency "paperclip"
+  s.add_dependency "aws-sdk"
+  s.add_dependency "sunspot_rails"
   s.add_dependency "cancan"
   s.add_dependency "paperclip"
   s.add_dependency "aws-sdk"
   s.add_dependency "squeel"
   s.add_dependency "sanitize"
+  
 end

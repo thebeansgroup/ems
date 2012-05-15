@@ -4,6 +4,15 @@ module Ems
     # use friendly_id to handle our slugs
     extend FriendlyId
     friendly_id :title, use: :slugged
+
+    validates :slug, :presence => true, :if => :is_live?
+    # validates :title, :length => { :maximum => 2 }, :if => :is_live?
+            
+    validates_uniqueness_of :slug
+    
+    validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "%s is not a valid content disposition"
+    validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "%s is not a valid status"
+    
     
     searchable do
       text :title, :stored => true
@@ -16,15 +25,6 @@ module Ems
 
     # after methods
     after_initialize :init
-
-    # # Validators
-    # if get 'status' === :live
-    #   validates_uniqueness_of :slug
-    #   validates :slug, :presence => true
-    # else
-    #   validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "%s is not a valid content disposition"
-    #   validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "%s is not a valid status"
-    # end
     
 
     # relations
@@ -40,6 +40,9 @@ module Ems
     accepts_nested_attributes_for :news
     has_and_belongs_to_many :reports, :join_table => 'ems_articles_reports'
     accepts_nested_attributes_for :reports
+    has_many :images, :as => :imageable
+    accepts_nested_attributes_for :images 
+    
     # paperclip files
     has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126" }
 
@@ -81,7 +84,12 @@ module Ems
     #
     # @param options
     def as_json(options={})
-      super( options.merge( :include => [ :category, :channels, :tags ] ) )
+      super( options.merge( :include => [ :category, :channels, :tags, :images ] ) )
+    end
+    
+    #
+    def is_live?
+      self.status === :live
     end
     
     # base queries

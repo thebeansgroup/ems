@@ -1,6 +1,7 @@
 class Ems.Channel extends Ems.Base
   @global yes
   @storageKey: 'channels'
+  @resourceName: 'channel'
   @persist Batman.RailsStorage
   @url = "/ems/channels"
   category_ids: null

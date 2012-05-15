@@ -1,5 +1,6 @@
 module Ems
   class ChannelsController < ApplicationController
+    include ChannelQueryBuilder
 
     # GET /channels
     # GET /channels.json
@@ -7,11 +8,13 @@ module Ems
       if params[:category_id]
         @channels = Channel.joins(:categories).where('ems_categories_channels.category_id' => params[:category_id])
       elsif params[:article_id]
-          @channels = Channel.joins(:articles).where('ems_articles_channels.article_id' => params[:article_id])
+        @channels = Channel.joins(:articles).where('ems_articles_channels.article_id' => params[:article_id])
+      elsif params[:filters]
+        @channels = build_query_from_filters Ems::Channel, params[:filters]
       else
         @channels = Channel.all
       end
-
+      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @channels }

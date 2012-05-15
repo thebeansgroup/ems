@@ -4,7 +4,6 @@ class Ems.ArticlesController extends Batman.Controller
   channels: null
   suggestTags: new Batman.Set
   allTags: null
-  selectedChannels: []
   tags: new Batman.Set
   
 
@@ -46,6 +45,7 @@ class Ems.ArticlesController extends Batman.Controller
 
   # Lets go and persist the new article on the server
   create: (params) ->
+  
     @get('article').save (err) =>
       if err
         throw err unless err instanceof Batman.ErrorsSet
@@ -55,22 +55,34 @@ class Ems.ArticlesController extends Batman.Controller
   # edit action - performs all queries to retrieve the object and all relation from the server for the object id we've
   # been given in params
   edit: (params) ->
+    
+    # setup action, maily used for observers
+    # Obersver 1 - Needed to shov the channels ids into an array for selection in the select html element
+    @observe 'article.channels.loaded', (loaded) =>
+      if loaded
+        channels = @get 'article.channels'
+        selectedChannels = @get 'selectedChannels'
+        selectedChannels ||= []
+        selectedChannels.push channel.id for channel in channels.toArray()
+        @set 'selectedChannels', selectedChannels
+    @set 'channels', new Batman.Set
+    @observe 'article.category.loaded', (loaded) ->
+      if loaded
+        Ems.Channel.load {filters:{category_id:@get('article.category.id'), order_by:'name'}}, (err, channels) =>
+          @set 'channels', Ems.Channel.get('loaded')
+        
+    # @observe 'article.category.loaded', (loaded) =>
+    #   if loaded and not @get 'article.category.channels.loaded'
+    #     @get('article.category.channels').load (err, channels) ->
+    #       throw err if err
+    #       console.log channels
+          
+            
     @set 'article', Ems.Article.find parseInt(params.id), (err) =>
       @redirect '/404' if err?.status == 404
       throw err if err
-    @get('article.category').fetch (err, category) =>
-      throw err if err
-      @set 'channels', category.get 'channels'
-    # We need to wait a while for the tags to be loaded
-    setTimeout(=>
-      @set 'tags', @get('article.tags')
-    , 100)
+      
     
-    setTimeout(=>
-      channels = @get 'article.channels'
-      if channels
-        @get('selectedChannels').push channel.id for channel in channels.toArray()
-    , 100)
 
   update: ->
     @get('article').save (err) =>

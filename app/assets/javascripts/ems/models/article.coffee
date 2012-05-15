@@ -1,6 +1,7 @@
 class Ems.Article extends Ems.Base
   @storageKey: 'articles'
   @persist Batman.RailsStorage
+  @resourceName = 'article'
 
   @url = "/ems/articles"
   @hasOne 'category', { saveInline: false, autoload: false }
@@ -9,6 +10,11 @@ class Ems.Article extends Ems.Base
   @hasMany 'articles', { saveInline: false, autoload: false }
   @hasMany 'reports', { saveInline: false, autoload: false }
   @hasMany 'news', { saveInline: false, autoload: false }
+  # @hasMany 'images', { saveInline: true, autoload: false }
+  
+  # @observe 'status', ->
+  #   console?.log "test"
+  #   @validate 'title', presence: yes, maxLength: 1
 
   channel_ids: null
   tag_ids: null
@@ -64,3 +70,4 @@ class Ems.Article extends Ems.Base
     text = text.replace /[^\-a-zA-Z0-9\s]/g, ""
     text = text.toLowerCase()
     text = text.replace /\s/g, '-'
+
