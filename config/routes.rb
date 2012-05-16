@@ -1,14 +1,19 @@
 Ems::Engine.routes.draw do
-  resources :images
-
-  resources :media
-
-  get "ems/index"
-  root :to => "ems#index"  
-  resources :reports
-  resources :news
+  root :to => "ems#index"
+  
+  # insight rules
+  resources :category do
+    resources :articles
+    resources :news
+    resources :reports
+  end
+  
   resources :articles
+  resources :news
+  resources :reports
   resources :tags
   resources :channels
   resources :categories
+  resources :images
+  resources :media
 end
