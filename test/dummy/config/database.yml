@@ -8,7 +8,7 @@ development:
   encoding: utf8
   database: ems_development
   pool: 5
-  username: root
+  username: ems
   password: asdf
   # adapter: sqlite3
   # database: db/development.sqlite3
