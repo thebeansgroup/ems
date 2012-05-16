@@ -3,24 +3,7 @@ module Ems
     # GET /articles
     # GET /articles.json
     def index
-      if params[:category_id]
-        @articles = Ems::Article.where(:category_id => params[:category_id])
-      elsif params[:filters]
-        filters = params[:filters]
-        @articles = Ems::Article
-        if filters[:category]
-          @articles = @articles.where(:category_id => filters[:category])
-        end
-        if filters[:category_slug]
-          @articles = @articles.joins(:category).where('ems_categories.slug' => filters[:category_slug])
-        end
-        if filters[:channel]
-          @articles = @articles.joins(:channels).where('ems_articles_channels.channel_id' => filters[:channel])
-        end
-      else
-        @articles = Ems::Article.all
-      end
-      
+      @articles = Article.all
   
       respond_to do |format|
         format.html # index.html.erb
