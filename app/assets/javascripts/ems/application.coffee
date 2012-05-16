@@ -9,24 +9,3 @@
 #
 # WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 # GO AFTER THE REQUIRES BELOW.
-
-#= require_tree ./lib
-#= require jquery
-#= require jquery_ujs
-
-# Batman.js and its adapters
-#= require batman/batman
-#= require batman/batman.jquery
-#= require batman/batman.rails
-
-#= require ems/ems
-#= require_tree ./helpers
-#= require ./models/base
-#= require_tree ./models
-#= require_tree ./controllers
-#= require_tree ./views
-
-#= require_tree .
-# Run the Batman app
-$(document).ready ->
-  Ems.run()

@@ -1,8 +1,0 @@
-.span8
-  %p.date{:data => {"bind" => "report.created_at"}}
-  %h2
-    %a{:data => {"bind" => "report.title", "route" => "report | routeTo {'name':'categories.reports.edit','args':{'categoryId':'=report.category.id'}}"}}
-  %p.details-link
-    %a.btn{:data => {"route" => "report | routeTo {'name':'categories.reports.edit','args':{'categoryId':'=report.category.id'}}"}} Edit
-  %p.details-link
-    %a{:data => {"event-click" => "report.destroy"}} Delete

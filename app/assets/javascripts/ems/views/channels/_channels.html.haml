@@ -1,4 +1,0 @@
-.details
-  %h2.label Channels
-  %select{:multiple => "multiple", :name => "channelList", :size => "10", :data => {"bind" => "selectedChannels", "event-change" => "toggleChannel"}}
-    %option{:data => {"bind" => "channel.name", "bind-value" => "channel.id", "foreach-channel" => "channels"}}

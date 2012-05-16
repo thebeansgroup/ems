@@ -9,23 +9,7 @@
           = javascript_include_tag "ems/application"
           = csrf_meta_tags
   %body
-    #header
-      .wrap.clearfix
-        %h1{:data => {"bind" => "window.Ems.title"}}
-        %ul.sf-menu
-          %li.firstSub{:data => {"foreach-nav" => "window.Ems.navLinks"}}
-            %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href", "addclass-selected" => "nav.selected"}}
-            %ul{:data => {"showif" => "nav.secondary"}}
-              %li.secondSub{:data => {"foreach-secnav" => "nav.secondary"}}
-                %a{:data => {"bind" => "secnav.text", "bind-href" => "secnav.href", "addclass-selected" => "secnav.selected"}}
-    #main.container
-      %p#flashnotice.alert-message.success{:data => {"showif" => "Ems.flash.success.length"}}
-        %a.close{:href => "#", :onclick => "$('#flashnotice').hide(); return false"} ×
-        %span{:data => {"bind" => "Ems.flash.success"}}
-      %p#flashwarning.alert-message.error{:data => {"showif" => "Ems.flash.error.length"}}
-        %a.close{:href => "#", :onclick => "$('#flashwarning').hide(); return false"} ×
-        %span{:data => {"bind" => "Ems.flash.error"}}
-      %div{:data => {"yield" => "main"}}
-      %footer
-        %p
-          \© The Beans Group #{Time.now.year}
+    =yield
+    %footer
+      %p
+        \© The Beans Group #{Time.now.year}

@@ -1,9 +1,0 @@
-%div
-  %div{:data => {"addclass-error" => "tag.errors['title'].length"}}
-    %label{:for => "tag_title"} Title:
-    .input
-      %input#tag_title{:name => "tag[title]", :data => {"bind" => "tag.title"}}
-  %div{:data => {"addclass-error" => "tag.errors['description'].length"}}
-    %label{:for => "tag_description"} Description:
-    .input
-      %textarea#tag_description{:name => "tag[description]", :data => {"bind" => "tag.description"}}
