@@ -40,6 +40,7 @@ group :development, :test do
   gem 'kss-rails'
   gem 'sunspot_solr'
   gem 'progress_bar'
+  gem 'haml-rails'
 end
 
 group :assets do
