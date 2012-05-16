@@ -9,3 +9,9 @@
 #
 # WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 # GO AFTER THE REQUIRES BELOW.
+#= require jquery
+#= require jquery-ui
+#= require jquery_ujs
+#= require_tree  ./active_admin/lib/
+#= require_tree  ./active_admin/components/
+#= require_tree  ./active_admin/pages/

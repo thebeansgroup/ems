@@ -47,6 +47,7 @@ group :assets do
   gem "sass-rails"
   gem "coffee-rails"
   gem "uglifier"
+  gem 'bourbon', '~> 2.0.0.rc1'
 end
 
 # To use debugger
