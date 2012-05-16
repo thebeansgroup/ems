@@ -1,10 +1,22 @@
 = form_for @article do |f|
-  = label :article, :title
-  = f.text_field :title
-  - if @article.category
-    - for c in Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
-      %p= c.name
-      = check_box_tag 'article[channel_ids][]', c.id, @article.channels.include?(c)
+  %div
+    = f.label :title
+    = f.text_field :title
+  %div
+    - if @article.category
+      - for c in Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
+        %p= c.name
+        = check_box_tag 'article[channel_ids][]', c.id, @article.channels.include?(c)
+  %div
+    - for i in @article.images
+      %p= i.title
+      = image_tag i.image.url  
+  %div
+    - f.fields_for :images do |i| 
+      = i.label :title
+      = i.text_field :title
+    
+  
   -if @article.errors.any?
     #error_explanation
       %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
