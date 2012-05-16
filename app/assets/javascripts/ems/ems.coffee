@@ -8,25 +8,38 @@ class Ems extends Batman.App
 
   @navLinks =
   [
-    href: "/ems/#!/categories/fun-stuff"
-    text: "Fun stuff"
+    text: "Articles" 
+    href: "/ems/#!/articles/"
     secondary:
       [
-        href: ""
-        text: ""
+        text: "Show Insight Articles" 
+        href: "/ems/#!/categories/insight/articles"
+      ,
+        text: "New Insight Article" 
+        href: "/ems/#!/categories/insight/articles/new"        
       ]
   ,
-    href: "/ems/#!/categories/student-money"
-    text: "Student money"
+    text: "Reports" 
+    href: "/ems/#!/reports/"
+    secondary:
+      [
+        text: "Show Insight Reports" 
+        href: "/ems/#!/categories/insight/reports"
+      ,
+        text: "New Insight Report" 
+        href: "/ems/#!/categories/insight/reports/new"        
+      ]
   ,
-    href: "/ems/#!/categories/student-finance"
-    text: "Student finance"
-  ,
-    href: "/ems/#!/categories/extra"
-    text: "Extra"
-  ,
-    href: "/ems/#!/more"
-    text: "More"
+    text: "News" 
+    href: "/ems/#!/company-news/"
+    secondary:
+      [
+        text: "Show Company News" 
+        href: "/ems/#!/categories/company-news/reports"
+      ,
+        text: "New Company News" 
+        href: "/ems/#!/categories/company-news/news/new"        
+      ]
   ,
     href: "/ems/#!/logout"
     text: "Log out"
