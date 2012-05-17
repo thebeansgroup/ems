@@ -1,10 +1,12 @@
 module Ems
   class TagsController < ApplicationController
+    include TagQueryBuilder
+    
     # GET /tags
     # GET /tags.json
     def index
-      if params[:article_id]
-        @tags = Tag.joins(:articles).where('ems_articles_tags.article_id' => params[:article_id])
+      if params[:filters]
+        @tags = build_query_from_filters Tag, params[:filters]
       else
         @tags = Tag.all
       end
