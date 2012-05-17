@@ -1,0 +1,4 @@
+- title_bar "Editing news", [{"title"=>"Show", "url"=>category_news_index_path(params[:category_id])},{"title"=>"Back", "url"=>category_news_path(params[:category_id])}]
+
+%div#active_admin_content.with_sidebar
+  = render 'form'

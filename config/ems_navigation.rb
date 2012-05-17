@@ -7,7 +7,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # navigation.renderer = Your::Custom::Renderer
 
   # Specify the class that will be applied to active navigation items. Defaults to 'selected'
-  navigation.selected_class = 'is-selected'
+  navigation.selected_class = 'current'
 
   # Specify the class that will be applied to the current leaf of
   # active navigation items. Defaults to 'simple-navigation-active-leaf'
@@ -70,9 +70,19 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
-
-    primary.item :channels, 'Channels', new_channel_path
-    primary.item :tags, 'Tags', new_tag_path
+    primary.item :insights, 'Insights',  category_path(:id => 'youth-marketing-insights'), :highlights_on => :subpath, :class => 'has_nested' do |secondary|
+      secondary.item :insights_articles, 'List Articles', category_articles_path(:category_id => 'youth-marketing-insights')
+      secondary.item :new_insights_article, 'New Article', new_category_article_path(:category_id => 'youth-marketing-insights')
+      secondary.item :insights_reports, 'List Reports', category_reports_path(:category_id => 'youth-marketing-insights')
+      secondary.item :new_insights_report, 'New Report', new_category_report_path(:category_id => 'youth-marketing-insights')
+    end
+    primary.item :insights, 'News',  category_path(:id => 'company-news'), :highlights_on => :subpath, :class => 'has_nested' do |secondary|
+      secondary.item :news_news, 'List News', category_news_index_path(:category_id => 'company-news')
+      secondary.item :new_news_news, 'New News', new_category_news_path(:category_id => 'company-news')
+    end
+    
+    primary.item :channels, 'Channels', channels_path
+    primary.item :tags, 'Tags', tags_path
   end
 
 end

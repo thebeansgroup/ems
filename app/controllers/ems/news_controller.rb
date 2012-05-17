@@ -26,7 +26,9 @@ module Ems
     # GET /news/new.json
     def new
       @news = News.new
-  
+      @news.assets.build
+      @news.category = Category.find params[:category_id]
+      
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @news }

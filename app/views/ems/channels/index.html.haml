@@ -1,0 +1,13 @@
+- title_bar "Channels", [{"title"=>"New Channel", "url"=>new_channel_path}]
+
+%div#active_admin_content.without_sidebar
+  - main_content "Channels List" do
+    - index_table ["Title", "Created", "Updated", "", "", ""] do
+      - @channels.each_with_index do |channel, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= channel.name
+          %td= channel.created_at.strftime("%b %e, %l:%M %p")
+          %td= channel.updated_at.strftime("%b %e, %l:%M %p")
+          %td= link_to 'Show', channel
+          %td= link_to 'Edit', edit_channel_path(channel)
+          %td= link_to 'Destroy', channel, :confirm => 'Are you sure?', :method => :delete

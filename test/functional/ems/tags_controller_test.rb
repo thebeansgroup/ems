@@ -17,15 +17,15 @@ module Ems
       assert_response :success
     end
   
-    test "should create tags" do
+    test "should create tag" do
       assert_difference('Tag.count') do
-        post :create, tags: @tag.attributes
+        post :create, tag: {  }
       end
   
-      assert_redirected_to tag_path(assigns(:tags))
+      assert_redirected_to tag_path(assigns(:tag))
     end
   
-    test "should show tags" do
+    test "should show tag" do
       get :show, id: @tag
       assert_response :success
     end
@@ -35,12 +35,12 @@ module Ems
       assert_response :success
     end
   
-    test "should update tags" do
-      put :update, id: @tag, tags: @tag.attributes
-      assert_redirected_to tag_path(assigns(:tags))
+    test "should update tag" do
+      put :update, id: @tag, tag: {  }
+      assert_redirected_to tag_path(assigns(:tag))
     end
   
-    test "should destroy tags" do
+    test "should destroy tag" do
       assert_difference('Tag.count', -1) do
         delete :destroy, id: @tag
       end

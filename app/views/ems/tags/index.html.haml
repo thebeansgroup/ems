@@ -1,0 +1,13 @@
+- title_bar "Tags", [{"title"=>"New Tag", "url"=>new_tag_path}]
+
+%div#active_admin_content.without_sidebar
+  - main_content "Tag List" do
+    - index_table ["Title", "Created", "Updated", "", "", ""] do
+      - @tags.each_with_index do |tag, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= tag.title
+          %td= tag.created_at.strftime("%b %e, %l:%M %p")
+          %td= tag.updated_at.strftime("%b %e, %l:%M %p")
+          %td= link_to 'Show', tag
+          %td= link_to 'Edit', edit_tag_path(tag)
+          %td= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete

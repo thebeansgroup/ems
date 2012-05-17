@@ -1,0 +1,34 @@
+= simple_form_for @report do |f|
+  - main_content "Report List" do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :title
+
+        %li
+          = f.input :standfirst, :input_html => { :rows => 4 }
+
+        %li
+          = f.input :content
+
+    %fieldset{ :class=>"button"}
+      %ol
+        %li
+          = f.submit
+
+  - side_content do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :status, :as => :select, :collection => [:draft, :pending, :live], :include_blank => false
+
+        %li
+          = f.input :publish_from, :as => :string, :input_html => { :class => 'datepicker', :value =>  @report.try(:publish_from).try(:strftime,'%d/%m/%Y'), :data => { :alt_date => "alt-date-" }}
+
+        %li
+          = f.association :channels, :collection => Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @report.category.id})
+
+        %li
+          = f.label "Reprot Priority"
+          = f.input :hot
+          = f.input :featured

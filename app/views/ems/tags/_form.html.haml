@@ -1,0 +1,13 @@
+= simple_form_for @tag do |f|
+  - main_content "Tag List" do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :title
+        %li
+          = f.input :description
+
+    %fieldset{ :class=>"button"}
+      %ol
+        %li
+          = f.submit

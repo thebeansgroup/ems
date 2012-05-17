@@ -1,0 +1,13 @@
+= simple_form_for @channel do |f|
+  - main_content "Article List" do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :name
+        %li
+          = f.association :categories
+
+    %fieldset{ :class=>"button"}
+      %ol
+        %li
+          = f.submit

@@ -11,8 +11,7 @@
   %body
     #wrapper
       #header
-        %h1#site_title{:data => {"bind" => "window.Ems.title"}}
-          = render_navigation :level => 1, :context => :ems
+        = render_navigation :context => :ems, :level => 1..2, :expand_all => true
 
       #content_wrapper
         - if flash.keys.any?

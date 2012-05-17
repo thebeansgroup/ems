@@ -38,6 +38,8 @@ module Ems
     
     has_attached_file :image, :styles => { :image228x126 => "228x126" }
     
+    has_many :assets, :as => :assetable
+    accepts_nested_attributes_for :assets, :allow_destroy => true    
 
     # Method to make sure we have all our default values set on the object
     def init

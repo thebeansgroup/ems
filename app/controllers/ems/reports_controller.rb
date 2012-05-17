@@ -26,6 +26,8 @@ module Ems
     # GET /reports/new.json
     def new
       @report = Report.new
+      @report.assets.build
+      @report.category = Category.find params[:category_id]
   
       respond_to do |format|
         format.html # new.html.erb

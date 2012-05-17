@@ -1,0 +1,15 @@
+- title_bar "Reports", [{"title"=>"New Report", "url"=>new_category_report_path(params[:category_id])}]
+
+%div#active_admin_content.without_sidebar
+  - main_content "Report List" do
+    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", "", ""] do
+      - @reports.each_with_index do |report, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= report.title
+          %td= report.status
+          %td= report.publish_from.strftime("%b %e, %l:%M %p")
+          %td= report.updated_at.strftime("%b %e, %l:%M %p")
+          %td= report.created_at.strftime("%b %e, %l:%M %p")
+          %td= link_to 'Show', category_report_path(params[:category_id], report)
+          %td= link_to 'Edit', edit_category_report_path(params[:category_id], report)
+          %td= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete

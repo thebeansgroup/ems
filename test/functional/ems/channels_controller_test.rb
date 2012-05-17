@@ -19,7 +19,7 @@ module Ems
   
     test "should create channel" do
       assert_difference('Channel.count') do
-        post :create, channel: @channel.attributes
+        post :create, channel: {  }
       end
   
       assert_redirected_to channel_path(assigns(:channel))
@@ -36,7 +36,7 @@ module Ems
     end
   
     test "should update channel" do
-      put :update, id: @channel, channel: @channel.attributes
+      put :update, id: @channel, channel: {  }
       assert_redirected_to channel_path(assigns(:channel))
     end
   

@@ -1,0 +1,15 @@
+- title_bar "News", [{"title"=>"New News", "url"=>new_category_news_path(params[:category_id])}]
+
+%div#active_admin_content.without_sidebar
+  - main_content "News List" do
+    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", "", ""] do
+      - @news.each_with_index do |news, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= news.title
+          %td= news.status
+          %td= news.publish_from.strftime("%b %e, %l:%M %p")
+          %td= news.updated_at.strftime("%b %e, %l:%M %p")
+          %td= news.created_at.strftime("%b %e, %l:%M %p")
+          %td= link_to 'Show', category_news_path(params[:category_id], news)
+          %td= link_to 'Edit', edit_category_news_path(params[:category_id], news)
+          %td= link_to 'Destroy', news, :confirm => 'Are you sure?', :method => :delete

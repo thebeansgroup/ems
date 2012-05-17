@@ -7,7 +7,7 @@ module Ems
 
       haml_tag :div, :id => "titlebar_left" do
         haml_tag :div, :class => "breadcrumb" do
-          haml_concat("Breadcrumbs / Another Link / here")
+          haml_concat(render_navigation  :context => :ems, :renderer => :breadcrumbs, :join_with => " &gt; ")
         end
         haml_tag :h2, :id => "page_title" do
           haml_concat(pageTitle)

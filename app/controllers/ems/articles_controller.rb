@@ -27,6 +27,7 @@ module Ems
     def new
       @article = Article.new
       @article.assets.build
+      @article.category = Category.find params[:category_id]
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @article }

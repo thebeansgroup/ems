@@ -1,4 +1,4 @@
-- title_bar "Editing article", [{"title"=>"Show", "url" => article_path(@article)},{"title"=>"Back", "url"=>articles_path}]
+- title_bar "Editing article", [{"title"=>"Show", "url"=>category_article_path(params[:category_id], @article)},{"title"=>"Back", "url"=>category_articles_path(params[:category_id])}]
 
 %div#active_admin_content.with_sidebar
   = render 'form'
