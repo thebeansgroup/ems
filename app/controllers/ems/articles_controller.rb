@@ -26,7 +26,7 @@ module Ems
     # GET /articles/new.json
     def new
       @article = Article.new
-  
+      @article.assets.build
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @article }
@@ -36,6 +36,7 @@ module Ems
     # GET /articles/1/edit
     def edit
       @article = Article.find(params[:id])
+      @article.assets.build
     end
   
     # POST /articles

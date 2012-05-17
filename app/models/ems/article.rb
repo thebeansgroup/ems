@@ -6,10 +6,11 @@ module Ems
     friendly_id :title, use: :slugged
 
     validates :slug, :presence => true, :if => :is_live?
-    validates :title, :presence => true
-            
+
+    validates :title, :length => { :maximum => 20 }, :if => :is_live?
+    validates :standfirst, :length => { :maximum => 20 }, :if => :is_live?
+    validates :content, :presence => true, :if => :is_live?            
     validates_uniqueness_of :slug
-    
     validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "%s is not a valid content disposition"
     validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "%s is not a valid status"
     
@@ -40,8 +41,8 @@ module Ems
     accepts_nested_attributes_for :news
     has_and_belongs_to_many :reports, :join_table => 'ems_articles_reports'
     accepts_nested_attributes_for :reports
-    has_many :images, :as => :imageable
-    accepts_nested_attributes_for :images 
+    has_many :assets, :as => :assetable
+    accepts_nested_attributes_for :assets, :allow_destroy => true
     
     # paperclip files
     has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126" }

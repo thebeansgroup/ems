@@ -1,4 +1,3 @@
-.idea
 .bundle/
 log/*.log
 pkg/
@@ -13,3 +12,5 @@ public/javascripts
 test/dummy/public/system/ems/articles/images*
 test/dummy/solr/*
 test/dummy/log/sunspot-solr-development.log.lck
+
+test/dummy/public/system/ems/*

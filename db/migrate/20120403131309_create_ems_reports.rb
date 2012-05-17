@@ -15,6 +15,7 @@ class CreateEmsReports < ActiveRecord::Migration
       t.string :status
       t.string :content_disposition
       t.integer :category_id
+      t.string :download_cta
       # paperclip
       t.string :image_file_name
       t.string :image_content_type

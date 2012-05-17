@@ -17,6 +17,7 @@ gem "aws-sdk"
 gem 'sunspot_rails'
 gem 'sanitize'
 gem 'simple_form'
+gem 'simple-navigation'
 
 # Declare any dependencies that are still in development here instead of in
 # your .gemspec. These might include edge Rails or gems from your path or
