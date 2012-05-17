@@ -12,15 +12,7 @@
     #wrapper
       #header
         %h1#site_title{:data => {"bind" => "window.Ems.title"}}
-        %ul#tabs.header-item
-          %li{:data => {"foreach-nav" => "window.Ems.navLinks"}}
-            %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href", "addclass-current" => "nav.selected"}}
-            %ul{:data => {"renderif" => "nav.secondary"}}
-              %li.secondSub{:data => {"foreach-secnav" => "nav.secondary"}}
-                %a{:data => {"bind" => "secnav.text", "bind-href" => "secnav.href", "addclass-selected" => "secnav.selected"}}
-
-
-
+          = render_navigation :level => 1, :context => :ems
 
       #content_wrapper
         - if flash.keys.any?

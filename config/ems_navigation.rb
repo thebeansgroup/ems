@@ -65,16 +65,14 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
-    # primary.dom_id = 'menu-id'
-    # primary.dom_class = 'menu-class'
+    primary.dom_id = 'tabs'
+    primary.dom_class = 'header-item'
 
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
-    primary.item :article, 'Insights', insights_path, :highlights_on => :subpath do |secondary|
-      secondary.item :create_insights_article, 'CreateInsights', new_category_article("youth-marketing-insights")
-    end
-    primary.item :tags, 'Tags', new_channel
 
+    primary.item :channels, 'Channels', new_channel_path
+    primary.item :tags, 'Tags', new_tag_path
   end
 
 end
