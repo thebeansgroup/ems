@@ -6,7 +6,7 @@ module Ems
     friendly_id :title, use: :slugged
 
     validates :slug, :presence => true, :if => :is_live?
-    # validates :title, :length => { :maximum => 2 }, :if => :is_live?
+    validates :title, :presence => true
             
     validates_uniqueness_of :slug
     
