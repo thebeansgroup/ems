@@ -212,6 +212,11 @@ $sidebar-inner-content-width: $sidebar-width - ($section-padding * 2);
     width: $sidebar-inner-content-width - ($text-input-horizontal-padding * 2);
   }
 
+  input[type=text] {
+    background: #fff url('/assets/active_admin/datepicker/datepicker-input-icon.png') no-repeat 100% 7px;
+//    padding-right: 27px;
+  }
+
 }
 
 // -------------------------------------- Filter Forms
@@ -257,12 +262,7 @@ form.filter_form {
         text-align: center;
         width: $filter-field-seperator-width;
       }
-    
-      input[type=text] {
-        background: #fff url(active_admin_image_path('datepicker/datepicker-input-icon.png')) no-repeat 100% 7px;
-        padding-right: $date-range-filter-input-right-padding;
-        width: $date-range-filter-input-width;
-      }
+
     }
   }
   a.clear_filters_btn { @include light-button; }

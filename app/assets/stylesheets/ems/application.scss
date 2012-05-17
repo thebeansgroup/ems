@@ -9,6 +9,20 @@
 @import "./active_admin/base";
 
 
+// Sidebar forms
+// ==================
+//
+.sidebar_section label {
+  width: auto;
+  clear:none;
+  float:none;
+}
+
+.sidebar_section input[type="checkbox"] {
+  margin: 3px 0.5em 0 0;
+}
+
+
 /*Pagedown styles*/
 
 .wmd-panel

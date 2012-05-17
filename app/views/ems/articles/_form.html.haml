@@ -1,28 +1,40 @@
-= form_for @article do |f|
-  %div
-    = f.label :title
-    = f.text_field :title
-  %div
-    - if @article.category
-      - for c in Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
-        %p= c.name
-        = check_box_tag 'article[channel_ids][]', c.id, @article.channels.include?(c)
-  %div
-    - for i in @article.images
-      %p= i.title
-      = image_tag i.image.url  
-  %div
-    - f.fields_for :images do |i| 
-      = i.label :title
-      = i.text_field :title
-    
-  
-  -if @article.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
-      %ul
-        - @article.errors.full_messages.each do |msg|
-          %li= msg
-  
-  .actions
-    = f.submit 'Save'
+= simple_form_for @article do |f|
+  - main_content "Article List" do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :title
+
+        %li
+          = f.input :standfirst, :input_html => { :rows => 4 }
+
+        %li
+          = f.input :content
+
+        %li
+          - for i in @article.images
+            %p= i.title
+            = image_tag i.image.url
+
+
+    %fieldset{ :class=>"button"}
+      %ol
+        %li
+          = f.submit
+
+  - side_content do
+    %fieldset{ :class=>"inputs"}
+      %ol
+        %li
+          = f.input :status, :as => :select, :collection => [:draft, :pending, :live], :include_blank => false
+
+        %li
+          = f.input :publish_from, :as => :string, :input_html => { :class => 'datepicker', :value =>  @article.try(:publish_from).try(:strftime,'%d/%m/%Y'), :data => { :alt_date => "alt-date-" }}
+
+        %li
+          = f.association :channels, :collection => Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
+
+        %li
+          = f.label "Article Priority"
+          = f.input :hot
+          = f.input :featured

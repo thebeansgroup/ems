@@ -33,8 +33,19 @@ module Ems
 
   #  Content wrappers
     def main_content(title)
-      haml_tag :div, :class => "main_content_wrapper" do
-        yield
+      haml_tag :div, :id => "main_content_wrapper" do
+        haml_tag :div, :id=>"main_content" do
+          yield
+        end
+      end
+    end
+
+
+    def side_content
+      haml_tag :div, :id => "sidebar" do
+        haml_tag :div, :class=> "sidebar_section" do
+          yield
+        end
       end
     end
 

@@ -1,13 +1,4 @@
 - title_bar "Editing article", [{"title"=>"Show", "url"=>@article},{"title"=>"Back", "url"=>articles_path}]
 
-%div#active_admin_content.without_sidebar
-  - main_content "Article List" do
-    = simple_form_for @article do |f|
-      - if f.error_notification 
-        = f.error_notification
-      %fieldset{ :class=>"inputs"}
-        %ol
-          %li
-            = f.input :title
-          %li
-            = f.submit
+%div#active_admin_content.with_sidebar
+  = render 'form'

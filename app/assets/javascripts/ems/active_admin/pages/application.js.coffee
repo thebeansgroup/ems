@@ -5,7 +5,7 @@
 
 $ ->
   # Date picker
-  $(".datepicker").datepicker dateFormat: "yy-mm-dd"
+  $(".datepicker").datepicker dateFormat: "dd/mm/yy"
   $(".clear_filters_btn").click ->
     window.location.search = ""
     false
