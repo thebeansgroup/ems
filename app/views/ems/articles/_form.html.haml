@@ -9,12 +9,16 @@
           = f.input :standfirst, :input_html => { :rows => 4 }
 
         %li
-          = f.input :content
+          = f.input :image
+
 
         %li
-          - for i in @article.images
-            %p= i.title
-            = image_tag i.image.url
+          = f.input :content
+
+        / %li
+        /   - for i in @article.images
+        /     %p= i.title
+        /     = image_tag i.image.url
 
 
     %fieldset{ :class=>"button"}
@@ -33,6 +37,16 @@
 
         %li
           = f.association :channels, :collection => Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
+
+        %li
+          = f.label :tags
+          %input{ :type=>:text, :data => { :autoCompleteSearch => "/ems/tags.json" }}
+          %ul#tag-list
+            - @article.tags.each do |tag|
+              %li
+                = tag.title
+          .hidden_fields
+            = f.association :tags
 
         %li
           = f.label "Article Priority"

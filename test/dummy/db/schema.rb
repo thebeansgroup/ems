@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(:version => 20120514103226) do
 
   add_index "ems_articles_tags", ["article_id", "tag_id"], :name => "index_ems_articles_tags_on_article_id_and_tag_id", :unique => true
 
+  create_table "ems_assets", :force => true do |t|
+    t.string   "title"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "ems_categories", :force => true do |t|
     t.string   "slug"
     t.string   "name"
@@ -106,19 +118,6 @@ ActiveRecord::Schema.define(:version => 20120514103226) do
   end
 
   add_index "ems_channels_reports", ["channel_id", "report_id"], :name => "index_ems_channels_reports_on_channel_id_and_report_id", :unique => true
-
-  create_table "ems_images", :force => true do |t|
-    t.string   "title"
-    t.string   "alt"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
 
   create_table "ems_news", :force => true do |t|
     t.string   "slug"

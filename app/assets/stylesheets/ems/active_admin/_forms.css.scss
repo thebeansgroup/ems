@@ -212,7 +212,7 @@ $sidebar-inner-content-width: $sidebar-width - ($section-padding * 2);
     width: $sidebar-inner-content-width - ($text-input-horizontal-padding * 2);
   }
 
-  input[type=text] {
+  .datepicker {
     background: #fff url('/assets/active_admin/datepicker/datepicker-input-icon.png') no-repeat 100% 7px;
 //    padding-right: 27px;
   }
