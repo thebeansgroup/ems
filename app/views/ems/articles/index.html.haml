@@ -1,17 +1,12 @@
-%h1 Listing articles
+- title_bar "Articles", [{"title"=>"New Article", "url"=>new_article_path}]
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @articles.each do |article|
-    %tr
-      %td= link_to 'Show', article
-      %td= link_to 'Edit', edit_category_article_path(params[:category_id], article)
-      %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Article', new_category_article_path
+%div#active_admin_content.without_sidebar
+  - main_content "Article List" do
+    - index_table ["Title", "Created", "", "", ""] do
+      - @articles.each_with_index do |article, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= article.title
+          %td= article.created_at.strftime("%b %e, %l:%M %p")
+          %td= link_to 'Show', article
+          %td= link_to 'Edit', edit_article_path(article)
+          %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

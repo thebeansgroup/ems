@@ -1,7 +1,12 @@
-%h1 Editing article
+- title_bar "Editing article", [{"title"=>"Show", "url"=>@article},{"title"=>"Back", "url"=>articles_path}]
 
-= render 'form'
-
-= link_to 'Show', @article
-\|
-= link_to 'Back', articles_path
+%div#active_admin_content.without_sidebar
+  - main_content "Article List" do
+    = form_for @article do |f|
+      %fieldset{ :class=>"inputs"}
+        %ol
+          %li
+            = f.label :title
+            = f.text_field :title
+          %li
+            = f.submit

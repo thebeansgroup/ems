@@ -9,26 +9,26 @@
           = javascript_include_tag "ems/application"
           = csrf_meta_tags
   %body
-
-    =yield
     #wrapper
       #header
-        .wrap.clearfix
-          %h1#site_title{:data => {"bind" => "window.Ems.title"}}
-          %ul#tabs.header-item
-            %li{:data => {"foreach-nav" => "window.Ems.navLinks"}}
-              %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href", "addclass-current" => "nav.selected"}}
-              %ul{:data => {"renderif" => "nav.secondary"}}
-                %li.secondSub{:data => {"foreach-secnav" => "nav.secondary"}}
-                  %a{:data => {"bind" => "secnav.text", "bind-href" => "secnav.href", "addclass-selected" => "secnav.selected"}}
+        %h1#site_title{:data => {"bind" => "window.Ems.title"}}
+        %ul#tabs.header-item
+          %li{:data => {"foreach-nav" => "window.Ems.navLinks"}}
+            %a{:data => {"bind" => "nav.text", "bind-href" => "nav.href", "addclass-current" => "nav.selected"}}
+            %ul{:data => {"renderif" => "nav.secondary"}}
+              %li.secondSub{:data => {"foreach-secnav" => "nav.secondary"}}
+                %a{:data => {"bind" => "secnav.text", "bind-href" => "secnav.href", "addclass-selected" => "secnav.selected"}}
+
+
+
+
       #content_wrapper
-        %p#flashwarning.flashflash_notice{:data => {"showif" => "Ems.flash.success.length"}}
-          %a.close{:href => "#", :onclick => "$('#flashnotice').hide(); return false"} ×
-          %span{:data => {"bind" => "Ems.flash.success"}}
-        %p#flashwarning.flashflash_notice{:data => {"showif" => "Ems.flash.error.length"}}
-          %a.close{:href => "#", :onclick => "$('#flashwarning').hide(); return false"} ×
-          %span{:data => {"bind" => "Ems.flash.error"}}
-        %div#active_admin_content{:data => {"yield" => "main"}}
+        - if flash.keys.any?
+          - flash.each do |type, message|
+            = content_tag :div, message, :class => "flash flash_#{type}"
+
+        =yield
+
       %footer#footer
         %p
           \© The Beans Group #{Time.now.year}
