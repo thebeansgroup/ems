@@ -1,7 +1,4 @@
-%h1 Editing tag
+- title_bar "Editing tag", [{"title"=>"Show", "url"=>tag_path(@tag)},{"title"=>"Back", "url"=>tags_path}]
 
-= render 'form'
-
-= link_to 'Show', @tag
-\|
-= link_to 'Back', tags_path
+%div#active_admin_content.without_sidebar
+  = render 'form'

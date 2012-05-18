@@ -1,6 +1,7 @@
+- title_bar "Viewing channel", nil
 %p#notice= notice
+%div#active_admin_content.without_sidebar
+  = link_to 'Edit', edit_channel_path(@channel)
+  \|
+  = link_to 'Back', channels_path
 
-
-= link_to 'Edit', edit_channel_path(@channel)
-\|
-= link_to 'Back', channels_path

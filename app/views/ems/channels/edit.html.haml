@@ -1,7 +1,4 @@
-%h1 Editing channel
+- title_bar "Editing channel", [{"title"=>"Show", "url"=>channel_path(@channel)},{"title"=>"Back", "url"=>channels_path}]
 
-= render 'form'
-
-= link_to 'Show', @channel
-\|
-= link_to 'Back', channels_path
+%div#active_admin_content.without_sidebar
+  = render 'form'
