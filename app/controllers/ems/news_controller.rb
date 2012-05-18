@@ -60,9 +60,6 @@ module Ems
     # PUT /news/1
     # PUT /news/1.json
     def update
-      p "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-      p params
-      p "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
       @news = News.find(params[:id])
   
       respond_to do |format|
