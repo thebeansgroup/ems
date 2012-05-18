@@ -47,7 +47,7 @@ module Ems
   
       respond_to do |format|
         if @report.save
-          format.html { redirect_to @report, notice: 'Report was successfully created.' }
+          format.html { redirect_to edit_category_report_path(@report.category, @report), notice: 'Report was successfully created.' }
           format.json { render json: @report, status: :created, location: @report }
         else
           format.html { render action: "new" }
@@ -63,7 +63,7 @@ module Ems
   
       respond_to do |format|
         if @report.update_attributes(params[:report])
-          format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+          format.html { redirect_to edit_category_report_path(@report.category, @report), notice: 'Report was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
@@ -76,10 +76,11 @@ module Ems
     # DELETE /reports/1.json
     def destroy
       @report = Report.find(params[:id])
+      category = @report.category
       @report.destroy
   
       respond_to do |format|
-        format.html { redirect_to reports_url }
+        format.html { redirect_to category_reports_path(category), notice: 'Report was successfully deleted.' }
         format.json { head :no_content }
       end
     end

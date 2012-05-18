@@ -28,6 +28,7 @@ module Ems
       @article = Article.new
       @article.assets.build
       @article.category = Category.find params[:category_id]
+        
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @article }
@@ -63,10 +64,10 @@ module Ems
   
       respond_to do |format|
         if @article.update_attributes(params[:article])
-          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.html { redirect_to edit_category_article_path(@article.category, @article), notice: 'Article was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render action: "edit" }
+          format.html { render action: "edit", category_id: @article.category }
           format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
@@ -76,10 +77,11 @@ module Ems
     # DELETE /articles/1.json
     def destroy
       @article = Article.find(params[:id])
+      category = @article.category
       @article.destroy
   
       respond_to do |format|
-        format.html { redirect_to articles_url }
+        format.html { redirect_to category_articles_path(category), notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       end
     end
