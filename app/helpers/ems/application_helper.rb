@@ -1,37 +1,35 @@
 module Ems
   module ApplicationHelper
+    # Titles
+    def title_bar(pageTitle, links)
+      haml_tag :div, :id => "title_bar" do
 
-  # Titles
-  def title_bar(pageTitle, links)
-    haml_tag :div, :id => "title_bar" do
-
-      haml_tag :div, :id => "titlebar_left" do
-        haml_tag :div, :class => "breadcrumb" do
-          haml_concat(render_navigation  :context => :ems, :renderer => :breadcrumbs, :join_with => " &gt; ")
+        haml_tag :div, :id => "titlebar_left" do
+          haml_tag :div, :class => "breadcrumb" do
+            haml_concat(render_navigation  :context => :ems, :renderer => :breadcrumbs, :join_with => " &gt; ")
+          end
+          haml_tag :h2, :id => "page_title" do
+            haml_concat(pageTitle)
+          end
         end
-        haml_tag :h2, :id => "page_title" do
-          haml_concat(pageTitle)
-        end
-      end
 
-      if links
-        haml_tag :div, :id => "titlebar_right" do
-          haml_tag :div, :class => "action_items" do
-            links.each do |link|
-              haml_tag :span, :class => "action_item" do
-                haml_tag :a, :href =>link["url"] do
-                  haml_concat(link["title"])
+        if links
+          haml_tag :div, :id => "titlebar_right" do
+            haml_tag :div, :class => "action_items" do
+              links.each do |link|
+                haml_tag :span, :class => "action_item" do
+                  haml_tag :a, :href =>link["url"] do
+                    haml_concat(link["title"])
+                  end
                 end
               end
             end
           end
         end
       end
-
     end
-  end
 
-  #  Content wrappers
+    # Content wrappers
     def main_content(title)
       haml_tag :div, :id => "main_content_wrapper" do
         haml_tag :div, :id=>"main_content" do
@@ -62,7 +60,7 @@ module Ems
       end
     end
 
-  # Tables
+    # Tables
     def feature_table(headings)
       haml_tag :table do
         # Make the header
@@ -100,6 +98,5 @@ module Ems
         end
       end
     end
-
   end
 end
