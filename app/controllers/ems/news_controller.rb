@@ -38,6 +38,7 @@ module Ems
     # GET /news/1/edit
     def edit
       @news = News.find(params[:id])
+      @news.assets.build
     end
   
     # POST /news
