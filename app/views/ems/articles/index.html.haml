@@ -12,4 +12,4 @@
           %td= article.created_at.strftime("%b %e, %l:%M %p")
           %td= link_to 'Show', category_article_path(params[:category_id], article)
           %td= link_to 'Edit', edit_category_article_path(params[:category_id], article)
-          %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+          %td= link_to 'Destroy', category_article_path(params[:category_id], article), :confirm => 'Are you sure?', :method => :delete
