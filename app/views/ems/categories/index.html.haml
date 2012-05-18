@@ -1,17 +1,7 @@
-%h1 Listing categories
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @categories.each do |category|
-    %tr
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Category', new_category_path
+- title_bar "Categories", nil
+%div#active_admin_content.without_sidebar
+  - main_content "Category List" do
+    - index_table ["Name"] do
+      - @categories.each_with_index do |category, i|
+        %tr{:class=>cycle( "odd", "even") }
+          %td= category.name

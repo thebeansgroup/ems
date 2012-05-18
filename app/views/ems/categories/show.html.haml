@@ -1,6 +1,4 @@
+- title_bar "Viewing category #{@category.name}", nil
 %p#notice= notice
-
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+%div#active_admin_content.without_sidebar
+  = link_to 'Back', categories_path
