@@ -15,6 +15,14 @@
           #button-bar
           = f.input :content
 
+        %li
+          = f.label "Asset store"
+          / = f.fields_for :assets do |builder|
+          /   - if builder.object.new_record?
+          /     = builder.label :asset
+          /     = builder.file_field :asset
+          /   - else
+          /     = image_tag builder.object.image.url
         / %li
         /   - for i in @article.images
         /     %p= i.title
@@ -38,12 +46,12 @@
           = f.association :channels, :collection => Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @article.category.id})
 
         %li
+          / this works but needs tidying in CSS, JS and markup
           = f.label :tags
-          %input{ :type=>:text, :data => { :autoCompleteSearch => "/ems/tags.json" }}
-          %ul#tag-list
+          %input{ :type=>:text, :data => { :tagcomplete => "/ems/tags.json" }}
+          %ul#tag-list.pill-list
             - @article.tags.each do |tag|
-              %li
-                = tag.title
+              %li.pill{:id=>"tag-list-#{tag.id}"}= tag.title
           .hidden_fields
             = f.association :tags
 

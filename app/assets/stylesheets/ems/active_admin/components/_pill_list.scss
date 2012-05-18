@@ -1,0 +1,13 @@
+.pill-list {
+  padding: 10px 0;
+	
+  li {
+	 display: inline-block;
+   margin-bottom: 5px;
+	}
+
+	.pill {
+		@include light-button;
+    cursor: pointer;
+	}
+}

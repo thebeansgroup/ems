@@ -12,7 +12,7 @@ $ ->
 
   $(".dropdown_button").popover()
 
-  $('[data-autoCompleteSearch]').autoCompleteSearch()
+  $('[data-tagcomplete]').tagComplete()
 
   # $('#article_tags').data( "autocomplete" )._renderItem = ( ul, item ) ->
   #   console?.log item

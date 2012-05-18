@@ -268,3 +268,7 @@ form.filter_form {
   a.clear_filters_btn { @include light-button; }
 }
 
+
+.hidden_fields { // Not for client facing code
+  display: none;
+}

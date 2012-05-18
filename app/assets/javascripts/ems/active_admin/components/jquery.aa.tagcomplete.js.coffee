@@ -1,4 +1,4 @@
-class window.AutoCompleteSearch
+class window.TagComplete
 
   constructor: (@options, el) ->
 
@@ -12,7 +12,7 @@ class window.AutoCompleteSearch
 
   _init: ->
     self = @
-    url = @el.data('autocompletesearch')
+    url = @el.data('tagcomplete')
     @el.autocomplete
       minLength: 0
       source: (request, response)->
@@ -25,7 +25,7 @@ class window.AutoCompleteSearch
         console?.log "Focus", ui.item.title
         false
       select: ( event, ui )->
-        console?.log self.hiddenEl
+        if $("#tag-list-#{ui.item.id}").length then return false
         self.hiddenEl.find("[value=#{ui.item.id}]").attr('selected','selected')
         self._addToList ui.item.title, ui.item.id
         false
@@ -37,12 +37,11 @@ class window.AutoCompleteSearch
 
 
   _addToList: ( title, id )->
-    console?.log "Select", title, id
-    $("<li id='tag-list-#{id}'></li>").append(title).appendTo('#tag-list')
+    $("<li id='tag-list-#{id}' class='pill'></li>").append(title).appendTo('#tag-list')
 
 
 ( ( $ ) ->
-  $.widget.bridge 'autoCompleteSearch', window.AutoCompleteSearch
+  $.widget.bridge 'tagComplete', window.TagComplete
 )( jQuery )
 
 

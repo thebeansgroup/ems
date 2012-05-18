@@ -2,7 +2,7 @@
 
 %div#active_admin_content.without_sidebar
   - main_content "Article List" do
-    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", "", ""] do
+    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", ""] do
       - @articles.each_with_index do |article, i|
         %tr{:class=>cycle( "odd", "even") }
           %td= article.title
