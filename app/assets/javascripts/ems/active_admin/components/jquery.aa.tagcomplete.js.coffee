@@ -26,6 +26,7 @@ class window.TagComplete
       select: ( event, ui )->
         if not $("#tag-list-#{ui.item.id}").length then self._add ui.item.title, ui.item.id
         false
+      appendTo: @el.parent()
 
     @._customList()    
 
