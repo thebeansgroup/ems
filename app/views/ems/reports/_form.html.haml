@@ -1,4 +1,4 @@
-= simple_form_for @report do |f|
+= simple_form_for @report, :url => report_form_url do |f|
   - main_content "Report List" do
     %fieldset{ :class=>"inputs"}
       %ol
