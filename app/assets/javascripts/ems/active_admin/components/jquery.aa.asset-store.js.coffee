@@ -10,6 +10,15 @@ class window.AssetStore
     @_init()
 
   _init: ->
+    @._initDel()
+    @._initText()
+
+  _initText: ->
+    @items.on 'dblclick', '.asset-text', (e)=>
+      @._editText $(e.target)
+      
+
+  _initDel: ->
     suffix = "_destroy"
     @items.each (i,el)=>
       $el = $(el)
@@ -30,6 +39,19 @@ class window.AssetStore
 
   _keep: ( $el )->
     $( '#' + $el.data().assetstoreDelete.attr('id') ).remove()
+
+  _editText: ( $el )->
+    input = $("<input type='text' value='#{$el.text()}'>")
+    $el.hide().after(input)
+    input.bind 'keydown', (e)=>
+      if e.keyCode is 13
+        e.preventDefault()
+        @._changeText $el, input.val()
+        $el.show()
+        input.remove()
+
+  _changeText: ( $el, text )->
+    $el.text(text).siblings('.asset-title-hidden').val(text)
 
 ( ( $ ) ->
   $.widget.bridge 'assetStore', window.AssetStore
