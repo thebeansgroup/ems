@@ -9,8 +9,28 @@
           = f.input :standfirst, :input_html => { :rows => 4 }
 
         %li
-          #button-bar
+          = f.input :image
+
+        %li
+          #button-bar.input-buttons
+          = f.label :content
           = f.input_field :content, :data => {:wmd => "news_content"}
+          
+        %li
+          = f.label "Asset Manager"
+          = f.fields_for :assets do |builder|
+            - if not builder.object.new_record?
+              = image_tag builder.object.asset.url, :width=>"20%"
+              %p= builder.object.title
+            - else
+              .asset_uploader.input-push
+                = builder.file_field :asset
+                # = builder.input_field builder.object.title
+
+        / %li
+        /   - for i in @article.images
+        /     %p= i.title
+        /     = image_tag i.image.url
 
     %fieldset{ :class=>"button"}
       %ol
@@ -28,6 +48,18 @@
 
         %li
           = f.association :channels, :collection => Ems::Channel.joins(:categories).where(:ems_categories_channels => {:category_id => @news.category.id})
+
+        %li
+          / this works but needs tidying in CSS, JS and markup
+          = f.label :tags
+          %input{ :type=>:text, :data => { :tagcomplete => "/ems/tags.json", :tagcomplete_pills => "#tag-list" }}
+          %ul#tag-list.pill-list
+            - @news.tags.each do |tag|
+              %li.pill{:id=>"tag-list-#{tag.id}"}
+                = tag.title
+                %span.close ×
+          .hidden_fields
+            = f.association :tags
 
         %li
           = f.label "News Priority"

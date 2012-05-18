@@ -96,9 +96,13 @@ form {
     }
   }
   /* Buttons for WYSIWYGs */
-  .input-buttons {
+  .input-push {
     width: 76%;
     margin-left: 20%;
+  }
+
+  .input-buttons {
+    @extend .input-push;
     background-color: #fff;
     padding: 0 10px;
     border: 1px solid #c9d0d6;
