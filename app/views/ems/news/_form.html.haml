@@ -1,6 +1,7 @@
 = simple_form_for @news, :url => news_form_url do |f|
   - main_content "News List" do
     %fieldset{ :class=>"inputs"}
+      = f.association :category, :as => :hidden
       %ol
         %li
           = f.input :title
