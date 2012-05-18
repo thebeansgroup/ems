@@ -103,7 +103,12 @@ form {
     padding: 0 10px;
     border: 1px solid #c9d0d6;
     border-bottom: none;
-    @include rounded-all(3px,3px,0,0)
+    @include rounded-all(3px,3px,0,0);
+    opacity: 0.6;
+
+    &:hover, &:focus{
+      opacity: 1;
+    }
   }
   .wmd-button {
     box-sizing: border-box;
