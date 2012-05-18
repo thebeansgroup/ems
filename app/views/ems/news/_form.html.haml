@@ -16,21 +16,23 @@
           = f.label :content
           = f.input_field :content, :data => {:wmd => "news_content"}
           
-        %li
+        %li.asset-store
           = f.label "Asset Manager"
           = f.fields_for :assets do |builder|
-            - if not builder.object.new_record?
-              = image_tag builder.object.asset.url, :width=>"20%"
-              %p= builder.object.title
-            - else
-              .asset_uploader.input-push
-                = builder.file_field :asset
-                # = builder.input_field builder.object.title
 
-        / %li
-        /   - for i in @article.images
-        /     %p= i.title
-        /     = image_tag i.image.url
+            - if not builder.object.new_record?
+              .asset-item
+                = image_tag builder.object.asset.url
+                = builder.hidden_field :title
+                %input{:type=>"checkbox", :id=>"asset-item-#{builder.object.id}", :class=>"asset-check", :checked=>true}
+                %p= builder.object.title
+                %p= builder.object.asset.url
+
+            - else
+              .asset-uploader.input-push
+                = builder.file_field :asset
+                = builder.text_field :title
+
 
     %fieldset{ :class=>"button"}
       %ol
