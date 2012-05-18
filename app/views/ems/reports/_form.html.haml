@@ -10,7 +10,8 @@
           = f.input :standfirst, :input_html => { :rows => 4 }
 
         %li
-          #button-bar
+          #button-bar.input-buttons
+          = f.label :content
           = f.input_field :content, :data => {:wmd => "report_content"}
 
         %li
