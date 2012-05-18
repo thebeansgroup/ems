@@ -105,6 +105,9 @@ form {
     border-bottom: none;
     @include rounded-all(3px,3px,0,0)
   }
+  .wmd-button {
+    box-sizing: border-box;
+  }
 
   fieldset > ol > li {
 

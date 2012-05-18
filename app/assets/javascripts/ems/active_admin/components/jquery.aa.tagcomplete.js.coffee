@@ -37,7 +37,7 @@ class window.TagComplete
 
 
   _addToList: ( title, id )->
-    $("<li id='tag-list-#{id}' class='pill'></li>").append(title).appendTo('#tag-list')
+    $("<li id='tag-list-#{id}' class='pill'></li>").append("#{title} <span class='close'>×</span>").appendTo('#tag-list')
 
 
 ( ( $ ) ->

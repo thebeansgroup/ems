@@ -52,7 +52,9 @@
           %input{ :type=>:text, :data => { :tagcomplete => "/ems/tags.json" }}
           %ul#tag-list.pill-list
             - @article.tags.each do |tag|
-              %li.pill{:id=>"tag-list-#{tag.id}"}= tag.title
+              %li.pill{:id=>"tag-list-#{tag.id}"}
+                = tag.title
+                %span.close ×
           .hidden_fields
             = f.association :tags
 
