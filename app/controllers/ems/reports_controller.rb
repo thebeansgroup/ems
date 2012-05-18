@@ -38,6 +38,7 @@ module Ems
     # GET /reports/1/edit
     def edit
       @report = Report.find(params[:id])
+      @report.assets.build
     end
   
     # POST /reports
