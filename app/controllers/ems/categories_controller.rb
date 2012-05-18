@@ -3,13 +3,8 @@ module Ems
     # GET /categories
     # GET /categories.json
     def index
-      if params[:channel_id]
-        @categories = Category.joins(:channels).where('ems_categories_channels.channel_id' => params[:channel_id])
-      elsif params[:filters]
-        @categories = Ems::Category.where(params[:filters])
-      else        
-        @categories = Category.all
-      end
+      @categories = Category.all
+  
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @categories }
@@ -18,13 +13,9 @@ module Ems
   
     # GET /categories/1
     # GET /categories/1.json
-    # OR
-    # GET /categories/slug
-    # GET /categories/slug.json
     def show
-      # Because we can get categories either by ID or by their slug we try to first get the category by casting the
-      # param[:id] to an Integer, when that fails we try to retrieve it by slug
-      @category = Category.find(Integer(params[:id]))
+      @category = Category.find(params[:id])
+  
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @category }
@@ -67,7 +58,7 @@ module Ems
     # PUT /categories/1.json
     def update
       @category = Category.find(params[:id])
-
+  
       respond_to do |format|
         if @category.update_attributes(params[:category])
           format.html { redirect_to @category, notice: 'Category was successfully updated.' }
