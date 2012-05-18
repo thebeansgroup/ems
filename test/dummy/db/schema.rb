@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20120514103226) do
     t.string   "status"
     t.string   "content_disposition"
     t.integer  "category_id"
+    t.string   "download_cta"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
