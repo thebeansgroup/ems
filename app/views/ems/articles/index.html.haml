@@ -2,14 +2,14 @@
 
 %div#active_admin_content.without_sidebar
   - main_content "Article List" do
-    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", ""] do
+    - index_table ["Title", "Status", "Publish", "Updated", "Created", "", "", ""] do
       - @articles.each_with_index do |article, i|
         %tr{:class=>cycle( "odd", "even") }
           %td= article.title
           %td= article.status
-          %td= article.publish_from.strftime("%b %e, %l:%M %p")
+          %td= article.publish_from
           %td= article.updated_at.strftime("%b %e, %l:%M %p")
           %td= article.created_at.strftime("%b %e, %l:%M %p")
           %td= link_to 'Show', category_article_path(params[:category_id], article)
           %td= link_to 'Edit', edit_category_article_path(params[:category_id], article)
-          /%td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+          %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
