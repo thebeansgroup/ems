@@ -25,7 +25,7 @@ module Ems
     # GET /articles/new
     # GET /articles/new.json
     def new
-      @article = Article.new
+      @article = Article.new(:category => Category.find(params[:category_id]))
       @article.assets.build
       @article.category = Category.find params[:category_id]
         
@@ -48,10 +48,10 @@ module Ems
   
       respond_to do |format|
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to edit_category_article_path(1, @article), notice: 'Article was successfully created.' }
           format.json { render json: @article, status: :created, location: @article }
         else
-          format.html { render action: "new" }
+          format.html { render action: "new", :category_id => @article.category, :id => @article }
           format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
@@ -67,7 +67,7 @@ module Ems
           format.html { redirect_to edit_category_article_path(@article.category, @article), notice: 'Article was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render action: "edit", category_id: @article.category }
+          format.html { render action: "edit", :category_id => @article.category, :id => @article }
           format.json { render json: @article.errors, status: :unprocessable_entity }
         end
       end
@@ -81,7 +81,7 @@ module Ems
       @article.destroy
   
       respond_to do |format|
-        format.html { redirect_to category_articles_path(category), notice: 'Article was successfully updated.' }
+        format.html { redirect_to category_articles_path(category), notice: 'Article was successfully deleted.' }
         format.json { head :no_content }
       end
     end
