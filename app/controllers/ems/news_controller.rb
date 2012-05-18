@@ -48,7 +48,7 @@ module Ems
   
       respond_to do |format|
         if @news.save
-          format.html { redirect_to @news, notice: 'News was successfully created.' }
+          format.html { redirect_to edit_category_news_path(@news.category, @news), notice: 'News was successfully created.' }
           format.json { render json: @news, status: :created, location: @news }
         else
           format.html { render action: "new" }
@@ -64,7 +64,7 @@ module Ems
   
       respond_to do |format|
         if @news.update_attributes(params[:news])
-          format.html { redirect_to @news, notice: 'News was successfully updated.' }
+          format.html { redirect_to edit_category_news_path(@news.category, @news), notice: 'News was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
@@ -81,7 +81,7 @@ module Ems
       @news.destroy
   
       respond_to do |format|
-        format.html { redirect_to news_index_url }
+        format.html { redirect_to category_news_index_path(category), notice: 'News was successfully deleted.' }
         format.json { head :no_content }
       end
     end
