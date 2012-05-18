@@ -31,5 +31,8 @@ Gem::Specification.new do |s|
   s.add_dependency "aws-sdk"
   s.add_dependency "squeel"
   s.add_dependency "sanitize"
+  s.add_dependency "wmd-rails"
+  s.add_dependency "simple_form"
+  s.add_dependency "simple-navigation"
   
 end
