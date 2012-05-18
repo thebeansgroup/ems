@@ -95,6 +95,16 @@ form {
       @include shadow(0,0,4px,#99a2aa);
     }
   }
+  /* Buttons for WYSIWYGs */
+  .input-buttons {
+    width: 76%;
+    margin-left: 20%;
+    background-color: #fff;
+    padding: 0 10px;
+    border: 1px solid #c9d0d6;
+    border-bottom: none;
+    @include rounded-all(3px,3px,0,0)
+  }
 
   fieldset > ol > li {
 

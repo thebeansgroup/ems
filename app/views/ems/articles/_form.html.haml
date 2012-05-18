@@ -12,8 +12,9 @@
           = f.input :image
           
         %li
-          #button-bar
-          = f.input :content
+          #button-bar.input-buttons
+          = f.label :content
+          = f.input_field :content
 
         %li
           = f.label "Asset store"
