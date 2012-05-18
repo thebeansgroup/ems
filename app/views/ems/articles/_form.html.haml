@@ -14,7 +14,7 @@
         %li
           #button-bar.input-buttons
           = f.label :content
-          = f.input_field :content
+          = f.input_field :content, :data => {:wmd => "article_content"}
 
         %li
           = f.label "Asset store"
@@ -49,7 +49,7 @@
         %li
           / this works but needs tidying in CSS, JS and markup
           = f.label :tags
-          %input{ :type=>:text, :data => { :tagcomplete => "/ems/tags.json" }}
+          %input{ :type=>:text, :data => { :tagcomplete => "/ems/tags.json", :tagcomplete_pills => "#tag-list" }}
           %ul#tag-list.pill-list
             - @article.tags.each do |tag|
               %li.pill{:id=>"tag-list-#{tag.id}"}

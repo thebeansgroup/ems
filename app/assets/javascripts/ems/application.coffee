@@ -15,3 +15,5 @@
 #= require_tree  ./active_admin/lib/
 #= require_tree  ./active_admin/components/
 #= require_tree  ./active_admin/pages/
+#= require wmd/wmd
+#= require wmd/showdown

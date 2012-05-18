@@ -14,6 +14,13 @@ $ ->
 
   $('[data-tagcomplete]').tagComplete()
 
+  $('[data-wmd]').each ->
+    new WMDEditor(
+      input: $(this).data('wmd')
+      button_bar: "button-bar"
+      helpLink: "http://daringfireball.net/projects/markdown/syntax"
+    )
+
   # $('#article_tags').data( "autocomplete" )._renderItem = ( ul, item ) ->
   #   console?.log item
   #   $( "<li></li>" ).data( "item.autocomplete", item )
