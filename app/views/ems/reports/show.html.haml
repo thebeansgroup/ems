@@ -1,6 +1,8 @@
+- title_bar "Viewing report", nil
 %p#notice= notice
-
-
-= link_to 'Edit', edit_category_report_path(params[:category_id], @report)
-\|
-= link_to 'Back', category_reports_path(params[:category_id])
+%div#active_admin_content.without_sidebar
+  %h2= @report.title
+  
+  %p= @report.standfirst
+  
+  %div= @report.content_as_html.html_safe

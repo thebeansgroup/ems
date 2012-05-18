@@ -1,6 +1,8 @@
+- title_bar "Viewing article", nil
 %p#notice= notice
-
-
-= link_to 'Edit', edit_category_article_path(params[:category_id], @article)
-\|
-= link_to 'Back', category_articles_path(params[:category_id])
+%div#active_admin_content.without_sidebar
+  %h2= @article.title
+  
+  %p= @article.standfirst
+  
+  %div= @article.content_as_html.html_safe

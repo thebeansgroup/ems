@@ -1,6 +1,8 @@
+- title_bar "Viewing news", nil
 %p#notice= notice
-
-
-= link_to 'Edit', edit_category_news_path(params[:category_id], @news)
-\|
-= link_to 'Back', category_news_index_path(params[:category_id])
+%div#active_admin_content.without_sidebar
+  %h2= @news.title
+  
+  %p= @news.standfirst
+  
+  %div= @news.content_as_html.html_safe
