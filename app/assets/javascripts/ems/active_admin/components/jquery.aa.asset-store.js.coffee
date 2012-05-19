@@ -22,9 +22,10 @@ class window.AssetStore
     suffix = "_destroy"
     @items.each (i,el)=>
       $el = $(el)
-      hid = $el.next().clone().val(1)
+      hid = $el.find('.asset-id-hidden').clone().val(1).attr("class","asset-destroy-hidden")
+      if not hid.length then return false
       name = hid.attr('name').split('[')
-      delete name[name.length-1]
+      name.splice(-2,1)
       name[name.length] = suffix + "]"
       $el.data 'assetstore-delete', hid.attr( {'name': name.join('[') } )
       @._bindCheck( $el )
@@ -34,15 +35,18 @@ class window.AssetStore
       if $(e.target).is(':checked') then @._keep( $el ) else @._delete( $el )
 
   _delete: ( $el )->
+    console.log "DELETE"
     delEl = $el.data().assetstoreDelete
-    $el.after delEl
+    $el.append delEl
 
   _keep: ( $el )->
+    console.log "UN-DELETE"
     $( '#' + $el.data().assetstoreDelete.attr('id') ).remove()
 
   _editText: ( $el )->
-    input = $("<input type='text' value='#{$el.text()}'>")
+    input = $("<textarea class='asset-text-input'>#{$el.text()}</textarea>")
     $el.hide().after(input)
+    input.focus()
     input.bind 'keydown', (e)=>
       if e.keyCode is 13
         e.preventDefault()
@@ -51,7 +55,8 @@ class window.AssetStore
         input.remove()
 
   _changeText: ( $el, text )->
-    $el.text(text).siblings('.asset-title-hidden').val(text)
+    $el.text(text).closest('.asset').find('.asset-title-hidden').val(text)
+    console.log $el, $el.closest('.asset').find('.asset-title-hidden')
 
 ( ( $ ) ->
   $.widget.bridge 'assetStore', window.AssetStore

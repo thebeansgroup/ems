@@ -1,8 +1,7 @@
-- title_bar "Viewing article", nil
+- title_bar "Viewing article", [{"title"=>"Edit", "url"=>edit_category_article_path(params[:category_id],params[:id])}]
 %p#notice= notice
-%div#active_admin_content.without_sidebar
+%div#active_admin_content.with_sidebar
   %h2= @article.title
-  
   %p= @article.standfirst
-  
-  %div= @article.content_as_html.html_safe
+  %hr
+  != @article.content_as_html

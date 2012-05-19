@@ -1,0 +1,126 @@
+// Asset component 
+// ===========
+// 
+.asset-manager-row {
+  @include clearfix;
+}
+// Asset list
+// ============
+// 
+.asset-store {
+  // It is currently assumed that this widget will be next to a label
+  // so we force the positioning. If the widget becomes universal
+  // this needs to be reviewed.
+  float: left;
+  width: 76%;
+
+
+  display:block;
+  overflow:hidden;
+  margin-left:-16px;
+  list-style:none;
+
+	&:after {
+	    display:block;
+	    clear:both;
+	    content:'';
+	}
+
+	& > li {
+    position: relative;
+    float: left;
+  	width:25%;
+    display:block;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    padding:0 0 0 16px;
+    margin-bottom: 16px;
+    background:none;
+	}
+
+  & > li:nth-child(4n-7) {
+    clear: left;
+  }
+
+  img {
+    max-width: 100%;
+    border: 1px solid #C9D0D6;
+    opacity: 0.6;
+  }
+
+  & > li:hover img {
+    opacity: 1;
+  }
+
+  .asset {
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid #C9D0D6;
+    @include rounded;
+    padding: 5px 5px 10px;
+  }
+
+  .asset-container {
+    overflow: hidden;
+    height: 130px;
+  }
+
+  .asset-check-container {
+    position: absolute;
+    top: 9px;
+    right: 8px;
+    padding: 3px 6px 1px;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid #C9D0D6;
+    @include rounded;
+  }
+
+  .asset-text-container {
+    margin-top: 5px;
+    font-family: "Courier New",Courier,monospace;
+
+    .asset-text-input {
+      width: 100%;
+      padding: 4px;
+      -moz-box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      box-sizing:border-box;
+      font-family: "Courier New",Courier,monospace;
+      line-height: 18px;
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .asset-url {
+    display: none;
+  }
+
+}
+
+
+// Add asset component 
+// ===========
+// 
+.asset-add {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid #C9D0D6;
+    @include rounded;
+
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      -moz-box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      box-sizing:border-box;
+    }
+
+}

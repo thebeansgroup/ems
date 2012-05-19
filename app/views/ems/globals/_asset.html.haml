@@ -1,0 +1,27 @@
+%li.asset-manager-row
+  = form.label "Asset Manager"
+  %ul.asset-store
+    = form.fields_for :assets do |builder|
+      %li.asset-item
+        - if not builder.object.new_record?
+          .asset
+            .asset-container
+              = image_tag builder.object.asset.url
+            = builder.hidden_field :title, :class=>"asset-title-hidden"
+            = builder.hidden_field :id, :class=>"asset-id-hidden"
+            .asset-check-container
+              %input{:type=>"checkbox", :id=>"asset-item-#{builder.object.id}", :class=>"asset-check", :checked=>true}
+            .asset-text-container
+              %p.asset-text= builder.object.title
+            .asset-url 
+              %p= builder.object.asset.url
+
+        - else
+          %span.asset-blank
+            - @assetField = builder.file_field :asset
+            - @titleField = builder.input_field :title, :placeholder => "Enter image title"
+%li
+  = form.label "Add new asset"
+  .input-push.asset-add
+    = @assetField
+    = @titleField
