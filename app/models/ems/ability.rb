@@ -1,8 +1,7 @@
 module Ems
-
   class Ability
     include CanCan::Ability
-
+  
     def initialize(user)
       # Define abilities for the passed in user here. For example:
       #
@@ -10,11 +9,8 @@ module Ems
 
       if user.ems_role? :editor
         can :manage, :all
+        can :publish, :all
       elsif user.ems_role? :author
-        can :create, Article
-        can :edit, Article do |article|
-           article.try(:author) == user
-        end
       end
       #
       # The first argument to `can` is the action you are giving the user permission to do.

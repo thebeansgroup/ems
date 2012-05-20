@@ -1,1 +1,1 @@
-SimpleNavigation.config_file_path = File.join(Ems::Engine.root, 'config')
+ SimpleNavigation.config_file_paths << File.join(Ems::Engine.root, 'config')

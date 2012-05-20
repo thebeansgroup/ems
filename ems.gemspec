@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "paperclip"
   s.add_dependency "aws-sdk"
   s.add_dependency "sunspot_rails"
+  s.add_dependency "devise"
   s.add_dependency "cancan"
   s.add_dependency "paperclip"
   s.add_dependency "aws-sdk"

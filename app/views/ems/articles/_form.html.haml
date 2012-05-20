@@ -28,7 +28,7 @@
     %fieldset{ :class=>"inputs"}
       %ol
         %li
-          = f.input :status, :as => :select, :collection => [:draft, :pending, :live], :include_blank => false
+          = f.input :status, :as => :select, :collection => allowed_status, :include_blank => false
 
         %li
           = f.input :publish_from, :as => :string, :input_html => { :class => 'datepicker', :value =>  @article.try(:publish_from).try(:strftime,'%d/%m/%Y'), :data => { :alt_date => "alt-date-" }}

@@ -1,5 +1,5 @@
 module Ems
-  module ApplicationHelper
+  module ApplicationHelper  
     # Titles
     def title_bar(pageTitle, links)
       haml_tag :div, :id => "title_bar" do

@@ -1,5 +1,6 @@
 module Ems
   class TagsController < ApplicationController
+    load_and_authorize_resource
     include TagQueryBuilder
     
     # GET /tags

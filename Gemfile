@@ -11,6 +11,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'json'
 gem 'cancan'
+gem 'devise'
 gem 'kramdown', :git => 'git://github.com/thebeansgroup/kramdown.git', :branch => 'bean-kramdown'
 gem "paperclip"
 gem "aws-sdk"

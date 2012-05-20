@@ -83,6 +83,7 @@ SimpleNavigation::Configuration.run do |navigation|
     
     primary.item :channels, 'Channels', channels_path
     primary.item :tags, 'Tags', tags_path
+    primary.item :logout, 'Logout', main_app.destroy_user_session_path, :method => :delete
   end
 
 end

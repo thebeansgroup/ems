@@ -1,5 +1,6 @@
 module Ems
   class ChannelsController < ApplicationController
+    load_and_authorize_resource
     # GET /channels
     # GET /channels.json
     def index

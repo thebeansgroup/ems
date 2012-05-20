@@ -8,7 +8,8 @@ As mentioned before, the EMS is contained within a mountable engine. For more in
 visit http://guides.rubyonrails.org/engines.html
 
 ### Authentication and Ability management
-Authentication
+Authentication, currently the EMS only supports the editors ability, when needed other abilities can be easily added.
+The Editor is the _super_ user of the EMS.
 
 * Editor
 * Author
