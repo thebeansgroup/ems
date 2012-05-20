@@ -25,6 +25,10 @@ gem 'wmd-rails'
 # Git. Remember to move these dependencies to your .gemspec before releasing
 # your gem to rubygems.org.
 
+group :test do
+  gem 'cucumber-rails'
+end
+
 group :development, :test do
   gem 'growl'
   gem 'foreman'
@@ -37,7 +41,6 @@ group :development, :test do
   gem 'jasmine'
   # gem 'jasminerice'
   gem 'rspec-rails'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'kss-rails'
   gem 'sunspot_solr'
