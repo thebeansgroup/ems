@@ -24,7 +24,7 @@ class window.AssetStore
     suffix = "_destroy"
     @items.each (i,el)=>
       $el = $(el)
-      hid = $el.find('.asset-id-hidden').clone().val(1).attr("class","asset-destroy-hidden")
+      hid = $el.find('.asset-id-hidden').clone().val(1).attr({"class":"asset-destroy-hidden", "id": ""})
       if not hid.length then return false
       name = hid.attr('name').split('[')
       name.splice(-1,1)
