@@ -24,8 +24,8 @@ module Ems
     validates :status, :presence => true
     
     validates :image, :attachment_presence => true, :if => :is_live?
-    validates :title, :length => { :maximum => 20 }, :if => :is_live?
-    validates :standfirst, :length => { :maximum => 20 }, :if => :is_live?
+    validates :title, :presence => true, :if => :is_live?
+    validates :standfirst, :presence => true, :if => :is_live?
     validates :content, :presence => true, :if => :is_live?
         
     validates_uniqueness_of :slug
