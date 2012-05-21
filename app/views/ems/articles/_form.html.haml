@@ -9,9 +9,8 @@
         %li
           = f.input :standfirst, :input_html => { :rows => 4 }
 
-        %li
-          = f.input :image
-          
+        = render "ems/globals/lead_image", :form => f
+
         %li
           #button-bar.input-buttons
           = f.label :content
