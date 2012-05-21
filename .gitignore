@@ -7,7 +7,6 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 ems*.gem
 .DS_Store
-Gemfile.lock
 public/javascripts
 test/dummy/public/system/ems/articles/images*
 test/dummy/solr/*
