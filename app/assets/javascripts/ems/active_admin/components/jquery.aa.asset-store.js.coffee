@@ -5,7 +5,7 @@ class window.AssetStore
 
     @options = $.extend( {}, defaults, options );
     @el = $(el)
-    @items = @el.find('.asset-item')    
+    @items = @el.find('.asset-item')
 
     @_init()
 
@@ -28,7 +28,7 @@ class window.AssetStore
       if not hid.length then return false
       console?.log hid.attr('name')
       name = hid.attr('name').split('[')
-      name.splice(-2,1)
+      name.splice(-1,1)
       name[name.length] = suffix + "]"
       $el.data 'assetstore-delete', hid.attr( {'name': name.join('[') } )
       @._bindCheck( $el )
