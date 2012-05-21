@@ -52,7 +52,7 @@ module Ems
           format.html { redirect_to edit_category_news_path(@news.category, @news), notice: 'News was successfully created.' }
           format.json { render json: @news, status: :created, location: @news }
         else
-          format.html { render action: "new" }
+          format.html { render action: "new", :category_id => @news.category, :id => @news }
           format.json { render json: @news.errors, status: :unprocessable_entity }
         end
       end
@@ -68,7 +68,7 @@ module Ems
           format.html { redirect_to edit_category_news_path(@news.category, @news), notice: 'News was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render action: "edit" }
+          format.html { render action: "edit", :category_id => @news.category, :id => @news }
           format.json { render json: @news.errors, status: :unprocessable_entity }
         end
       end

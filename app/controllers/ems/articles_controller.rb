@@ -50,7 +50,7 @@ module Ems
   
       respond_to do |format|
         if @article.save
-          format.html { redirect_to edit_category_article_path(@article.category.id, @article.id), notice: 'Article was successfully created.' }
+          format.html { redirect_to edit_category_article_path(@article.category, @article), notice: 'Article was successfully created.' }
           format.json { render json: @article, status: :created, location: @article }
         else
           format.html { render action: "new", :category_id => @article.category, :id => @article }

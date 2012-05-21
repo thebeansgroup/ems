@@ -52,7 +52,7 @@ module Ems
           format.html { redirect_to edit_category_report_path(@report.category, @report), notice: 'Report was successfully created.' }
           format.json { render json: @report, status: :created, location: @report }
         else
-          format.html { render action: "new" }
+          format.html { render action: "new", :category_id => @report.category, :id => @report }
           format.json { render json: @report.errors, status: :unprocessable_entity }
         end
       end
@@ -68,7 +68,7 @@ module Ems
           format.html { redirect_to edit_category_report_path(@report.category, @report), notice: 'Report was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render action: "edit" }
+          format.html { render action: "edit", :category_id => @report.category, :id => @report }
           format.json { render json: @report.errors, status: :unprocessable_entity }
         end
       end
