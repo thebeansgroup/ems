@@ -1,1 +1,1 @@
-Ems.user_class = "Userssssss"
+Ems.user_class = "Users"
