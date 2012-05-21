@@ -1,7 +1,9 @@
 module Ems
   class EmsController < ApplicationController
-    load_and_authorize_resource
+    skip_authorization_check :only => [:index]
+        
     def index
     end
+    
   end
 end
