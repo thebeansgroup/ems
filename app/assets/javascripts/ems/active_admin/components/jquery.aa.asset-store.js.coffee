@@ -26,7 +26,6 @@ class window.AssetStore
       $el = $(el)
       hid = $el.find('.asset-id-hidden').clone().val(1).attr("class","asset-destroy-hidden")
       if not hid.length then return false
-      console?.log hid.attr('name')
       name = hid.attr('name').split('[')
       name.splice(-1,1)
       name[name.length] = suffix + "]"
@@ -38,6 +37,14 @@ class window.AssetStore
       $el = $(el)
       $el.find('.asset-container').zclip
         path:'/assets/ems/active_admin/lib/ZeroClipboard.swf'
+        afterCopy: () ->
+          $('body').animate({
+            opacity: 0.7
+          }, 100, ->
+            $('body').animate({
+              opacity: 1
+            }, 100)
+          )
         copy: () ->
           $el.find('.asset-url').text()
 
@@ -46,12 +53,10 @@ class window.AssetStore
       if $(e.target).is(':checked') then @._keep( $el ) else @._delete( $el )
 
   _delete: ( $el )->
-    console.log "DELETE"
     delEl = $el.data().assetstoreDelete
     $el.append delEl
 
   _keep: ( $el )->
-    console.log "UN-DELETE"
     $( '#' + $el.data().assetstoreDelete.attr('id') ).remove()
 
   _editText: ( $el )->
@@ -67,7 +72,7 @@ class window.AssetStore
 
   _changeText: ( $el, text )->
     $el.text(text).closest('.asset').find('.asset-title-hidden').val(text)
-    console.log $el, $el.closest('.asset').find('.asset-title-hidden')
+
 
 ( ( $ ) ->
   $.widget.bridge 'assetStore', window.AssetStore
