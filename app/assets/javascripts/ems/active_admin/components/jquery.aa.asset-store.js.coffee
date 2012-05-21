@@ -12,11 +12,13 @@ class window.AssetStore
   _init: ->
     @._initDel()
     @._initText()
+    @._initCopy()
+
 
   _initText: ->
     @items.on 'dblclick', '.asset-text', (e)=>
       @._editText $(e.target)
-      
+
 
   _initDel: ->
     suffix = "_destroy"
@@ -24,11 +26,20 @@ class window.AssetStore
       $el = $(el)
       hid = $el.find('.asset-id-hidden').clone().val(1).attr("class","asset-destroy-hidden")
       if not hid.length then return false
+      console?.log hid.attr('name')
       name = hid.attr('name').split('[')
       name.splice(-2,1)
       name[name.length] = suffix + "]"
       $el.data 'assetstore-delete', hid.attr( {'name': name.join('[') } )
       @._bindCheck( $el )
+
+  _initCopy: ->
+    @items.each (i,el)=>
+      $el = $(el)
+      $el.find('.asset-container').zclip
+        path:'/assets/ems/active_admin/lib/ZeroClipboard.swf'
+        copy: () ->
+          $el.find('.asset-url').text()
 
   _bindCheck: ($el)->
     $el.on 'change', '.asset-check', (e)=>

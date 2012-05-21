@@ -12,9 +12,8 @@
             .asset-check-container
               %input{:type=>"checkbox", :id=>"asset-item-#{builder.object.id}", :class=>"asset-check", :checked=>true}
             .asset-text-container
-              %p.asset-text= builder.object.title
-            .asset-url 
-              %p= builder.object.asset.url
+              %p.asset-text= if builder.object.title.length > 0 then builder.object.title else "[Click to add title]" end
+            .asset-url= builder.object.asset.url
 
         - else
           %span.asset-blank
