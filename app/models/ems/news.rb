@@ -17,10 +17,21 @@ module Ems
     after_initialize :init
 
     # Validators
+    validates :slug, :presence => true, :if => :is_live?
+    validates :category, :presence => true
+    validates :channels, :presence => true, :if => :is_live?
+    validates :publish_from, :presence => true
+    validates :status, :presence => true
+    
+    validates :image, :attachment_presence => true, :if => :is_live?
+    validates :title, :length => { :maximum => 20 }, :if => :is_live?
+    validates :standfirst, :length => { :maximum => 20 }, :if => :is_live?
+    validates :content, :presence => true, :if => :is_live?
+        
     validates_uniqueness_of :slug
-    validates :slug, :presence => true
-    #validates_inclusion_of :status, :in => [ :draft, :pending, :live ]
-    #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
+    validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "Value is not a valid content disposition"
+    validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
+
 
     # relations
     belongs_to :category
@@ -47,8 +58,37 @@ module Ems
       self.content_disposition ||= :markdown
     end
     
+    # Custom getter for status attribute to emulate ENUMs
+    # @return [Symbol] status currently assigned to the attribute
+    def status
+        read_attribute(:status).to_sym if read_attribute :status
+    end
+
+    # Custom setter for status attribute to emulate ENUMs
+    # @param [Symbol] value to give the status attribute
+    def status= (value)
+        write_attribute(:status, value.to_s)
+    end
+
+    # Custom getter for content_disposition attribute to emulate ENUMs
+    # @return [Symbol] content_disposition currently assigned to the attribute
+    def content_disposition
+         read_attribute(:content_disposition).to_sym if read_attribute :content_disposition
+    end
+
+    # Custom setter for content_disposition attribute to emulate ENUMs
+    # @param [Symbol] value to give the content_disposition attribute
+    def content_disposition= (value)
+     write_attribute(:content_disposition, value.to_s)
+    end
+        
     def content_as_html
       Kramdown::Document.new(content, :input => "BeanKramdown").to_html
+    end
+    
+    #
+    def is_live?
+      self.status === :live
     end
     
     #

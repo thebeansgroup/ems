@@ -6,13 +6,19 @@ module Ems
     friendly_id :title, use: :slugged
 
     validates :slug, :presence => true, :if => :is_live?
-
+    validates :category, :presence => true
+    validates :channels, :presence => true, :if => :is_live?
+    validates :publish_from, :presence => true
+    validates :status, :presence => true
+    
+    validates :image, :attachment_presence => true, :if => :is_live?
     validates :title, :length => { :maximum => 20 }, :if => :is_live?
     validates :standfirst, :length => { :maximum => 20 }, :if => :is_live?
-    validates :content, :presence => true, :if => :is_live?            
+    validates :content, :presence => true, :if => :is_live?
+        
     validates_uniqueness_of :slug
-    validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "%s is not a valid content disposition"
-    validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "%s is not a valid status"
+    validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "Value is not a valid content disposition"
+    validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
     
     
     searchable do

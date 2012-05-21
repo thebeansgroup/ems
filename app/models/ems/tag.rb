@@ -8,10 +8,9 @@ module Ems
 
 
     validates_uniqueness_of :slug
-    #validates :slug, :presence => true
-    #validates :title, :presence => true
-    #validates :description, :presence => true
-
+    validates :slug, :presence => true
+    validates :title, :presence => true
+    
     #
     # @param options
     def as_json(options={})

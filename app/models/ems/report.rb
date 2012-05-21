@@ -17,10 +17,20 @@ module Ems
     after_initialize :init
 
     # Validators
+    validates :slug, :presence => true, :if => :is_live?
+    validates :category, :presence => true
+    validates :channels, :presence => true, :if => :is_live?
+    validates :publish_from, :presence => true
+    validates :status, :presence => true
+    
+    validates :image, :attachment_presence => true, :if => :is_live?
+    validates :title, :length => { :maximum => 20 }, :if => :is_live?
+    validates :standfirst, :length => { :maximum => 20 }, :if => :is_live?
+    validates :content, :presence => true, :if => :is_live?
+        
     validates_uniqueness_of :slug
-    validates :slug, :presence => true
-    #validates_inclusion_of :status, :in => [ :draft, :pending, :live ]
-    #validates_inclusion_of :content_disposition, :in => [ :html, :markdown ]
+    validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "Value is not a valid content disposition"
+    validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
 
     # relations
     belongs_to :category
@@ -76,6 +86,11 @@ module Ems
       Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
     
+    #
+    def is_live?
+      self.status === :live
+    end
+        
     #
     # @param options
     def as_json(options={})
