@@ -13,6 +13,7 @@ report_1:
   meta_title: Report 1
   meta_description: Report 1 - standfirst
   publish_from: <%= 5.day.ago.to_s(:db) %>
+  download_cta: Report 1 - download cta
   status: live
   content_disposition: markdown
   category_id: 1
@@ -32,6 +33,7 @@ report_2:
   meta_title: Report 2
   meta_description: Report 2- standfirst
   publish_from: <%= 5.day.ago.to_s(:db) %>
+  download_cta: Report 1 - download cta
   status: live
   content_disposition: markdown
   category_id: 1
@@ -51,6 +53,7 @@ report_3:
   meta_title: Report 3
   meta_description: Report 3 - standfirst
   publish_from: <%= 5.day.ago.to_s(:db) %>
+  download_cta: Report 1 - download cta
   status: live
   content_disposition: markdown
   category_id: 1
@@ -70,6 +73,7 @@ report_4:
   meta_title: Report 4
   meta_description: Report 4 - standfirst
   publish_from: <%= 5.day.ago.to_s(:db) %>
+  download_cta: Report 1 - download cta
   status: live
   content_disposition: markdown
   category_id: 1
