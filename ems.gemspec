@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.1"
   s.add_dependency "jquery-rails"
-  s.add_dependency "batman-rails"
   s.add_dependency "friendly_id"
   s.add_dependency "mysql2"
   s.add_dependency "json"
@@ -28,8 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency "sunspot_rails"
   s.add_dependency "devise"
   s.add_dependency "cancan"
-  s.add_dependency "paperclip"
-  s.add_dependency "aws-sdk"
   s.add_dependency "squeel"
   s.add_dependency "sanitize"
   s.add_dependency "wmd-rails"
