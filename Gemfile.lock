@@ -6,19 +6,11 @@ GIT
     guard-rails (0.1.0)
       guard (>= 0.2.2)
 
-GIT
-  remote: git://github.com/thebeansgroup/kramdown.git
-  revision: a0e60ac6d9f0eb3dce1733ed7058cb8bbea9be66
-  branch: bean-kramdown
-  specs:
-    kramdown (0.13.7)
-
 PATH
   remote: .
   specs:
-    ems (0.0.4)
+    ems (0.0.8)
       aws-sdk
-      bean-kramdown
       cancan
       devise
       friendly_id
@@ -72,7 +64,6 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
-    bean-kramdown (0.13.5)
     bourbon (2.0.0.rc1)
       sass (>= 3.1)
     builder (3.0.0)
@@ -305,7 +296,6 @@ DEPENDENCIES
   jasmine
   jquery-rails
   json
-  kramdown!
   kss-rails
   mysql2
   paperclip
