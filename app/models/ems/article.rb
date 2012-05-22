@@ -21,14 +21,14 @@ module Ems
     validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
     
     
-    searchable do
-      text :title, :stored => true
-      text :standfirst, :stored => true
-      text :content, :stored => true, :more_like_this => true do 
-        Sanitize.clean self.content_as_html
-      end
-      integer :category_id, :references => Category
-    end
+    # searchable do
+    #   text :title, :stored => true
+    #   text :standfirst, :stored => true
+    #   text :content, :stored => true, :more_like_this => true do 
+    #     Sanitize.clean self.content_as_html
+    #   end
+    #   integer :category_id, :references => Category
+    # end
 
     # after methods
     after_initialize :init

@@ -4,14 +4,14 @@ module Ems
     extend FriendlyId
     friendly_id :title, use: :slugged
     
-    searchable do
-      text :title, :stored => true
-      text :standfirst, :stored => true
-      text :content, :stored => true, :more_like_this => true do 
-        Sanitize.clean self.content_as_html
-      end
-      integer :category_id, :references => Category
-    end
+    # searchable do
+    #   text :title, :stored => true
+    #   text :standfirst, :stored => true
+    #   text :content, :stored => true, :more_like_this => true do 
+    #     Sanitize.clean self.content_as_html
+    #   end
+    #   integer :category_id, :references => Category
+    # end
 
     # after methods
     after_initialize :init
