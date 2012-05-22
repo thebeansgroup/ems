@@ -54,7 +54,7 @@ module Ems
     accepts_nested_attributes_for :assets, :allow_destroy => true
     
     # paperclip files
-    has_attached_file :image, { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126", :path => "/ems/articles/:style/:filename" }.merge(PAPERCLIP_STORAGE_OPTIONS)
+    has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126"}
 
 
 
