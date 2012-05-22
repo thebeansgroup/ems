@@ -32,5 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency "wmd-rails"
   s.add_dependency "simple_form"
   s.add_dependency "simple-navigation"
+  s.add_dependency "kramdown"
       
 end
