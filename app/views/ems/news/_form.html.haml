@@ -9,7 +9,7 @@
         %li
           = f.input :standfirst, :input_html => { :rows => 4 }
 
-        = render "ems/globals/lead_image", :form => f
+        = render "ems/globals/lead_image", :form => f, :imageName => @news.image.url
 
         %li
           #button-bar.input-buttons

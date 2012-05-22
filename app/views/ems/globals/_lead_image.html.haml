@@ -2,3 +2,5 @@
   = form.label "Lead image"
   .input-push.asset-add
     = form.input_field :image
+    %p.mono-text= imageName
+  = form.error :image
