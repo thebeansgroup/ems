@@ -50,7 +50,7 @@ module Ems
     has_and_belongs_to_many :reports, :join_table => 'ems_news_reports'
     accepts_nested_attributes_for :reports
     
-    has_attached_file :image, :styles => { :image228x126 => "228x126" }.merge(PAPERCLIP_STORAGE_OPTIONS)
+    has_attached_file :image, { :image228x126 => "228x126", :path => "/ems/news/:style/:filename" }.merge(PAPERCLIP_STORAGE_OPTIONS)
     
     has_many :assets, :as => :assetable
     accepts_nested_attributes_for :assets, :allow_destroy => true    

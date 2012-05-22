@@ -6,7 +6,7 @@ module Ems
           
     belongs_to :assetable, :polymorphic => true
     
-    has_attached_file :asset, :styles => {:original => "564x252>"}.merge(PAPERCLIP_STORAGE_OPTIONS)
+    has_attached_file :asset, {:original => "564x252>", :path => "/ems/assets/:style/:filename"}.merge(PAPERCLIP_STORAGE_OPTIONS)
     
     # virtual alt text accessor - returns the title of the image otherwise the path
     def alt
