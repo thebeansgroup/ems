@@ -4,11 +4,14 @@ module Ems
     # use friendly_id to handle our slugs
     extend FriendlyId
     friendly_id :title, use: :slugged
+    def should_generate_new_friendly_id?
+      not self.is_live?
+    end
 
     validates :slug, :presence => true, :if => :is_live?
     validates :category, :presence => true
     validates :channels, :presence => true, :if => :is_live?
-    validates :publish_from, :presence => true
+    validates :publish_from, :presence => true, :if => :is_live?
     validates :status, :presence => true
     
     validates :image, :attachment_presence => true, :if => :is_live?
