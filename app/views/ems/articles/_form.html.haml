@@ -11,10 +11,7 @@
 
         = render "ems/globals/lead_image", :form => f, :imageName => @article.image.url
 
-        %li
-          #button-bar.input-buttons
-          = f.label :content
-          = f.input_field :content, :data => {:wmd => "article_content"}
+        = render "ems/globals/content_editor", :form => f, :type=>"article"
 
         = render "ems/globals/asset", :form => f
 

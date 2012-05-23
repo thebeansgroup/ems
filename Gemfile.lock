@@ -16,6 +16,7 @@ PATH
       friendly_id
       jquery-rails
       json
+      kramdown
       mysql2
       paperclip
       rails (~> 3.2.1)

@@ -18,9 +18,11 @@
         - else
           %span.asset-blank
             - @assetField = builder.file_field :asset
+            - @errorField = builder.error :asset
             / - @titleField = builder.input_field :title, :placeholder => "Enter image title"
 %li
   = form.label "Add new asset"
   .input-push.asset-add
     = @assetField
     / = @titleField
+  = @errorField
