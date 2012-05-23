@@ -1,0 +1,1 @@
+require "#{Ems::Engine.root}/lib/kramdown/bean_kramdown"  
