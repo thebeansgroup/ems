@@ -59,7 +59,7 @@ module Kramdown
       def add_oembed(el, href, title, alt_text = nil)
         
         providers = {
-          :twitter         => "https://api.twitter.com/1/statuses/oembed.json?url=%s",
+          :twitter         => "https://api.twitter.com/1/statuses/oembed.json?url=%s&lang=en",
           :youtube         => "http://www.youtube.com/oembed?url=%s&format=json&maxwidth=550",
           :flickr          => "http://flickr.com/services/oembed?url=%s&maxwidth=460&format=json&maxwidth=550",
           :vidler          => "http://lab.viddler.com/services/oembed/?url=%s&type=simple&format=json",
