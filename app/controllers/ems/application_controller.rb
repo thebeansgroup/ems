@@ -1,4 +1,5 @@
 module Ems
+  @version = Ems::VERSION
   class ApplicationController < ActionController::Base
     # Make sure we only have authenticated users beyond this point
     before_filter :authenticate_user!
