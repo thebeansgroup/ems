@@ -6,3 +6,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.uncountable 'series'
 
 end
+
+# Make sure all assets are precompiled
+initializer "ems.assets.precompile" do |app|
+  app.config.assets.precompile += %w(application.css application.js)
+end
