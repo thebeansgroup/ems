@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    ems (0.1.0)
+    ems (0.1.3)
       aws-sdk
       cancan
       devise
