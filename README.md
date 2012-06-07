@@ -10,6 +10,8 @@ visit http://guides.rubyonrails.org/engines.html
 ### Authentication and Ability management
 Authentication, currently the EMS only supports the editors ability, when needed other abilities can be easily added.
 The Editor is the _super_ user of the EMS.
+Also at the moment every EMS user can see every article, this should be
+controlled with the Author credential.
 
 * Editor
 * Author
@@ -21,7 +23,7 @@ about to go live.
 To enable the CanCan ability management add the following to your authentications user model:
 
 `has_and_belongs_to_many :ems_roles`
-
+/private/var/www/html/development/projects/rails/org.wiki/Production-Workflow.md
 ### Installation:
 
 To install the EMS simply follow these steps:
