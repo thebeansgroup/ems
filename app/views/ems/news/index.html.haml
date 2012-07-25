@@ -7,7 +7,10 @@
         %tr{:class=>cycle( "odd", "even") }
           %td= news.title
           %td= news.status
-          %td= news.publish_from.strftime("%b %e, %l:%M %p")
+          - if news.publish_from.blank?
+            %td not published
+          - else
+            %td= news.publish_from.strftime("%b %e, %l:%M %p")
           %td= news.updated_at.strftime("%b %e, %l:%M %p")
           %td= news.created_at.strftime("%b %e, %l:%M %p")
           %td= link_to 'Show', category_news_path(params[:category_id], news)
