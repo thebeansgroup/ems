@@ -1,6 +1,11 @@
 module Ems
 
   class Article < ActiveRecord::Base
+
+    attr_accessible :category_id, :channel_ids, :tag_ids, :title, :publish_from,
+      :status, :image, :standfirst, :content, :assets, :article_ids, :report_ids,
+      :news_ids, :hot, :featured
+
     # use friendly_id to handle our slugs
     extend FriendlyId
     friendly_id :title, use: :slugged
@@ -13,17 +18,16 @@ module Ems
     validates :channels, :presence => true, :if => :is_live?
     validates :publish_from, :presence => true, :if => :is_live?
     validates :status, :presence => true
-    
+
     validates :image, :attachment_presence => true, :if => :is_live?
     validates :title, :presence => true, :if => :is_live?
     validates :standfirst, :presence => true, :if => :is_live?
     validates :content, :presence => true, :if => :is_live?
-        
+
     validates_uniqueness_of :slug
     validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "Value is not a valid content disposition"
     validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
-    
-    
+
     # searchable do
     #   text :title, :stored => true
     #   text :standfirst, :stored => true
@@ -35,7 +39,6 @@ module Ems
 
     # after methods
     after_initialize :init
-    
 
     # relations
     belongs_to :category
@@ -52,7 +55,7 @@ module Ems
     accepts_nested_attributes_for :reports
     has_many :assets, :as => :assetable
     accepts_nested_attributes_for :assets, :allow_destroy => true
-    
+
     # paperclip files
     has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126"}
 
@@ -87,7 +90,7 @@ module Ems
     def content_disposition= (value)
      write_attribute(:content_disposition, value.to_s)
     end
-    
+
     def content_as_html
       Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
@@ -97,15 +100,15 @@ module Ems
     def as_json(options={})
       super( options.merge( :include => [ :category, :channels, :tags, :images ] ) )
     end
-    
+
     #
     def is_live?
       self.status === :live
     end
-    
+
     # base queries
     class << self
-      
+
       def base_query(category=nil)
         q = self.joins(:category).where("publish_from <= :publish_from", {:publish_from => Time.now.strftime("%Y/%m/%d %H:00:00")}).where(:status => 'live')
         q = q.where('ems_categories.id' => category.id) if category

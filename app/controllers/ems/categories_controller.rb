@@ -1,6 +1,6 @@
 module Ems
   class CategoriesController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::Category
     # GET /categories
     # GET /categories.json
     def index

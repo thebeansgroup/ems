@@ -1,6 +1,6 @@
 module Ems
   class ReportsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::Report
     # GET /reports
     # GET /reports.json
     def index
