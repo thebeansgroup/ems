@@ -2,7 +2,7 @@ module Ems
 
   class Article < ActiveRecord::Base
 
-    attr_accessible :category_id, :channel_ids, :tag_ids, :title, :publish_from,
+    attr_accessible :category, :category_id, :channel_ids, :tag_ids, :title, :publish_from,
       :status, :image, :standfirst, :content, :assets, :article_ids, :report_ids,
       :news_ids, :hot, :featured
 
