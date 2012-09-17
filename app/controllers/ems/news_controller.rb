@@ -1,6 +1,6 @@
 module Ems
   class NewsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::News
     # GET /news
     # GET /news.json
     def index

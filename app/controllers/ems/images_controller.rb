@@ -1,6 +1,6 @@
 module Ems
   class ImagesController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::Image
     # GET /images
     # GET /images.json
     def index

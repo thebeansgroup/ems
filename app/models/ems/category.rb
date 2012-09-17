@@ -1,5 +1,8 @@
 module Ems
   class Category < ActiveRecord::Base
+
+    attr_accessible :name, :strapline
+
     # use friendly_id to handle our slugs
     extend FriendlyId
     friendly_id :name, use: :slugged

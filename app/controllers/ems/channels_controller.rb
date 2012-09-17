@@ -1,11 +1,11 @@
 module Ems
   class ChannelsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::Channel
     # GET /channels
     # GET /channels.json
     def index
       @channels = Channel.all
-  
+
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @channels }

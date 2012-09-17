@@ -1,8 +1,8 @@
 module Ems
   class TagsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource :class => Ems::Tag
     include TagQueryBuilder
-    
+
     # GET /tags
     # GET /tags.json
     def index
