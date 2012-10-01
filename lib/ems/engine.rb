@@ -1,4 +1,4 @@
-require "ems/engine"
+require "ems/version"
 
 module Ems
   class Engine < ::Rails::Engine
