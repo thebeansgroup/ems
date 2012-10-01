@@ -4,7 +4,7 @@ module Ems
 
     attr_accessible :category_id, :channel_ids, :tag_ids, :title, :publish_from,
       :status, :image, :standfirst, :content, :assets, :article_ids, :report_ids,
-      :news_ids, :hot, :featured
+      :news_ids, :hot, :featured, :assets_attributes
 
     # use friendly_id to handle our slugs
     extend FriendlyId
@@ -95,10 +95,14 @@ module Ems
       Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
 
+    def image_url
+      self.image.url
+    end
+
     #
     # @param options
     def as_json(options={})
-      super( options.merge( :include => [ :category, :channels, :tags, :images ] ) )
+      super(options.merge(:include => [:category, :channels, :tags, :images], :methods => [:image_url]))
     end
 
     #
