@@ -6,7 +6,7 @@ module Ems
     def should_generate_new_friendly_id?
       not self.is_live?
     end
-        
+
     # searchable do
     #   text :title, :stored => true
     #   text :standfirst, :stored => true
@@ -25,12 +25,12 @@ module Ems
     validates :channels, :presence => true, :if => :is_live?
     validates :publish_from, :presence => true, :if => :is_live?
     validates :status, :presence => true
-    
+
     validates :image, :attachment_presence => true, :if => :is_live?
     validates :title, :presence => true, :if => :is_live?
     validates :standfirst, :presence => true, :if => :is_live?
     validates :content, :presence => true, :if => :is_live?
-        
+
     validates_uniqueness_of :slug
     validates_inclusion_of :content_disposition, :in => [ :html, :markdown ], :message => "Value is not a valid content disposition"
     validates_inclusion_of :status, :in => [ :draft, :pending, :live ], :message => "Value is not a valid status"
@@ -49,9 +49,9 @@ module Ems
     accepts_nested_attributes_for :news
     has_and_belongs_to_many :reports, :join_table => 'ems_news_reports'
     accepts_nested_attributes_for :reports
-    
+
     has_attached_file :image, :styles => { :image564x252 => "564x252#", :image312x189 => "312x189#", :image312x126 => "312x126", :image228x126 => "228x126"}
-    
+
     has_many :assets, :as => :assetable
     accepts_nested_attributes_for :assets, :allow_destroy => true    
 
@@ -60,7 +60,7 @@ module Ems
       self.status ||= :draft
       self.content_disposition ||= :markdown
     end
-    
+
     # Custom getter for status attribute to emulate ENUMs
     # @return [Symbol] status currently assigned to the attribute
     def status
@@ -84,22 +84,22 @@ module Ems
     def content_disposition= (value)
      write_attribute(:content_disposition, value.to_s)
     end
-        
+
     def content_as_html
       Kramdown::Document.new(content, :input => "BeanKramdown").to_html
     end
-    
+
     #
     def is_live?
       self.status === :live
     end
-    
+
     #
     # @param options
     def as_json(options={})
       super( options.merge( :include => [ :category, :channels, :tags ] ) )
     end
-    
+
     # base queries
     class << self
       def base_query(category=nil)
@@ -107,6 +107,6 @@ module Ems
         q = q.where('ems_categories.id' => category.id) if category
         return q
       end
-    end    
+    end
   end
 end
