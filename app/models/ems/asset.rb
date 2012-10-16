@@ -4,7 +4,7 @@ module Ems
     attr_accessible :asset
 
     validates_attachment :asset, :presence => true,
-      :content_type => { :content_type => ["image/jpg", "image/jpeg"] }
+      :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"] }
 
     belongs_to :assetable, :polymorphic => true
     # accepts_nested_attributes_for :assets
