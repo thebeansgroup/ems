@@ -9,7 +9,7 @@ module Ems
     belongs_to :assetable, :polymorphic => true
     # accepts_nested_attributes_for :assets
 
-    has_attached_file :asset, :styles => {:original => "564x252>"}
+    has_attached_file :asset, :styles => {:original => "564"}
 
     # virtual alt text accessor - returns the title of the image otherwise the path
     def alt
